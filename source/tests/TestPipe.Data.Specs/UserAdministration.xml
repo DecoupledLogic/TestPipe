@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<User name="Dummy01" active="true">
+	<Param name="Username">Dummy01</Param>
+	<Param name="Role Name">Admin</Param>
+	<Param name="Full Name">Dummy 1</Param>
+	<Param name="Email Address 1">dummy1@site.comx</Param>
+</User>

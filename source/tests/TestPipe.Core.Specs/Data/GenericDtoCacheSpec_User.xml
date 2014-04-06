@@ -1,0 +1,6 @@
+﻿<User name="testuser1" database="TestPipe" namespace="TestPipe.Data.Transfer.Dto.Test" seed="false">
+	<Password>Abcd1234</Password>
+	<Password_Expires_Next_Logon>false</Password_Expires_Next_Logon>
+	<User_ID>0</User_ID>
+	<User_Name>testuser1</User_Name>
+</User>

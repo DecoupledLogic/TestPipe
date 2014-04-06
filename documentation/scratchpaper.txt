@@ -1,0 +1,56 @@
+﻿TestFramework
+    Browser
+		Context
+            Actions
+            Assertions
+    Application
+        Context
+			Action
+            Assert
+    Pages
+        Page
+			Context
+				Action
+				Assert
+        Controls
+            Control
+				Context
+					Action
+                    Assert
+
+    Application
+		Environment
+		Browser
+		Pages
+		Suite
+			Feature
+				Scenario
+					Step
+						Result
+		
+	TestRunner - CQRS/EventSourcing
+        TestCase - CQS
+            Writer - Command
+            Reader - Query
+        TestConfigManager - CRUD
+
+        TestCase
+            Setup    
+                Load Application - environment settings, db connection...
+		Load Suite
+                Load Browser - initialize webdriver with the browser for this environment...
+            Scenario
+                Setup
+                    Load scenario - scenario name, start page, steps, end page...
+                    Initialize Pages - url, page title...
+                    Open start page
+					Step
+						For each step in scenario data
+						Step - use scenario step data
+                        Record Start
+						Locate Element/Control
+                        With Input do Action
+                        Verify Assertion
+						Record End
+                TearDown
+            TearDown

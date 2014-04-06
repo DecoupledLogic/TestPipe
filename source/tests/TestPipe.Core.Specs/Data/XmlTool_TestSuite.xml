@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Suite name="TestPipe">
+	<Setup>
+		<Var name="Browser">IE</Var>
+		<Var name="Wait_TimeInSeconds">60.0</Var>
+		<Var name="BaseURL">http://localhost/testpipe.testsite/</Var>
+		<Var name="wdw_TimeoutInSeconds">60</Var>
+		<Var name="wdw_PageLoadTimeoutInSeconds">60</Var>
+		<Var name="loginurl">login.aspx</Var>
+		<Var name="db_connection_Security">Data Source=localhost;Initial Catalog=TestPipe;Integrated Security=True</Var>
+	</Setup>
+	<Feature title="Login" name="1">Login_feature.xml</Feature>
+</Suite>

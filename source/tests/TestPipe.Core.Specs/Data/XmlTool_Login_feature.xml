@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Feature name="Login">
+	<Scenario name="1">
+		<Objects>
+			<User name="testuser1" database="TestPipe" namespace="TestPipe.Data.Transfer.Dto.Test" seed="false">
+				<Password>Abcd1234</Password>
+				<Password_Expires_Next_Logon>false</Password_Expires_Next_Logon>
+				<User_ID>0</User_ID>
+				<User_Name>testuser1</User_Name>
+			</User>
+		</Objects>
+	</Scenario>
+	<Scenario key="2">
+		<Data key="user">cbinhouse</Data>
+	</Scenario>
+	<Scenario key="3">
+		<Data key="user" load="false">notarealusername</Data>
+	</Scenario>
+	<Scenario key="4">
+		<Data key="user">cbinhouse</Data>
+	</Scenario>
+	<Scenario key="5">
+		<Data key="user" load="false">notarealusername</Data>
+	</Scenario>
+	<Scenario key="6">
+		<Data key="user" load="false">nousernamepassword</Data>
+	</Scenario>
+	<Scenario key="7">
+		<Data key="user" load="false">nousername</Data>
+	</Scenario>
+	<Scenario key="7">
+		<Data key="user" load="false">nopassword</Data>
+	</Scenario>
+	<Scenario key="8">
+		<Data key="user">cbinhouse</Data>
+	</Scenario>
+</Feature>

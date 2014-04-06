@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+		<script src="js/jquery-1.4.4.min.js"></script>
+</head>
+<body>
+	<input type="button" id="seeMe" name="seeMe" value="Click Me" />
+	<div>Scroll to bottom button</div>
+	<div style="height:1800px;">
+		Hello!	
+	</div>
+	<input type="button" id="doThangs" name="doThangs" value="Report Events" />
+
+	<script>
+		var hey = document.getElementById("doThangs");
+		function getIt() { return hey;}
+		$("#doThangs").click(function () {
+			alert(_getHuxleyEvents);
+		});
+	</script>
+</body>
+</html>
