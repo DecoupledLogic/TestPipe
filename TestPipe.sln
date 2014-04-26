@@ -28,8 +28,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPipe.Data", "source\app
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPipe.Email", "source\application\TestPipe.Email\TestPipe.Email.csproj", "{96927742-A82C-41C3-B1D5-A766E7B7CB88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPipe.Grid", "source\application\TestPipe.Grid\TestPipe.Grid.csproj", "{0DDE1DC5-9A1B-415F-B883-71F007DBB030}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPipe.Runner", "source\application\TestPipe.Runner\TestPipe.Runner.csproj", "{F7A93C74-CBD6-4122-A15A-B2C4A7F2A659}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPipe.Selenium", "source\application\TestPipe.Selenium\TestPipe.Selenium.csproj", "{1E7D0B83-AFE8-4099-B827-B0ADFD885997}"
@@ -97,10 +95,6 @@ Global
 		{96927742-A82C-41C3-B1D5-A766E7B7CB88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96927742-A82C-41C3-B1D5-A766E7B7CB88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96927742-A82C-41C3-B1D5-A766E7B7CB88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DDE1DC5-9A1B-415F-B883-71F007DBB030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DDE1DC5-9A1B-415F-B883-71F007DBB030}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DDE1DC5-9A1B-415F-B883-71F007DBB030}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DDE1DC5-9A1B-415F-B883-71F007DBB030}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F7A93C74-CBD6-4122-A15A-B2C4A7F2A659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7A93C74-CBD6-4122-A15A-B2C4A7F2A659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7A93C74-CBD6-4122-A15A-B2C4A7F2A659}.Release|Any CPU.ActiveCfg = Release|Any CPU
