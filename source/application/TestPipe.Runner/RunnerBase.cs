@@ -9,6 +9,7 @@
 	using TestPipe.Core;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Exceptions;
+	using TestPipe.Core.Interfaces;
 
 	public static class RunnerBase
 	{
@@ -253,8 +254,13 @@
 			}
 			else
 			{
+				IBrowser currentBrowser = TestSession.Browser;
+				BrowserTypeEnum currentBrowserType = currentBrowser == null ? BrowserTypeEnum.None 
+					: currentBrowser.BrowserType;
+				BrowserTypeEnum defaultBrowserType = TestSession.DefaultBrowser;
+
 				//if browser doesn't match config browser set it to config browser
-				if (TestSession.Browser.BrowserType != TestSession.DefaultBrowser)
+				if (currentBrowserType != defaultBrowserType)
 				{
 					SetTestSessionBrowser();
 				}

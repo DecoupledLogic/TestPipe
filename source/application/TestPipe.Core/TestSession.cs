@@ -1,6 +1,7 @@
 ﻿namespace TestPipe.Core
 {
 	using System;
+	using System.Collections.Generic;
 	using TestPipe.Common;
 	using TestPipe.Core.Browser;
 	using TestPipe.Core.Enums;
@@ -35,11 +36,23 @@
 		{
 			get
 			{
-				return (IBrowser)cache[DriverKey];
+				try
+				{
+					if (Cache[DriverKey] == null)
+					{
+						return null;
+					}
+				}
+				catch (KeyNotFoundException)
+				{
+					return null;
+				}
+
+				return Cache[DriverKey] as IBrowser;
 			}
 			set
 			{
-				cache[DriverKey] = value;
+				Cache[DriverKey] = value;
 			}
 		}
 
@@ -48,7 +61,9 @@
 			get
 			{
 				if (cache == null)
+				{
 					cache = new Cache<string, object>();
+				}
 
 				return cache;
 			}
@@ -91,11 +106,11 @@
 		{
 			get
 			{
-				return (TestEnvironment)cache[EnvironmentKey];
+				return (TestEnvironment)Cache[EnvironmentKey];
 			}
 			set
 			{
-				cache[EnvironmentKey] = value;
+				Cache[EnvironmentKey] = value;
 			}
 		}
 
@@ -117,11 +132,11 @@
 		{
 			get
 			{
-				return (IBrowserWait)cache[WaitKey];
+				return (IBrowserWait)Cache[WaitKey];
 			}
 			set
 			{
-				cache[WaitKey] = value;
+				Cache[WaitKey] = value;
 			}
 		}
 

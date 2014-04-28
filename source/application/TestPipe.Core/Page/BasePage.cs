@@ -93,6 +93,18 @@
 			}
 		}
 
+		public void EnterText(BaseControl control, string text)
+		{
+			control.Clear();
+
+			if (string.IsNullOrWhiteSpace(text))
+			{
+				return;
+			}
+
+			control.TypeText(text);
+		}
+
 		public BaseControl GetActiveControlById(string controlId)
 		{
 			string error = string.Empty;
