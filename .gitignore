@@ -1,6 +1,8 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/
 [Oo]bj/
+[Bb]uild/
+PrecompiledWeb
 
 # mstest test results
 TestResults
@@ -114,3 +116,5 @@ UpgradeLog*.XML
 /output.txt
 /tools/FreeMind/FreeMind-Windows-Installer-1.0.0-max.exe
 TestPipe.Grid
+CodeAnalysisLog.xml
+WebProject.*
