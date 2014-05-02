@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<id>TestPipe.NPoco</id>
+		<version>1.0.0</version>
+		<title>TestPipe NPoco</title>
+		<summary>A customized version of NPoco.</summary>
+		<description>If you are looking for NPoco, this is not it. We made minor changes to NPoco to fit the needs of TestPipe. You can not use the original version of NPoco on NuGet/GitHub with TestPipe as it would not have the customization we made and it would fail. See included NPoco license for information on use of NPoco.</description>
+		<authors>Charles Bryant</authors>
+		<owners>CharlesBryant.com</owners>
+		<releaseNotes>Initial release.</releaseNotes>
+		<language>en-us</language>
+		<projectUrl>https://github.com/charleslbryant/TestPipe</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/charleslbryant/TestPipe/master/creative/logo/logo_pipe_icon.png?token=195051__eyJzY29wZSI6IlJhd0Jsb2I6Y2hhcmxlc2xicnlhbnQvVGVzdFBpcGUvbWFzdGVyL2NyZWF0aXZlL2xvZ28vbG9nb19waXBlX2ljb24ucG5nIiwiZXhwaXJlcyI6MTM5OTU2NDE5NH0%3D--70a4d0a400a9562a00ee580bc4433f9e46eabaaa</iconUrl>
+		<licenseUrl>https://github.com/charleslbryant/TestPipe/blob/master/license</licenseUrl>
+		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<tags>test, automated test, webdriver, selenium</tags>
+	</metadata>
+	<files>
+		<file src="content\License.txt" target="content\License.txt" />
+		<file src="lib\net40\TestPipe.NPoco.dll" target="lib\net40\TestPipe.NPoco.dll" />
+	</files>
+</package>

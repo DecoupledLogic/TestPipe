@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://nant.sf.net/release/0.92/nant.xsd" name="TestPipe" default="build">
+	<property name="application.name" value="TestPipe" />
+	<property name="company.name" value="CharlesBryant.com" />
+	<property name="major.minor.version" value="1.0"/>
+	<property name="application.version" value="${major.minor.version}.0"/>
+	<property name="copyright" value="Copyright (c) 2014, ${company.name}" />
+	<property name="trademark" value="Trademark by ${company.name}" />
+	<property name="solution.root" value="C:\_TestPipe\" />
+	<property name="build.platform" value="Any CPU" />
+	<property name="divider" value="-----------------------------------" />
+	<property name="echo.message" value="" />
+
+	<property name="msbuild.exe" value="C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe"/>
+
+	<property name="solution.file" value="TestPipe.sln" />
+	<property name="build.path" value="${solution.root}Build\" />
+	<property name="src.path" value="${build.path}Src\" />
+	<property name="docs.path" value="${build.path}Docs\" />
+	<property name="distro.path" value="${build.path}Distro\" />
+	<property name="pub.path" value="${build.path}Pub\" />
+	<property name="output.path" value="${build.path}Output\" />
+	<property name="build.config" value="Debug" />
+	
+	<target name="clean" description="Clean build directories">
+		<delete dir="${src.path}" verbose="true" failonerror="false"/>
+		<delete dir="${docs.path}" verbose="true" failonerror="false"/>
+		<delete dir="${distro.path}" verbose="true" failonerror="false"/>
+		<delete dir="${pub.path}" verbose="true" failonerror="false"/>
+		<delete dir="${output.path}" verbose="true" failonerror="false"/>
+	</target>
+
+	<target name="init" description="Create nuget directories">
+    <mkdir dir="${src.path}" />
+		<mkdir dir="${docs.path}" />
+    <mkdir dir="${distro.path}" />
+		<mkdir dir="${pub.path}" />
+		<mkdir dir="${output.path}" />
+  </target>
+
+	<target name="setBuildConfiguration">
+		<property name="echo.message" value="Set Build Configuration" />
+		<call target="echo" />
+
+		<if test="${property::exists('debug')}">
+			<ifnot test="${debug}">
+				<property name="build.config" value="Release"/>
+			</ifnot>
+		</if>
+
+		<echo message="Build Configuration [${build.config}]"/>
+	</target>
+
+	<target name="setVersion">
+		<property name="echo.message" value="Set Assembly Version" />
+		<call target="echo" />
+
+		<if test="${property::exists('version')}">
+			<property name="major.minor.version" value="${version}"/>
+		</if>
+		
+		<if test="${not property::exists('pipeline.counter')}">
+			<property name="pipeline.counter" value="0"/>
+		</if>
+
+		<property name="pipeline.version" value="${major.minor.version}.${pipeline.counter}"/>
+
+		<if test="${property::exists('gold.tag')}">
+			<property name="application.version" value="${pipeline.version}"/>
+		</if>
+
+		<if test="${property::exists('rc.tag')}">
+			<property name="application.version" value="${pipeline.version}-rc"/>
+		</if>
+
+		<if test="${property::exists('beta.tag')}">
+			<property name="application.version" value="${pipeline.version}-beta"/>
+		</if>
+
+		<if test="${not property::exists('gold.tag')}">
+			<if test="${not property::exists('rc.tag')}">
+				<if test="${not property::exists('beta.tag')}">
+					<property name="application.version" value="${pipeline.version}-ci"/>
+				</if>
+			</if>
+		</if>
+
+		<if test="${property::exists('debug')}">
+			<if test="${debug}">
+				<property name="application.version" value="${pipeline.version}-debug"/>
+			</if>
+		</if>
+
+		<echo message="Application Version ${application.version}"/>
+	</target>
+
+	<target name="version" description="Versions the assemblies" depends="setVersion">
+		<property name="echo.message" value="Version Soution Assemblies" />
+		<call target="echo" />
+
+		<foreach item="File" property="filename">
+			<in>
+				<items>
+					<include name="source\application\**\AssemblyInfo.cs" />
+					<include name="source\demo\**\AssemblyInfo.cs" />
+					<include name="source\tests\**\AssemblyInfo.cs" />
+				</items>
+			</in>
+			<do>
+				<asminfo output="${filename}" language="CSharp">
+					<imports>
+						<import namespace="System" />
+						<import namespace="System.Reflection" />
+					</imports>
+					<attributes>
+						<attribute type="AssemblyCopyrightAttribute" value="${copyright}"/>
+						<attribute type="AssemblyCompanyAttribute" value="${company.name}" />
+						<attribute type="AssemblyProductAttribute" value="${application.name}" />
+						<attribute type="AssemblyTrademarkAttribute" value="${trademark}" />
+						<attribute type="AssemblyVersionAttribute" value="${pipeline.version}" />
+					</attributes>
+				</asminfo>
+			</do>
+		</foreach>
+		<echo message="Solution Assembly Versioning Complete" />
+	</target>
+
+	<target name="build" description="Build application" depends="clean setBuildConfiguration version">
+		<exec program="${msbuild.exe}" failonerror="true">
+			<arg value="${solution.file}" />
+			<arg value="/p:Configuration=${build.config}" />
+			<arg value="/p:Platform=${build.platform}" />
+			<arg value="/p:TrackFileAccess=false" />
+			<arg value="/p:OutDir=${output.path}" />
+			<arg value="/noconsolelogger"/>
+			<arg value="/t:Rebuild" />
+			<arg value="/m" />
+		</exec>
+
+		<call target="package" />
+	</target>
+
+	<target name="publish" description="Publish built files">
+
+	</target>
+
+	<target name="package" description="Run nuget.exe pack">
+		<!--
+		build 
+		copy to output - move files we want to publish, including .nuspec to build/output folder
+		copy to distro - move files from build/output folder to build/distro folder in correct folder structure for nuget (content, lib, src)
+		package nuget
+		publish nuget
+		content-->
+		<!--<foreach item="Folder" property="foldername" in="${output.path}_PublishedApplications">
+			<foreach item="File" property="filename">
+				<in>
+					<items>
+						<include name="**\*.txt" />
+					</items>
+				</in>
+				<do>
+					<property name="published.file" value="${filename}" />
+					<property name="nuget.package.name" value="${path::get-file-name-without-extension(filename)}" />
+					<copy todir="${build.dir}">
+						<fileset basedir="bin">
+							<include name="*.dll" />
+						</fileset>
+					</copy>
+				</do>
+			</foreach>
+		</foreach>
+		lib-->
+		<!--src-->
+		<nant buildfile="package.build.xml" inheritall="true"/>
+	</target>
+	
+	<target name="echo" description="Prints the value of echo.message property">
+		<echo message="${divider}"/>
+		<echo message="${echo.message}"/>
+		<echo message="${divider}"/>
+	</target>
+
+	<target name="help">
+		<echo message="Targets:"/>
+		<echo message="- clean"/>
+		<echo message="Clean build directory."/>
+		<echo message="- version"/>
+		<echo message="Version assembly files."/>
+		<echo message="- package"/>
+		<echo message="Package solution projects."/>
+		<echo message="- build"/>
+		<echo message="Clean, version, build and package solution." />
+		<echo message="   Pass debug to set type of build."/>
+		<echo message="      Example: -D:debug=true"/>
+		<echo message="      - true indicates a debug build version with debug tag  'sample 1.2.8-debug'"/>
+		<echo message="      - false indicates a release build."/>
+		<echo message="   Pass version to set version major and minor number" />
+		<echo message="      Example: -D:version=2.5"/>
+		<echo message="   Pass pipeline.counter to increment version patch" />
+		<echo message="      Example: -D:pipeline.counter=4561  'sample 1.2.4561'"/>
+		<echo message="   Pass gold.tag, beta.tag, rc.tag to tag the version number" />
+		<echo message="      Example: -D:gold.tag=true  'sample 1.2.8'"/>
+		<echo message="      Example: -D:rc.tag=true  'sample 1.2.8-rc'"/>
+		<echo message="      Example: -D:beta.tag=true  'sample 1.2.8-beta'"/>
+		<echo message="      No tag will create ci tag 'sample 1.2.8-ci'"/>
+	</target>
+</project>

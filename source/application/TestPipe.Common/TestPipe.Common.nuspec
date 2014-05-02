@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<id>TestPipe.Common</id>
+		<version>1.0.0</version>
+		<title>TestPipe Common</title>
+		<summary>Common functionality for TestPipe.</summary>
+		<description>Various cross cutting conserns.</description>
+		<authors>Charles Bryant</authors>
+		<owners>CharlesBryant.com</owners>
+		<releaseNotes>Initial release.</releaseNotes>
+		<language>en-us</language>
+		<projectUrl>https://github.com/charleslbryant/TestPipe</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/charleslbryant/TestPipe/master/creative/logo/logo_pipe_icon.png?token=195051__eyJzY29wZSI6IlJhd0Jsb2I6Y2hhcmxlc2xicnlhbnQvVGVzdFBpcGUvbWFzdGVyL2NyZWF0aXZlL2xvZ28vbG9nb19waXBlX2ljb24ucG5nIiwiZXhwaXJlcyI6MTM5OTU2NDE5NH0%3D--70a4d0a400a9562a00ee580bc4433f9e46eabaaa</iconUrl>
+		<licenseUrl>https://github.com/charleslbryant/TestPipe/blob/master/license</licenseUrl>
+		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<tags>test, automated test, webdriver, selenium</tags>
+		<dependencies>
+			<dependency id="log4net" version="2.0.3" />
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="lib\net40\TestPipe.Common.dll" target="lib\net40\TestPipe.Common.dll" />
+	</files>
+</package>
