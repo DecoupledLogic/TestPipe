@@ -16,6 +16,7 @@ Download
 --------
 
 TestPipe source code is hosted at https://github.com/charlesbyant/TestPipe. 
+
 TestPipe binaries are hosted on Nuget.org. We currently host the binaries as 
 separate packages, but may simplify this to one package if we find it easier as
 we finish the implementation of TestPipe in an enterprise development environment.
@@ -44,10 +45,34 @@ These are the packages hosted on NuGet:
 - https://www.nuget.org/packages/TestPipe.SpecFlow/
   TestPipe.SpecFlow - SpecFlow provides the framework for writing test in TestPipe.
 
+Installation
+------------
+
+To install TestPipe you can install the NuGet packages or download the source code and build and
+reference the binaries.
+
+Usage
+-----
+
+You can see the Demo projects for an example of how to use TestPipe. Further information on usage
+can be found in the documentation - https://github.com/charleslbryant/TestPipe/wiki.
+
 Documentation
 -------------
 
 You can find documentation on the TestPipe wiki - https://github.com/charleslbryant/TestPipe/wiki.
+
+Contributing
+------------
+
+If you are interested in contributing, use your GitHub account to fork the main repository, https://github.com/charleslbryant/TestPipe,
+make your changes and submit a pull request (http://help.github.com/pull-requests/).
+
+Contact
+-------
+
+If you have any questions, requests, comments, or criticisms, submit a ticket on the TestPipe issue 
+tracker - https://github.com/charleslbryant/TestPipe/issues.
 
 License
 -------
@@ -55,7 +80,7 @@ License
 TestPipe is released under GPL v3 and the license can be found in the file named
 license - https://github.com/charleslbryant/TestPipe/blob/master/license.
 
-Contact
--------
+Copyright
+---------
 
-If you have any questions or requests, submit a ticket on the TestPipe issue tracker - https://github.com/charleslbryant/TestPipe/issues.
+Copyright © 2014 Charles Bryant
