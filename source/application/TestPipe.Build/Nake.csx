@@ -73,16 +73,13 @@ public static string TestPath = SourcePath + @"\tests";
 	try
 	{
 		Log.Info("Removing Folder: " + DocsPath);
-		if(System.IO.Directory.Exists(DocsPath))
-			System.IO.Directory.Delete(DocsPath, true);
+		DeleteDirectory(DocsPath);
 
 		Log.Info("Removing Folder: " + DistroPath);
-		if(System.IO.Directory.Exists(DistroPath))
-			System.IO.Directory.Delete(DistroPath, true);
+		DeleteDirectory(DistroPath);
 
 		Log.Info("Removing Folder: " + OutputPath);	
-		if(System.IO.Directory.Exists(OutputPath))
-			System.IO.Directory.Delete(OutputPath, true);
+		DeleteDirectory(OutputPath);
 	}
   catch (System.Exception ex) 
   {
@@ -314,6 +311,30 @@ public static void CopyFiles(string directory, string[] fileMatch, string  dest)
 		Log.Info(string.Format("Copying {0} to {1}", file.FullName, dest));
 		FS.Copy(file.FullName, dest, true, false);
 	}
+}
+
+public static void DeleteDirectory(string target)
+{
+	if(!System.IO.Directory.Exists(target))	
+	{
+		return;
+	}
+
+  string[] files = Directory.GetFiles(target);
+  string[] dirs = Directory.GetDirectories(target);
+
+  foreach (string file in files)
+  {
+      File.SetAttributes(file, FileAttributes.Normal);
+      File.Delete(file);
+  }
+
+  foreach (string dir in dirs)
+  {
+      DeleteDirectory(dir);
+  }
+
+  Directory.Delete(target, true);
 }
 
 public static void PrintHeader(string message)
