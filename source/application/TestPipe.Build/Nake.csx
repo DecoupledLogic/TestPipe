@@ -315,7 +315,7 @@ public static void CopyFiles(string directory, string[] fileMatch, string  dest)
 
 public static void DeleteDirectory(string target)
 {
-	if(!System.IO.Directory.Exists(target))	
+	if(!Directory.Exists(target))	
 	{
 		return;
 	}
@@ -334,7 +334,7 @@ public static void DeleteDirectory(string target)
       DeleteDirectory(dir);
   }
 
-  Directory.Delete(target, true);
+  Directory.Delete(target, false);
 }
 
 public static void PrintHeader(string message)
