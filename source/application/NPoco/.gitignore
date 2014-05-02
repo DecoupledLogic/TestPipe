@@ -1,8 +1,0 @@
-build
-bin
-obj
-*.suo
-*.nupkg
-*.user
-_ReSharper*
-src/TestResults
