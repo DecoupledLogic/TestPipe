@@ -1,6 +1,8 @@
 TestPipe
 --------
 
+![TestPipe Logo](https://github.com/charleslbryant/TestPipe/blob/master/creative/logo/logo.png?raw=true)
+
 TestPipe is an automated Test Framework written with C#. The primary focus of the framework is 
 to provide a maintainable means of creating test for HTTP web applications and
 services.
@@ -15,7 +17,7 @@ So use at your own risk.
 Download
 --------
 
-TestPipe source code is hosted at https://github.com/charlesbyant/TestPipe. 
+TestPipe source code is hosted at https://github.com/charleslbryant/TestPipe. 
 
 TestPipe binaries are hosted on Nuget.org. We currently host the binaries as 
 separate packages, but may simplify this to one package if we find it easier as
