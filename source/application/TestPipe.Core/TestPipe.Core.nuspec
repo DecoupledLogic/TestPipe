@@ -4,8 +4,8 @@
 		<id>TestPipe.Core</id>
 		<version>1.0.0</version>
 		<title>TestPipe Core</title>
-		<summary>Common functionality for TestPipe.</summary>
-		<description>Various cross cutting conserns.</description>
+		<summary>Core TestPipe domain.</summary>
+		<description>This project houses the main domain logic for TestPipe.</description>
 		<authors>Charles Bryant</authors>
 		<owners>CharlesBryant.com</owners>
 		<releaseNotes>Initial release.</releaseNotes>

@@ -1,7 +1,7 @@
 TestPipe
 --------
 
-TestPipe is an automated Test Framework. The primary focus of the framework is 
+TestPipe is an automated Test Framework written with C#. The primary focus of the framework is 
 to provide a maintainable means of creating test for HTTP web applications and
 services.
 
@@ -29,7 +29,7 @@ These are the packages hosted on NuGet:
   TestPipe.Common - Various cross cutting concerns like  logging, exceptions, and 
   shared functionality.
 - https://www.nuget.org/packages/TestPipe.Core/
-  TestPipe.Core - This project houses the main domain.
+  TestPipe.Core - This project houses the main domain logic for TestPipe.
 - https://www.nuget.org/packages/TestPipe.Data/
   TestPipe.Data - Management for test data, seeding databases, and general data
   access.
