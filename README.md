@@ -22,10 +22,12 @@ TestPipe binaries are hosted on Nuget.org. The packages are versioned individual
 
 These are the TestPipe packages hosted on NuGet:
 
+- https://www.nuget.org/packages/TestPipe
+  This package provides the binaries, config, and folder structure for writing TestPipe tests in a single TestPipe project.
 - https://www.nuget.org/packages/TestPipe.Specs
-  This package provides the binaries, config, and folder structure for writing TestPipe tests.
+  This package provides the binaries, config, and folder structure for writing TestPipe tests in a separate TestPipe Specs project.
 - https://www.nuget.org/packages/TestPipe.Pages
-  This package provides the binaries for modeling the pages and controls you want to test.
+  This package provides the binaries for modeling the pages and controls you want to test in a separate TestPipe Pages project.
 
 We also host some of the individual parts on NuGet, but they are not visible in NuGet search and are not meant to be used outside of experimentation. If you find them or are using them, it is recommended that you use the packages above or download the source code.
 
@@ -38,7 +40,7 @@ code and build and reference the binaries. See [Getting Started](https://github.
 Usage
 -----
 
-You can see the Demo projects for an example of how to use TestPipe. Further 
+You can see the [Demo projects](https://github.com/charleslbryant/TestPipe/tree/master/source/demo) for an example of how to use TestPipe. Further 
 information on usage can be found in the documentation - https://github.com/charleslbryant/TestPipe/wiki.
 
 Documentation
@@ -63,7 +65,7 @@ License
 -------
 
 TestPipe is released under GPL v3 and the license can be found in the file named
-license - https://github.com/charleslbryant/TestPipe/blob/master/license.
+license - https://github.com/charleslbryant/TestPipe/blob/master/license and on the [[License]] page of the wiki.
 
 Copyright
 ---------
