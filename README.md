@@ -65,7 +65,7 @@ License
 -------
 
 TestPipe is released under GPL v3 and the license can be found in the file named
-license - https://github.com/charleslbryant/TestPipe/blob/master/license and on the [[License]] page of the wiki.
+license - https://github.com/charleslbryant/TestPipe/blob/master/license and on the [License](https://github.com/charleslbryant/TestPipe/wiki/License) page of the wiki.
 
 Copyright
 ---------
