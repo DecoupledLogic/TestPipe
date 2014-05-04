@@ -61,6 +61,10 @@ Contact
 If you have any questions, requests, comments, or criticisms, submit a ticket on 
 the TestPipe issue tracker - https://github.com/charleslbryant/TestPipe/issues.
 
+* Project Site - http://charleslbryant.github.io/TestPipe
+* Blog - http://testpipeframework.wordpress.com/
+* Twitter - http://twitter.com/testpipe
+
 License
 -------
 
