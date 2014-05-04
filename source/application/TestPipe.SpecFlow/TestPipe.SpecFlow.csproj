@@ -79,6 +79,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="TestPipe.SpecFlow.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestPipe.Assertions\TestPipe.Assertions.csproj">

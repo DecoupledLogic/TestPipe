@@ -11,7 +11,7 @@
 		<releaseNotes>Initial release.</releaseNotes>
 		<language>en-us</language>
 		<projectUrl>https://github.com/charleslbryant/TestPipe</projectUrl>
-		<iconUrl>https://raw.githubusercontent.com/charleslbryant/TestPipe/master/creative/logo/logo_pipe_icon.png?token=195051__eyJzY29wZSI6IlJhd0Jsb2I6Y2hhcmxlc2xicnlhbnQvVGVzdFBpcGUvbWFzdGVyL2NyZWF0aXZlL2xvZ28vbG9nb19waXBlX2ljb24ucG5nIiwiZXhwaXJlcyI6MTM5OTU2NDE5NH0%3D--70a4d0a400a9562a00ee580bc4433f9e46eabaaa</iconUrl>
+		<iconUrl>https://github.com/charleslbryant/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
 		<licenseUrl>https://github.com/charleslbryant/TestPipe/blob/master/license</licenseUrl>
 		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>

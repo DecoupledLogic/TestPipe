@@ -141,6 +141,7 @@
       <LastGenOutput>Search.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="TestPipe.Demo.Specs.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\application\TestPipe.Core\TestPipe.Core.csproj">

@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestPipe.Assertions.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestPipe.Core\TestPipe.Core.csproj">

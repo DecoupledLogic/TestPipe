@@ -126,6 +126,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="TestPipe.Core.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestPipe.Common\TestPipe.Common.csproj">

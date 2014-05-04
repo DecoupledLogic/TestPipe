@@ -96,6 +96,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="TestPipe.Email.xnuspec" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

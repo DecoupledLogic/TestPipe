@@ -1,1 +1,0 @@
-*.mm files are FreeMind mind map file. The FreeMind installer can be found in the Tools folder of this repository.

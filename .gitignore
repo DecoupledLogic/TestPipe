@@ -118,3 +118,9 @@ UpgradeLog*.XML
 TestPipe.Grid
 CodeAnalysisLog.xml
 WebProject.*
+/documentation/CQRS_Walkthrough.docx
+/documentation/DevLog.docx
+/documentation/PNE Automation.docx
+/documentation/ProductElements.txt
+/documentation/heuristicTestStrategy.pdf
+/source/application/TestPipe.Build/Pub
