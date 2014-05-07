@@ -24,10 +24,8 @@ These are the TestPipe packages hosted on NuGet:
 
 - https://www.nuget.org/packages/TestPipe
   This package provides the binaries, config, and folder structure for writing TestPipe tests in a single TestPipe project.
-- https://www.nuget.org/packages/TestPipe.Specs
-  This package provides the binaries, config, and folder structure for writing TestPipe tests in a separate TestPipe Specs project.
-- https://www.nuget.org/packages/TestPipe.Pages
-  This package provides the binaries for modeling the pages and controls you want to test in a separate TestPipe Pages project.
+- https://www.nuget.org/packages/TestPipe.Plugins.Selenium/
+  This package provides a Selenium Plugin for the TestPipe Test Automation Framework.
 
 We also host some of the individual parts on NuGet, but they are not visible in NuGet search and are not meant to be used outside of experimentation. If you find them or are using them, it is recommended that you use the packages above or download the source code.
 
