@@ -52,7 +52,7 @@ https://github.com/TestPipe/TestPipe/wiki.
 Contributing
 ------------
 
-If you are interested in contributing, use your GitHub account to fork the main repository, https://github.com/charleslbryant/TestPipe, make your changes and 
+If you are interested in contributing, use your GitHub account to fork the main repository, https://github.com/TestPipe/TestPipe, make your changes and 
 submit a pull request (http://help.github.com/pull-requests/). Additional information can be found in the [Contributing](https://github.com/TestPipe/TestPipe/wiki/Contributing) page on the wiki.
 
 Contact
@@ -61,7 +61,7 @@ Contact
 If you have any questions, requests, comments, or criticisms, submit a ticket on 
 the TestPipe issue tracker - https://github.com/TestPipe/TestPipe/issues.
 
-* Project Site - http://charleslbryant.github.io/TestPipe
+* Project Site -  http://testpipe.github.io/TestPipe/
 * Blog - http://testpipeframework.wordpress.com/
 * Twitter - http://twitter.com/testpipe
 
