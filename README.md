@@ -1,10 +1,10 @@
 TestPipe
 --------
 
-![TestPipe Logo](https://github.com/charleslbryant/TestPipe/blob/master/creative/logo/logo.png?raw=true)
+![TestPipe Logo](https://github.com/TestPipe/TestPipe/blob/master/creative/logo/logo.png?raw=true)
 
 TestPipe is an Automated Test Framework written with C#. The primary focus of 
-the framework is to provide a maintainable means of creating test for HTTP web applications and services. You can view more info about the idea behind test pipe on the [Concepts](https://github.com/charleslbryant/TestPipe/wiki/Concepts) page in the wiki.
+the framework is to provide a maintainable means of creating test for HTTP web applications and services. You can view more info about the idea behind test pipe on the [Concepts](https://github.com/TestPipe/wiki/Concepts) page in the wiki.
 
 Current Version
 ---------------
@@ -16,7 +16,7 @@ application, so use at your own risk.
 Download
 --------
 
-TestPipe source code is hosted at https://github.com/charleslbryant/TestPipe. 
+TestPipe source code is hosted at https://github.com/TestPipe/TestPipe. 
 
 TestPipe binaries are hosted on Nuget.org. The packages are versioned individually and may differ from the TestPipe Framework version.
 
@@ -35,31 +35,31 @@ Installation
 ------------
 
 To install TestPipe you can install the NuGet packages or download the source 
-code and build and reference the binaries. See [Getting Started](https://github.com/charleslbryant/TestPipe/wiki/Getting-Started) for more information.
+code and build and reference the binaries. See [Getting Started](https://github.com/TestPipe/TestPipe/wiki/Getting-Started) for more information.
 
 Usage
 -----
 
-You can see the [Demo projects](https://github.com/charleslbryant/TestPipe/tree/master/source/demo) for an example of how to use TestPipe. Further 
-information on usage can be found in the documentation - https://github.com/charleslbryant/TestPipe/wiki.
+You can see the [Demo projects](https://github.com/TestPipe/TestPipe/tree/master/source/demo) for an example of how to use TestPipe. Further 
+information on usage can be found in the documentation - https://github.com/TestPipe/TestPipe/wiki.
 
 Documentation
 -------------
 
 You can find documentation on the TestPipe wiki - 
-https://github.com/charleslbryant/TestPipe/wiki.
+https://github.com/TestPipe/TestPipe/wiki.
 
 Contributing
 ------------
 
 If you are interested in contributing, use your GitHub account to fork the main repository, https://github.com/charleslbryant/TestPipe, make your changes and 
-submit a pull request (http://help.github.com/pull-requests/). Additional information can be found in the [Contributing](https://github.com/charleslbryant/TestPipe/wiki/Contributing) page on the wiki.
+submit a pull request (http://help.github.com/pull-requests/). Additional information can be found in the [Contributing](https://github.com/TestPipe/TestPipe/wiki/Contributing) page on the wiki.
 
 Contact
 -------
 
 If you have any questions, requests, comments, or criticisms, submit a ticket on 
-the TestPipe issue tracker - https://github.com/charleslbryant/TestPipe/issues.
+the TestPipe issue tracker - https://github.com/TestPipe/TestPipe/issues.
 
 * Project Site - http://charleslbryant.github.io/TestPipe
 * Blog - http://testpipeframework.wordpress.com/
@@ -69,7 +69,7 @@ License
 -------
 
 TestPipe is released under GPL v3 and the license can be found in the file named
-license - https://github.com/charleslbryant/TestPipe/blob/master/license and on the [License](https://github.com/charleslbryant/TestPipe/wiki/License) page of the wiki.
+license - https://github.com/TestPipe/TestPipe/blob/master/license and on the [License](https://github.com/TestPipe/TestPipe/wiki/License) page of the wiki.
 
 Copyright
 ---------
