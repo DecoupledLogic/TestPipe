@@ -4,7 +4,7 @@
 	using TechTalk.SpecFlow;
 
 	[Binding]
-	public class BaseStep
+	public sealed class CommonHooks
 	{
 		[BeforeFeature]
 		public static void SetupFeature()
