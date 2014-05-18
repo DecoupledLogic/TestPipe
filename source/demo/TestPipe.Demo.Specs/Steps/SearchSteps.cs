@@ -8,16 +8,15 @@
 	using TestPipe.Demo.Pages;
 
 	[Binding]
-	public class SearchSteps : BaseDemoStep
+	public class SearchSteps
 	{
 		private static SearchPage testPage;
 		private static BasePage resultPage;
 		private static string searchText;
 
 		[BeforeScenario("@Search")]
-		public static void SetupLoginScenario()
+		public static void SetupScenario()
 		{
-			BaseDemoStep.SetupScenario();
 			testPage = new SearchPage(TestSession.Browser, TestSession.Environment);
 		}
 

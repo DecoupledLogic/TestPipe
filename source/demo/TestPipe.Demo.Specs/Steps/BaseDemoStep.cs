@@ -6,7 +6,7 @@
 	using TestPipe.SpecFlow;
 
 	[Binding]
-	public class BaseDemoStep
+	public sealed class CommonDemoStep
 	{
 		//Many scenarios need the test user to login, a common login method is an easy reusable solution
 		//public static BasePage Login(string username, string password, IBrowser browser, TestEnvironment environment)
@@ -18,33 +18,9 @@
 		//	return login.Login();
 		//}
 
-		[BeforeFeature]
-		public static void SetupFeature()
-		{
-			//Get feature test data from XML
-			//Delete test data from database
-			//Save test data to database
-			Runner.SetupFeature();
-		}
+		//These bindings are global to all features and scenarios, meaning this runs before and after every feature and before every scenario.
 
-		[AfterFeature]
-		public static void TeardownFeature()
-		{
-			Runner.TeardownFeature();
-		}
-
-		[BeforeTestRun]
-		public static void SetupSuite()
-		{
-			Runner.SetupSuite();
-		}
-
-		[AfterTestRun]
-		public static void TeardownSuite()
-		{
-			Runner.TeardownSuite();
-		}
-
+	  [BeforeScenario]
 		public static void SetupScenario()
 		{
 			try

@@ -34,7 +34,7 @@ namespace TestPipe.Demo.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "1. Search", "In order to find what I am looking for\nAs a user\nI want to be able to search", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "1. Search", "In order to find what I am looking for\r\nAs a user\r\nI want to be able to search", ProgrammingLanguage.CSharp, new string[] {
                         "Demo",
                         "Search"});
             testRunner.OnFeatureStart(featureInfo);
