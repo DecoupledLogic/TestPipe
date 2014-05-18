@@ -66,8 +66,8 @@
     <Compile Include="Pub\TestPipe\TestPipe.1.0.1\content\Steps\BaseDemoStep.cs" />
     <Compile Include="Pub\TestPipe\TestPipe.1.0.1\content\Steps\SearchSteps.cs" />
     <Compile Include="Pub\TestPipe\TestPipe.1.0.0\content\Pages\SearchPage.cs" />
-    <Compile Include="Pub\TestPipe\TestPipe.1.0.0\content\Steps\BaseDemoStep.cs" />
-    <Compile Include="Pub\TestPipe\TestPipe.1.0.0\content\Steps\SearchSteps.cs" />
+    <Content Include="Pub\TestPipe\TestPipe.1.0.0\content\Steps\BaseDemoStep.cs" />
+    <Content Include="Pub\TestPipe\TestPipe.1.0.0\content\Steps\SearchSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildProperties.csx" />
@@ -192,6 +192,7 @@
     <Content Include="Pub\TestPipe\TestPipe.1.0.0\lib\net40\TestPipe.Runner.dll" />
     <Content Include="Pub\TestPipe\TestPipe.1.0.0\lib\net40\TestPipe.SpecFlow.dll" />
     <Content Include="Pub\TestPipe\TestPipe.1.0.0\LICENSE.txt" />
+    <Content Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
