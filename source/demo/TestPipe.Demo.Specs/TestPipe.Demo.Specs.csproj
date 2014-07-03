@@ -115,7 +115,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\BaseDemoStep.cs" />
     <Compile Include="Steps\SearchSteps.cs" />
-    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -143,7 +142,6 @@
       <LastGenOutput>Search.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="TestPipe.Demo.Specs.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\application\TestPipe.Core\TestPipe.Core.csproj">

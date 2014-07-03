@@ -15,7 +15,7 @@
 
 		public BaseBrowserFixture()
 		{
-			this.browser = GetBrowser();
+			this.browser = this.GetBrowser();
 		}
 
 		public IBrowser BrowserInstance
@@ -51,7 +51,6 @@
 		[TestInitialize]
 		public void SetUp()
 		{
-			
 		}
 
 		[TestCleanup]

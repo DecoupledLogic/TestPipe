@@ -293,6 +293,7 @@
 				case BrowserTypeEnum.IE:
 					{
 						Proxy proxy = new Proxy();
+						
 						//proxy.IsAutoDetect = true;
 						proxy.Kind = ProxyKind.Manual;
 

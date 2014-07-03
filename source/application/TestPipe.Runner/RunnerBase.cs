@@ -4,8 +4,6 @@
 	using System.Collections.Generic;
 	using System.Configuration;
 	using System.Linq;
-	using System.Text;
-	using System.Xml.Linq;
 	using TestPipe.Assertions;
 	using TestPipe.Core;
 	using TestPipe.Core.Enums;
@@ -140,18 +138,6 @@
 			TestSession.Browser = SetBrowser(TestSession.Suite.Browser);
 		}
 
-		private static string GetDataFilePath(string file)
-		{
-			string basePath = ConfigurationManager.AppSettings["file.basePath"];
-
-			if(!basePath.EndsWith(@"\"))
-			{
-				basePath += @"\";
-			}
-
-			return string.Format(@"{0}{1}", basePath, file);
-		}
-
 		public static void TeardownFeature()
 		{
 			TestSession.Browser.Quit();
@@ -216,6 +202,18 @@
 			}
 
 			return type;
+		}
+
+		private static string GetDataFilePath(string file)
+		{
+			string basePath = ConfigurationManager.AppSettings["file.basePath"];
+
+			if (!basePath.EndsWith(@"\"))
+			{
+				basePath += @"\";
+			}
+
+			return string.Format(@"{0}{1}", basePath, file);
 		}
 
 		private static string GetKeyFromTitle(string title)
