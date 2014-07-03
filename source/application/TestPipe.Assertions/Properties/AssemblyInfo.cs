@@ -9,11 +9,9 @@ using System.Reflection;
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
 // </auto-generated>
-//------------------------------------------------------------------------------
-
+//-----------------------------------------------------------------------------
 [assembly: AssemblyCopyrightAttribute("Copyright (c) 2014, CharlesBryant.com")]
 [assembly: AssemblyCompanyAttribute("CharlesBryant.com")]
 [assembly: AssemblyProductAttribute("TestPipe")]
 [assembly: AssemblyTrademarkAttribute("Trademark by CharlesBryant.com")]
 [assembly: AssemblyVersionAttribute("1.0.0")]
-

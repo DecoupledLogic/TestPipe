@@ -1,8 +1,0 @@
-﻿<?xml version="1.0"?>
-<Feature name="Search">
-	<Scenario name="1">
-		<Data>
-			<User name="User">testuser1</User>
-		</Data>
-	</Scenario>
-</Feature>

@@ -9,10 +9,10 @@
 
 	public class SearchPage : BasePage
 	{
-		private static readonly ISelect SearchSelector = new Select(FindByEnum.Id, "sb_form_q");
-		private static readonly ISelect SearchButtonSelector = new Select(FindByEnum.Id, "sb_form_go");
-		private static readonly string PageTitle = "Bing";
-		private static readonly string Url = "/search";
+		private static readonly ISelect SearchSelector = new Select(FindByEnum.Id, "gbqfq");
+		private static readonly ISelect SearchButtonSelector = new Select(FindByEnum.Id, "gbqfb");
+		private static readonly string PageTitle = "Google Search";
+		private static readonly string Url = "/";
 
 		private BaseControl search;
 		private BaseControl searchButton;
@@ -51,7 +51,9 @@
 		public BasePage Submit(string text)
 		{
 			this.SearchButton.Click();
+			//System.Threading.
 			BasePage resultPage = new SearchPage(this.Browser, this.TestEnvironment);
+
 			resultPage.Title = text + " - " + SearchPage.PageTitle;
 			return resultPage;
 		}

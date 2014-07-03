@@ -7,6 +7,7 @@
 	using TestPipe.Data.SqlGen;
 
 	[TestClass]
+	[Ignore]
 	public class SqlParserSpecs
 	{
 		private static readonly string From;

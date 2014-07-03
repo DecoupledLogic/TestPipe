@@ -1,6 +1,7 @@
 ﻿namespace TestPipe.Runner
 {
 	using System;
+	using System.Collections.Generic;
 	using System.Configuration;
 	using System.Linq;
 	using System.Text;
@@ -13,90 +14,6 @@
 
 	public static class RunnerBase
 	{
-		public static string GetAppConfigValue(string key)
-		{
-			if (string.IsNullOrWhiteSpace(key))
-			{
-				throw new ArgumentException("App config key is empty.");
-			}
-
-			string value = ConfigurationManager.AppSettings[key];
-
-			if (string.IsNullOrWhiteSpace(value))
-			{
-				throw new ApplicationException("Config value for " + key + " not set.");
-			}
-
-			return value;
-		}
-
-		public static string GetBrowserFromTag(string[] tags)
-		{
-			string browserName = string.Empty;
-			string browserTagPrefix = "browser_";
-			foreach (var tag in tags)
-			{
-				if (tag.StartsWith(browserTagPrefix, StringComparison.InvariantCultureIgnoreCase))
-				{
-					browserName = tag.Substring(browserTagPrefix.Length);
-				}
-			}
-
-			return browserName;
-		}
-
-		public static BrowserTypeEnum GetBrowserType(string browserName)
-		{
-			BrowserTypeEnum type;
-
-			if (!Enum.TryParse(browserName, true, out type))
-			{
-				return BrowserTypeEnum.None;
-			}
-
-			if (!Enum.IsDefined(typeof(BrowserTypeEnum), type) | browserName.ToString().Contains(","))
-			{
-				type = BrowserTypeEnum.None;
-			}
-
-			return type;
-		}
-
-		public static string GetFeatureConfigFilePathFromTitle(string title)
-		{
-			if (string.IsNullOrWhiteSpace(title))
-			{
-				throw new ArgumentException("title is empty.");
-			}
-
-			string[] parts = title.Split('.');
-			string name = parts[1].Trim();
-			string basePath = GetAppConfigValue("file.basePath");
-
-			string path = basePath + name + "_feature.xml";
-
-			return path;
-		}
-
-		public static string GetKeyFromTitle(string title)
-		{
-			if (string.IsNullOrWhiteSpace(title))
-			{
-				throw new ArgumentException();
-			}
-
-			return title.Substring(0, title.IndexOf(".")).Trim();
-		}
-
-		public static T GetObject<T>()
-		{
-			string typeName = typeof(T).Name;
-			string idCacheKey = string.Format("{0}{1}{2}{3}", TestSession.Suite.KeyPrefix, TestSession.Feature.KeyPrefix, TestSession.Scenario.KeyPrefix, typeName);
-			string id = (string)TestSession.Cache[idCacheKey];
-			string objectKey = string.Format("{0}{1}{2}", TestSession.Suite.KeyPrefix, TestSession.Feature.KeyPrefix, id);
-			return (T)TestSession.Cache[objectKey];
-		}
-
 		public static bool Ignore(string[] tags, string runTags)
 		{
 			if (string.IsNullOrWhiteSpace(runTags))
@@ -138,7 +55,180 @@
 			return true;
 		}
 
-		public static bool IgnoreFeature(string[] tags)
+		public static void SetTestSessionBrowser()
+		{
+			string browserName = TestSession.Suite.Browser;
+
+			BrowserTypeEnum browser = RunnerBase.GetBrowserType(browserName);
+
+			TestSession.DefaultBrowser = browser;
+
+			dynamic oldBrowser;
+
+			TestSession.Cache.TryRemove(TestSession.DriverKey, out oldBrowser);
+
+			if (oldBrowser != null)
+			{
+				oldBrowser.Quit();
+			}
+
+			TestSession.Browser = TestSession.CreateBrowserDriver(browser);
+		}
+
+		public static void SetupFeature(string title, string[] tags = null)
+		{
+			RunnerBase.SetupSuite();
+
+			if (TestSession.Features == null)
+			{
+				TestSession.Features = new List<TestPipe.Core.Session.Feature>();
+			}
+
+			Console.WriteLine("\nBegin Feature Setup: " + title);
+
+			if (IgnoreFeature(tags))
+			{
+				Console.WriteLine("\nFeature Ignored: " + title);
+				Console.WriteLine("\nEnd Feature Setup: " + title);
+				Asserts.Ignored();
+				return;
+			}
+
+			string featureKey = RunnerBase.GetKeyFromTitle(title);
+			TestPipe.Core.Session.Feature feature = TestSession.Suite.Features.Where(x => x.Id == featureKey).FirstOrDefault();
+
+			string path = RunnerBase.GetDataFilePath(feature.Path);
+			TestSession.LoadFeature(path);
+
+			TestPipe.Core.Session.Feature currentFeature = TestSession.Features.Where(x => x.Id == featureKey).FirstOrDefault();
+
+			SetFeatureBrowser(tags, currentFeature);
+
+			Console.WriteLine("\nEnd Feature Setup: " + title);
+		}
+
+		public static void SetupScenario(string title, string featureTitle, string[] tags = null)
+		{
+			if (IgnoreScenario(tags))
+			{
+				throw new IgnoreException();
+			}
+
+			string featureKey = RunnerBase.GetKeyFromTitle(featureTitle);
+			TestPipe.Core.Session.Feature currentFeature = TestSession.Features.Where(x => x.Id == featureKey).FirstOrDefault();
+
+			string scenarioKey = RunnerBase.GetKeyFromTitle(title);
+			TestPipe.Core.Session.Scenario currentScenario = currentFeature.Scenarios.Where(x => x.Id == scenarioKey).FirstOrDefault();
+
+			SetScenarioBrowser(tags, currentFeature, currentScenario);
+		}
+
+		public static void SetupSuite()
+		{
+			if (TestSession.Suite != null)
+			{
+				return;
+			}
+			string file = ConfigurationManager.AppSettings["file.testSuite"];
+			string path = RunnerBase.GetDataFilePath(file);
+			TestSession.LoadSuite(path);
+
+			RunnerBase.SetEnvironment();
+
+			TestSession.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(TestSession.Suite.Timeout));
+
+			TestSession.Browser = SetBrowser(TestSession.Suite.Browser);
+		}
+
+		private static string GetDataFilePath(string file)
+		{
+			string basePath = ConfigurationManager.AppSettings["file.basePath"];
+
+			if(!basePath.EndsWith(@"\"))
+			{
+				basePath += @"\";
+			}
+
+			return string.Format(@"{0}{1}", basePath, file);
+		}
+
+		public static void TeardownFeature()
+		{
+			TestSession.Browser.Quit();
+
+			TestSession.Cache.Clear();
+		}
+
+		public static void TeardownScenario()
+		{
+			TestSession.Browser.Open(string.Format("{0}{1}", TestSession.Suite.BaseUrl, TestSession.Suite.LogoutUrl));
+		}
+
+		public static void TeardownSuite()
+		{
+			TestSession.Suite = null;
+		}
+
+		private static string GetAppConfigValue(string key)
+		{
+			if (string.IsNullOrWhiteSpace(key))
+			{
+				throw new ArgumentException("App config key is empty.");
+			}
+
+			string value = ConfigurationManager.AppSettings[key];
+
+			if (string.IsNullOrWhiteSpace(value))
+			{
+				throw new ApplicationException("Config value for " + key + " not set.");
+			}
+
+			return value;
+		}
+
+		private static string GetBrowserFromTag(string[] tags)
+		{
+			string browserName = string.Empty;
+			string browserTagPrefix = "browser_";
+			foreach (var tag in tags)
+			{
+				if (tag.StartsWith(browserTagPrefix, StringComparison.InvariantCultureIgnoreCase))
+				{
+					browserName = tag.Substring(browserTagPrefix.Length);
+				}
+			}
+
+			return browserName;
+		}
+
+		private static BrowserTypeEnum GetBrowserType(string browserName)
+		{
+			BrowserTypeEnum type;
+
+			if (!Enum.TryParse(browserName, true, out type))
+			{
+				return BrowserTypeEnum.None;
+			}
+
+			if (!Enum.IsDefined(typeof(BrowserTypeEnum), type) | browserName.ToString().Contains(","))
+			{
+				type = BrowserTypeEnum.None;
+			}
+
+			return type;
+		}
+
+		private static string GetKeyFromTitle(string title)
+		{
+			if (string.IsNullOrWhiteSpace(title))
+			{
+				throw new ArgumentException();
+			}
+
+			return title.Substring(0, title.IndexOf(".")).Trim();
+		}
+
+		private static bool IgnoreFeature(string[] tags)
 		{
 			if (tags == null)
 			{
@@ -158,7 +248,7 @@
 			return Ignore(tags, runTags);
 		}
 
-		public static bool IgnoreScenario(string[] tags)
+		private static bool IgnoreScenario(string[] tags)
 		{
 			if (tags == null)
 			{
@@ -172,182 +262,81 @@
 			return Ignore(tags, runTags);
 		}
 
-		public static void SetTestSessionBrowser(string browserName = null)
+		private static IBrowser SetBrowser(string browserName)
 		{
-			if (string.IsNullOrWhiteSpace(browserName))
-			{
-				browserName = (string)TestSession.Cache[TestSession.Suite.SetupKeyPrefix + TestSession.BrowserNameKey];
+			string isBrowserTest = ConfigurationManager.AppSettings["browserTest"];
 
-				if (TestSession.DefaultBrowser == BrowserTypeEnum.None)
-				{
-					TestSession.DefaultBrowser = RunnerBase.GetBrowserType(browserName);
-				}
+			if (!string.IsNullOrWhiteSpace(isBrowserTest) && isBrowserTest.ToLower() == "false")
+			{
+				return null;
 			}
 
-			BrowserTypeEnum browser = RunnerBase.GetBrowserType(browserName);
-			dynamic oldBrowser;
-			TestSession.Cache.TryRemove(TestSession.DriverKey, out oldBrowser);
+			BrowserTypeEnum browserType = RunnerBase.GetBrowserType(browserName);
 
-			if (oldBrowser != null)
-			{
-				oldBrowser.Quit();
-			}
+			IBrowser browser = TestSession.CreateBrowserDriver(browserType);
 
-			TestSession.Browser = TestSession.CreateBrowserDriver(browser);
+			RunnerBase.SetBrowserWait();
+
+			return browser;
 		}
 
-		public static void SetupFeature(string title, string[] tags = null)
+		private static IBrowser SetBrowserFromTag(string[] tags)
 		{
-			Console.WriteLine("\nBegin Feature Setup: " + title);
-
-			if (IgnoreFeature(tags))
+			if (tags == null)
 			{
-				Console.WriteLine("\nFeature Ignored: " + title);
-				Console.WriteLine("\nEnd Feature Setup: " + title);
-				Asserts.Ignored();
-				return;
-			}
-
-			TestSession.Cache.Clear();
-
-			TestSession.XmlSuiteConfig.Load(@"Data\" + ConfigurationManager.AppSettings["file.testSuite"]);
-			TestSession.XmlSuiteConfig.CacheSuite();
-			TestSession.Suite.KeyPrefix = GetKeyPrefix(TestSession.XmlSuiteConfig.Document);
-
-			string featureKey = RunnerBase.GetKeyFromTitle(title);
-			XElement feature = TestSession.XmlSuiteConfig.GetElementByName(XmlTool.FeatureTag, featureKey);
-
-			TestSession.XmlFeatureConfig.Load(@"Data\" + feature.Value);
-			TestSession.XmlFeatureConfig.CacheFeature(TestSession.Suite.KeyPrefix, featureKey);
-
-			TestSession.Feature.KeyPrefix = GetKeyPrefix(TestSession.XmlFeatureConfig.Document);
-
-			TestSession.Suite.SetupKeyPrefix = GetSetupKeyPrefix(TestSession.Suite.KeyPrefix);
-
-			string browserTest = ConfigurationManager.AppSettings["browserTest"];
-
-			if (string.IsNullOrWhiteSpace(browserTest) || browserTest.ToLower() != "false")
-			{
-				SetTestSessionBrowser();
-				TestSession.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(TestSession.Cache[TestSession.Suite.SetupKeyPrefix + "Wait_TimeInSeconds"]));
-				SetTimeout();
-			}
-
-			SetEnvironment(TestSession.Suite.SetupKeyPrefix);
-
-			Console.WriteLine("\nEnd Feature Setup: " + title);
-		}
-
-		public static void SetupScenario(string title, string[] tags = null)
-		{
-			if (IgnoreScenario(tags))
-			{
-				throw new IgnoreException();
+				return null;
 			}
 
 			string browserName = GetBrowserFromTag(tags);
 
-			if (!string.IsNullOrWhiteSpace(browserName))
+			if (string.IsNullOrWhiteSpace(browserName))
 			{
-				SetTestSessionBrowser(browserName);
-				SetTimeout();
-			}
-			else
-			{
-				IBrowser currentBrowser = TestSession.Browser;
-				BrowserTypeEnum currentBrowserType = currentBrowser == null ? BrowserTypeEnum.None 
-					: currentBrowser.BrowserType;
-				BrowserTypeEnum defaultBrowserType = TestSession.DefaultBrowser;
-
-				//if browser doesn't match config browser set it to config browser
-				if (currentBrowserType != defaultBrowserType)
-				{
-					SetTestSessionBrowser();
-				}
+				return null;
 			}
 
-			string scenarioNumber = RunnerBase.GetKeyFromTitle(title);
+			IBrowser browser = SetBrowser(browserName);
 
-			TestSession.Scenario.KeyPrefix = string.Format("{0}_{1}_", XmlTool.ScenarioTag, scenarioNumber);
-			TestSession.Cache.Clear(TestSession.Scenario.KeyPrefix);
-
-			string suiteKey = TestSession.XmlSuiteConfig.GetElementCacheKey(XmlTool.SuiteTag);
-			TestSession.XmlFeatureConfig.CacheScenario(suiteKey, scenarioNumber);
+			return browser;
 		}
 
-		public static void SetupSuite()
+		private static void SetBrowserWait()
 		{
-		}
-
-		public static void TeardownFeature()
-		{
-			TestSession.Browser.Quit();
-
-			TestSession.Cache.Clear();
-		}
-
-		public static void TeardownScenario()
-		{
-			TestSession.Browser.Open(string.Format("{0}{1}", TestSession.BaseUrl, TestSession.LogoutUrl));
-			TestSession.Scenario.KeyPrefix = null;
-		}
-
-		public static void TeardownSuite()
-		{
-		}
-
-		private static string GetKeyPrefix(XElement element, string suffix = "")
-		{
-			StringBuilder key = new StringBuilder();
-			key.Append(element.Name.ToString());
-			key.Append("_");
-
-			if (element.Attribute("name") != null)
-			{
-				key.Append(element.Attribute("name").Value);
-				key.Append("_");
-			}
-
-			if (string.IsNullOrWhiteSpace(suffix))
-			{
-				return key.ToString();
-			}
-
-			key.Append(suffix);
-			key.Append("_");
-
-			return key.ToString();
-		}
-
-		private static string GetSetupKeyPrefix(string prefix)
-		{
-			return string.Format("{0}{1}_", prefix, "Setup");
-		}
-
-		private static void SetEnvironment(string keyPrefix)
-		{
-			TestEnvironment environment = new TestEnvironment();
-			string appKey = TestSession.Cache[keyPrefix + "ApplicationKey"] == null ? string.Empty : TestSession.Cache[keyPrefix + "ApplicationKey"].ToString();
-			Guid key = Guid.Empty;
-			Guid.TryParse(appKey, out key);
-			environment.ApplicationKey = key;
-			environment.BaseUrl = TestSession.BaseUrl;
-			environment.Title = TestSession.Cache[keyPrefix + "Environment"] == null ? string.Empty : TestSession.Cache[keyPrefix + "Environment"].ToString();
-
-			TestSession.Environment = environment;
-		}
-
-		private static void SetTimeout()
-		{
-			if (TestSession.Timeout == null)
+			if (TestSession.Suite.Timeout == 0)
 			{
 				return;
 			}
 
-			dynamic oldWait;
-			TestSession.Cache.TryRemove(TestSession.WaitKey, out oldWait);
-
 			TestSession.Wait = TestSession.CreateBrowserWait(TestSession.Browser, TestSession.Timeout);
+		}
+
+		private static void SetEnvironment()
+		{
+			TestEnvironment environment = new TestEnvironment();
+			Guid key = Guid.Empty;
+			Guid.TryParse(TestSession.Suite.ApplicationKey, out key);
+			environment.ApplicationKey = key;
+			environment.BaseUrl = TestSession.Suite.BaseUrl;
+			environment.Title = TestSession.Suite.Environment;
+
+			TestSession.Environment = environment;
+		}
+
+		private static void SetFeatureBrowser(string[] tags, TestPipe.Core.Session.Feature currentFeature)
+		{
+			IBrowser browser = SetBrowserFromTag(tags);
+
+			currentFeature.Browser = browser == null
+				? TestSession.Browser
+				: browser;
+		}
+
+		private static void SetScenarioBrowser(string[] tags, TestPipe.Core.Session.Feature currentFeature, TestPipe.Core.Session.Scenario currentScenario)
+		{
+			IBrowser browser = SetBrowserFromTag(tags);
+
+			currentScenario.Browser = browser == null
+				? currentFeature.Browser
+				: browser;
 		}
 	}
 }

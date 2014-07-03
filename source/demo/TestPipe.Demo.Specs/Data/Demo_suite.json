@@ -1,0 +1,34 @@
+﻿{
+	"Name": "Google",
+	"Browser": "IE",
+	"ApplicationKey": "C5851267-AD37-482B-9762-A3FE5DF017EE",
+	"Environment": "Prod",
+	"BaseURL": "https://www.google.com/",
+	"LogoutURL": "",
+	"Timeout": 60,
+	"PageTimeout": 60,
+	"LoginUrl": "",
+	"WaitTime": 60,
+	"DbConnections": [
+		{
+			"Name": "Main",
+			"ConnectionString": "Data Source=localhost;Initial Catalog=Demo;Integrated Security=True"
+		},
+		{
+			"Name": "Security",
+			"ConnectionString": "Data Source=localhost;Initial Catalog=Demo;Integrated Security=True"
+		}
+	],
+	"Features": [
+		{
+			"Title": "Search",
+			"Id": "1",
+			"Path": "Search_feature.json"
+		},
+		{
+			"Title": "Result",
+			"Id": "2",
+			"Path": "Result_feature.json"
+		}
+	]
+}

@@ -312,6 +312,11 @@ namespace TestPipe.Core.Control
 
 		public void Click(uint timeoutInSeconds = 0)
 		{
+			if (timeoutInSeconds == 0)
+			{
+				timeoutInSeconds = (uint)TestSession.Timeout.TotalSeconds;
+			}
+
 			this.Element.Click();
 
 			if (timeoutInSeconds > 0)

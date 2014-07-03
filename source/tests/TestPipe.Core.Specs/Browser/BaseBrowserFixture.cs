@@ -15,8 +15,7 @@
 
 		public BaseBrowserFixture()
 		{
-			ILogManager log = new Logger();
-			this.browser = BrowserFactory.Create(BrowserTypeEnum.IE, log);
+			this.browser = GetBrowser();
 		}
 
 		public IBrowser BrowserInstance
@@ -52,12 +51,19 @@
 		[TestInitialize]
 		public void SetUp()
 		{
+			
 		}
 
 		[TestCleanup]
 		public void TearDown()
 		{
-			this.browser.Quit();
+			//this.browser.Quit();
+		}
+
+		public IBrowser GetBrowser()
+		{
+			ILogManager log = new Logger();
+			return BrowserFactory.Create(BrowserTypeEnum.IE, log);
 		}
 	}
 }

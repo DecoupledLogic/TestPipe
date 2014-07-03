@@ -40,8 +40,15 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects">
+      <HintPath>..\..\..\packages\CompareNETObjects.3.00.0.0\lib\net40\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+    </Reference>
     <Reference Include="Moq">
       <HintPath>..\..\..\packages\Moq.4.2.1312.1622\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
@@ -54,8 +61,18 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebDriver">
+      <HintPath>..\..\..\packages\Selenium.WebDriver.2.39.0\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\..\..\packages\Selenium.Support.2.39.0\lib\net40\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit">
+      <HintPath>..\..\..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -71,14 +88,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Browser\BaseBrowserFixture.cs" />
-    <Compile Include="CacheHelperSpec.cs" />
     <Compile Include="Control\GridControlSpec.cs" />
     <Compile Include="GenericDtoCacheSpec.cs" />
     <Compile Include="Page\BasePageSpec.cs" />
-    <Compile Include="GenericRunner.cs" />
     <Compile Include="CacheSpecs.cs" />
+    <Compile Include="Session\DeserializeFact.cs" />
     <Compile Include="UtilityTest.cs" />
-    <Compile Include="XmlToolSpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +151,8 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Data\Feature_Search.json" />
+    <None Include="Data\Suite_Google.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +176,9 @@
       <Project>{6c66db6c-13ec-4e58-8b33-cd3a11c125aa}</Project>
       <Name>TestPipe.Data.Dto.TestPipeRepo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

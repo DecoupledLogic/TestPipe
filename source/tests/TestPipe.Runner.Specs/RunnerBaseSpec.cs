@@ -147,24 +147,11 @@
 		public void SetTestSessionBrowser_Should_Set_Default_Browser()
 		{
 			BrowserTypeEnum expected = BrowserTypeEnum.IE;
-			TestSession.Suite.SetupKeyPrefix = "Test";
-			TestSession.Cache[TestSession.Suite.SetupKeyPrefix + TestSession.BrowserNameKey] = "IE";
+			TestPipe.Core.Session.Suite suite = new TestPipe.Core.Session.Suite();
+			TestSession.Suite = suite;
+			TestSession.Suite.Browser = "IE";
 
 			RunnerBase.SetTestSessionBrowser();
-
-			BrowserTypeEnum actual = TestSession.Browser.BrowserType;
-
-			TestSession.Browser.Quit();
-
-			Assert.AreEqual(expected, actual);
-		}
-
-		[TestMethod]
-		public void SetTestSessionBrowser_Should_Set_Named_Browser()
-		{
-			BrowserTypeEnum expected = BrowserTypeEnum.Chrome;
-
-			RunnerBase.SetTestSessionBrowser("Chrome");
 
 			BrowserTypeEnum actual = TestSession.Browser.BrowserType;
 

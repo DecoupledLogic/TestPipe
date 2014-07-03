@@ -128,27 +128,6 @@
 			return string.Format("{0}_{1}", prefix, keyName);
 		}
 
-		private static bool CacheObject(string key, XElement element)
-		{
-			if (element.Parent == null)
-			{
-				return false;
-			}
-
-			if (element.Parent.Name == null)
-			{
-				return false;
-			}
-
-			if (!element.Parent.Name.ToString().Equals(XmlTool.ObjectTag))
-			{
-				return false;
-			}
-
-			Cache(element, key); 
-			return true;
-		}
-
 		private static void Cache(XElement element, string key)
 		{
 			bool seed = false;
@@ -193,6 +172,27 @@
 			}
 
 			typeof(GenericDtoCache).GetMethod("Add").MakeGenericMethod(type).Invoke(entity, new object[] { element, key, seed });
+		}
+
+		private static bool CacheObject(string key, XElement element)
+		{
+			if (element.Parent == null)
+			{
+				return false;
+			}
+
+			if (element.Parent.Name == null)
+			{
+				return false;
+			}
+
+			if (!element.Parent.Name.ToString().Equals(XmlTool.ObjectTag))
+			{
+				return false;
+			}
+
+			Cache(element, key);
+			return true;
 		}
 
 		private static Type FindType(string fullName)

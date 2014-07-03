@@ -2,10 +2,12 @@
 {
 	using System;
 	using System.Collections.Generic;
+	using System.IO;
 	using TestPipe.Common;
 	using TestPipe.Core.Browser;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Interfaces;
+	using TestPipe.Core.Session;
 
 	public static class TestSession
 	{
@@ -17,20 +19,8 @@
 		public static readonly string LogoutUrlKey = "logout_url";
 		public static readonly string WaitKey = "wait";
 		private static Cache<string, object> cache;
-		private static XmlTool featureConfig;
-		private static XmlTool suiteConfig;
 
-		public static string BaseUrl
-		{
-			get
-			{
-				return TestSession.Cache[BaseUrlKey].ToString();
-			}
-			set
-			{
-				TestSession.Cache[BaseUrlKey] = value;
-			}
-		}
+		public static string ApplicationKey { get; set; }
 
 		public static IBrowser Browser
 		{
@@ -38,7 +28,7 @@
 			{
 				try
 				{
-					if (Cache[DriverKey] == null)
+					if (TestSession.Cache[DriverKey] == null)
 					{
 						return null;
 					}
@@ -48,7 +38,7 @@
 					return null;
 				}
 
-				return Cache[DriverKey] as IBrowser;
+				return TestSession.Cache[DriverKey] as IBrowser;
 			}
 			set
 			{
@@ -106,13 +96,15 @@
 		{
 			get
 			{
-				return (TestEnvironment)Cache[EnvironmentKey];
+				return (TestEnvironment)TestSession.Cache[EnvironmentKey];
 			}
 			set
 			{
 				Cache[EnvironmentKey] = value;
 			}
 		}
+
+		public static ICollection<Feature> Features { get; set; }
 
 		public static string LogoutUrl
 		{
@@ -126,13 +118,13 @@
 			}
 		}
 
-		public static TimeSpan Timeout { get; set; }
+		public static Suite Suite { get; set; }
 
 		public static IBrowserWait Wait
 		{
 			get
 			{
-				return (IBrowserWait)Cache[WaitKey];
+				return (IBrowserWait)TestSession.Cache[WaitKey];
 			}
 			set
 			{
@@ -140,32 +132,36 @@
 			}
 		}
 
-		public static XmlTool XmlFeatureConfig
-		{
-			get
-			{
-				if (featureConfig == null)
-					featureConfig = new XmlTool();
-				return featureConfig;
-			}
-			set
-			{
-				featureConfig = value;
-			}
-		}
+		public static TimeSpan Timeout { get; set; }
 
-		public static XmlTool XmlSuiteConfig
+		public static void LoadFeature(string path)
 		{
-			get
+			string json = LoadData(path);
+
+			var data = Helpers.JsonSerialization.Deserialize(json, typeof(Feature));
+
+			if (data == null)
 			{
-				if (suiteConfig == null)
-					suiteConfig = new XmlTool();
-				return suiteConfig;
+				throw new NullReferenceException("data can not be null.");
 			}
-			set
+
+			Feature feature = (Feature)data;
+
+			TestSession.Features.Add(feature);
+		}
+		
+		public static void LoadSuite(string path)
+		{
+			string json = LoadData(path);
+
+			var data = Helpers.JsonSerialization.Deserialize(json, typeof(Suite));
+
+			if (data == null)
 			{
-				suiteConfig = value;
+				throw new NullReferenceException("data can not be null.");
 			}
+
+			TestSession.Suite = (Suite)data;
 		}
 
 		public static IBrowser CreateBrowserDriver(BrowserTypeEnum browserType)
@@ -179,21 +175,33 @@
 			return null;
 		}
 
-		public static class Feature
+		private static string Load(string path)
 		{
-			public static string KeyPrefix { get; set; }
+			string data = string.Empty;
+
+			using (StreamReader r = new StreamReader(path))
+			{
+				data = r.ReadToEnd();
+			}
+
+			return data;
 		}
 
-		public static class Scenario
+		private static string LoadData(string path)
 		{
-			public static string KeyPrefix { get; set; }
-		}
+			if (string.IsNullOrWhiteSpace(path))
+			{
+				throw new ArgumentException("path can not be null or white space.");
+			}
 
-		public static class Suite
-		{
-			public static string KeyPrefix { get; set; }
+			string json = TestSession.Load(path);
 
-			public static string SetupKeyPrefix { get; set; }
+			if (string.IsNullOrWhiteSpace(json))
+			{
+				throw new ApplicationException("json can not be null or white space.");
+			}
+
+			return json;
 		}
 	}
 }

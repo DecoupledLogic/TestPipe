@@ -183,16 +183,21 @@
 
 		public virtual void Open(string url = "", uint timeoutInSeconds = 0)
 		{
+			if (timeoutInSeconds == 0)
+			{
+				timeoutInSeconds = (uint)TestSession.Timeout.TotalSeconds;
+			}
+
 			Stopwatch timer = new Stopwatch();
 			if (!string.IsNullOrWhiteSpace(url))
 			{
 				timer.Start();
-				this.Browser.Open(url);
+				this.Browser.Open(url, timeoutInSeconds);
 			}
 			else
 			{
 				timer.Start();
-				this.Browser.Open(this.PageUrl);
+				this.Browser.Open(this.PageUrl, timeoutInSeconds);
 			}
 
 			timer.Stop();

@@ -6,10 +6,14 @@
 
 	public class XmlTool
 	{
+		public const string DatabaseAttribute = "database";
+		public const string DataTag = "Data";
 		public const string DescriptionAttribute = "description";
 		public const string FeatureTag = "Feature";
 		public const string KeyAttribute = "key";
 		public const string NameAttribute = "name";
+		public const string NamespaceAttribute = "namespace";
+		public const string ObjectTag = "Objects";
 		public const string ParamTag = "Param";
 		public const string RoleTag = "Role";
 		public const string ScenarioTag = "Scenario";
@@ -22,10 +26,6 @@
 		public const string VarListTag = "VarList";
 		public const string VarTag = "Var";
 		public const string VendorTag = "Vendor";
-		public const string ObjectTag = "Objects";
-		public const string DataTag = "Data";
-		public const string NamespaceAttribute = "namespace";
-		public const string DatabaseAttribute = "database";
 
 		public XmlTool()
 		{

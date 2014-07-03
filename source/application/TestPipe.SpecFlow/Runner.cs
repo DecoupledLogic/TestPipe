@@ -6,11 +6,6 @@
 
 	public static class Runner
 	{
-		public static T GetObject<T>()
-		{
-			return RunnerBase.GetObject<T>();
-		}
-
 		public static void SetupFeature()
 		{
 			FeatureInfo current = FeatureContext.Current.FeatureInfo;
@@ -20,7 +15,8 @@
 		public static void SetupScenario()
 		{
 			ScenarioInfo current = ScenarioContext.Current.ScenarioInfo;
-			RunnerBase.SetupScenario(current.Title, current.Tags);
+			FeatureInfo feature = FeatureContext.Current.FeatureInfo;
+			RunnerBase.SetupScenario(current.Title, feature.Title, current.Tags);
 		}
 
 		public static void SetupSuite()

@@ -115,7 +115,7 @@
 		{
 			string key = string.Empty;
 			string cacheKey = "testuser1";
-			string rootName = XmlTool.ScenarioTag;
+			string rootName = XmlTool.ObjectTag;
 			string expected = "testuser1";
 			XElement testElement = this.featureElement.Element(XmlTool.ScenarioTag).Element(XmlTool.ObjectTag).Element(XmlTool.UserTag);
 

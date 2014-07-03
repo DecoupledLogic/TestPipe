@@ -6,6 +6,7 @@
 	using TestPipe.Core;
 	using TestPipe.Core.Page;
 	using TestPipe.Demo.Pages;
+	using TestPipe.SpecFlow;
 
 	[Binding]
 	public class SearchSteps
@@ -45,7 +46,8 @@
 		[Then(@"results should be displayed")]
 		public void ThenResultsShouldBeDisplayed()
 		{
-			Assert.IsTrue(resultPage.IsOpen());
+			bool isOpen = resultPage.IsOpen();
+			Assert.IsTrue(isOpen);
 		}
 	}
 }

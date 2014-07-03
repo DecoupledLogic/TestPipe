@@ -266,6 +266,13 @@
 
 		private void LoadDriver(BrowserTypeEnum browser, BrowserConfiguration configuration = null)
 		{
+			DesiredCapabilities capabilities = null;
+			
+			if (configuration != null)
+			{
+				capabilities = this.GetCapabiliities(configuration);
+			}
+
 			switch (browser)
 			{
 				case BrowserTypeEnum.Chrome:
@@ -275,7 +282,7 @@
 					}
 				case BrowserTypeEnum.FireFox:
 					{
-						this.webDriver = new OpenQA.Selenium.Firefox.FirefoxDriver();
+						this.webDriver = new OpenQA.Selenium.Firefox.FirefoxDriver(capabilities);
 						break;
 					}
 				case BrowserTypeEnum.Headless:
@@ -286,8 +293,8 @@
 				case BrowserTypeEnum.IE:
 					{
 						Proxy proxy = new Proxy();
-						proxy.IsAutoDetect = true;
-						proxy.Kind = ProxyKind.AutoDetect;
+						//proxy.IsAutoDetect = true;
+						proxy.Kind = ProxyKind.Manual;
 
 						var options = new OpenQA.Selenium.IE.InternetExplorerOptions
 						{
@@ -295,12 +302,12 @@
 							Proxy = proxy,
 							UsePerProcessProxy = true
 						};
+
 						this.webDriver = new OpenQA.Selenium.IE.InternetExplorerDriver(options);
 						break;
 					}
 				case BrowserTypeEnum.Remote:
 					{
-						DesiredCapabilities capabilities = this.GetCapabiliities(configuration);
 						this.webDriver = new RemoteWebDriver(configuration.RemotePath, capabilities, configuration.Timeout);
 						break;
 					}
