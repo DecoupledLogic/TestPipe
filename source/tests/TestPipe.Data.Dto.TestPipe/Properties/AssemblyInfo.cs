@@ -10,10 +10,9 @@ using System.Reflection;
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-[assembly: AssemblyCopyrightAttribute("Copyright (c) 2014, CharlesBryant.com")]
-[assembly: AssemblyCompanyAttribute("CharlesBryant.com")]
+[assembly: AssemblyCopyrightAttribute("Copyright (c) 2014, Charles Bryant")]
+[assembly: AssemblyCompanyAttribute("decoupledlogic.wordpress.com")]
 [assembly: AssemblyProductAttribute("TestPipe")]
-[assembly: AssemblyTrademarkAttribute("Trademark by CharlesBryant.com")]
-[assembly: AssemblyVersionAttribute("1.0.0")]
+[assembly: AssemblyTrademarkAttribute("Trademark by Charles Bryant")]
+[assembly: AssemblyVersionAttribute("2.0.0")]
 
