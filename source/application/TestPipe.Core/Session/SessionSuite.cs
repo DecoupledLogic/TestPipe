@@ -27,10 +27,6 @@
 
 		public string Name { get; set; }
 
-		public int PageTimeout { get; set; }
-
 		public int Timeout { get; set; }
-
-		public int WaitTime { get; set; }
 	}
 }
