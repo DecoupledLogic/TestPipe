@@ -3,6 +3,7 @@
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
+	using System.Linq;
 	using TestPipe.Common;
 	using TestPipe.Core.Browser;
 	using TestPipe.Core.Enums;
@@ -11,8 +12,6 @@
 
 	public static class TestSession
 	{
-		public static readonly string BaseUrlKey = "base_url";
-		public static readonly string BrowserNameKey = "Browser";
 		public static readonly string DefaultBrowserKey = "default_browser";
 		public static readonly string DriverKey = "driver";
 		public static readonly string EnvironmentKey = "environment";
@@ -104,7 +103,7 @@
 			}
 		}
 
-		public static ICollection<Feature> Features { get; set; }
+		public static ICollection<SessionFeature> Features { get; set; }
 
 		public static string LogoutUrl
 		{
@@ -118,7 +117,9 @@
 			}
 		}
 
-		public static Suite Suite { get; set; }
+		public static SessionSuite Suite { get; set; }
+
+		public static TimeSpan Timeout { get; set; }
 
 		public static IBrowserWait Wait
 		{
@@ -132,38 +133,6 @@
 			}
 		}
 
-		public static TimeSpan Timeout { get; set; }
-
-		public static void LoadFeature(string path)
-		{
-			string json = LoadData(path);
-
-			var data = Helpers.JsonSerialization.Deserialize(json, typeof(Feature));
-
-			if (data == null)
-			{
-				throw new NullReferenceException("data can not be null.");
-			}
-
-			Feature feature = (Feature)data;
-
-			TestSession.Features.Add(feature);
-		}
-		
-		public static void LoadSuite(string path)
-		{
-			string json = LoadData(path);
-
-			var data = Helpers.JsonSerialization.Deserialize(json, typeof(Suite));
-
-			if (data == null)
-			{
-				throw new NullReferenceException("data can not be null.");
-			}
-
-			TestSession.Suite = (Suite)data;
-		}
-
 		public static IBrowser CreateBrowserDriver(BrowserTypeEnum browserType)
 		{
 			ILogManager log = new Logger();
@@ -173,6 +142,70 @@
 		public static IBrowserWait CreateBrowserWait(IBrowser browser, TimeSpan timeout, TimeSpan? sleepInterval = null, IClock clock = null)
 		{
 			return null;
+		}
+
+		public static SessionFeature GetFeature(string id)
+		{
+			if (Features == null)
+			{
+				throw new NullReferenceException("Features cannot be a null value.");
+			}
+
+			SessionFeature feature = TestSession.Features.Where(x => x.Id == id).FirstOrDefault();
+
+			if (feature == null)
+			{
+				throw new NullReferenceException("feature cannot be a null value.");
+			}
+
+			return feature;
+		}
+
+		public static SessionScenario GetScenario(string id, SessionFeature feature)
+		{
+			if (feature == null)
+			{
+				throw new NullReferenceException("Feature cannot be a null value.");
+			}
+
+			SessionScenario scenario = feature.Scenarios.Where(x => x.Id == id).FirstOrDefault();
+
+			if (feature == null)
+			{
+				throw new NullReferenceException("scenario cannot be a null value.");
+			}
+
+			return scenario;
+		}
+
+		public static void LoadFeature(string path)
+		{
+			string json = LoadData(path);
+
+			var data = Helpers.JsonSerialization.Deserialize(json, typeof(SessionFeature));
+
+			if (data == null)
+			{
+				throw new NullReferenceException("data can not be null.");
+			}
+
+			SessionFeature feature = (SessionFeature)data;
+
+			TestSession.Features.Add(feature);
+		}
+
+		public static void LoadSuite(string path)
+		{
+			string json = LoadData(path);
+
+			var data = Helpers.JsonSerialization.Deserialize(json, typeof(SessionSuite));
+
+			if (data == null)
+			{
+				throw new NullReferenceException("data can not be null.");
+			}
+
+			TestSession.Suite = (SessionSuite)data;
 		}
 
 		private static string Load(string path)

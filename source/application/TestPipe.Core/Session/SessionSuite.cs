@@ -3,7 +3,7 @@
 	using System;
 	using System.Collections.Generic;
 
-	public class Suite
+	public class SessionSuite
 	{
 		public static string KeyPrefix { get; set; }
 
@@ -19,7 +19,7 @@
 
 		public string Environment { get; set; }
 
-		public ICollection<Feature> Features { get; set; }
+		public ICollection<SessionFeature> Features { get; set; }
 
 		public string LoginUrl { get; set; }
 

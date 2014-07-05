@@ -33,6 +33,11 @@ namespace TestPipe.Core.Control
 
 		public BaseControl(IBrowser browser, ISelect selector = null, string id = "", uint timeoutInSeconds = 0, bool displayed = false)
 		{
+			if (timeoutInSeconds == 0)
+			{
+				timeoutInSeconds = (uint)TestSession.Timeout.Seconds;
+			}
+
 			this.Browser = browser;
 
 			if (!string.IsNullOrWhiteSpace(id))

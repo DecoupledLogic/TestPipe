@@ -2,21 +2,22 @@
 {
 	using System;
 	using TechTalk.SpecFlow;
+	using TestPipe.Core.Session;
 	using TestPipe.Runner;
 
 	public static class Runner
 	{
-		public static void SetupFeature()
+		public static SessionFeature SetupFeature()
 		{
 			FeatureInfo current = FeatureContext.Current.FeatureInfo;
-			RunnerBase.SetupFeature(current.Title, current.Tags);
+			return RunnerBase.SetupFeature(current.Title, current.Tags);
 		}
 
-		public static void SetupScenario()
+		public static SessionScenario SetupScenario()
 		{
 			ScenarioInfo current = ScenarioContext.Current.ScenarioInfo;
 			FeatureInfo feature = FeatureContext.Current.FeatureInfo;
-			RunnerBase.SetupScenario(current.Title, feature.Title, current.Tags);
+			return RunnerBase.SetupScenario(current.Title, feature.Title, current.Tags);
 		}
 
 		public static void SetupSuite()

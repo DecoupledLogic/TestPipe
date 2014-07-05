@@ -43,6 +43,7 @@
     <Reference Include="KellermanSoftware.Compare-NET-Objects">
       <HintPath>..\..\..\packages\CompareNETObjects.3.00.0.0\lib\net40\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Moq">
       <HintPath>..\..\..\packages\Moq.4.2.1312.1622\lib\net40\Moq.dll</HintPath>
     </Reference>
@@ -89,7 +90,6 @@
   <ItemGroup>
     <Compile Include="Browser\BaseBrowserFixture.cs" />
     <Compile Include="Control\GridControlSpec.cs" />
-    <Compile Include="GenericDtoCacheSpec.cs" />
     <Compile Include="Page\BasePageSpec.cs" />
     <Compile Include="CacheSpecs.cs" />
     <Compile Include="Session\DeserializeFact.cs" />

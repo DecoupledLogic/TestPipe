@@ -2,8 +2,11 @@
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Dynamic;
+	using System.Linq;
 	using KellermanSoftware.CompareNetObjects;
 	using Newtonsoft.Json;
+	using Newtonsoft.Json.Linq;
 	using TestPipe.Core.Session;
 	using Xunit;
 
@@ -13,11 +16,11 @@
 		public void Can_Deserialize_Suite()
 		{
 			string json = this.GetSuiteJson();
-			Suite expected = this.GetSuite();
+			SessionSuite expected = this.GetSuite();
 
-			var e = JsonConvert.DeserializeObject<Suite>(json);
+			var e = JsonConvert.DeserializeObject<SessionSuite>(json);
 
-			Suite suite = (Suite)e;
+			SessionSuite suite = (SessionSuite)e;
 
 			CompareLogic compareLogic = new CompareLogic();
 			ComparisonResult result = compareLogic.Compare(expected, suite);
@@ -29,17 +32,17 @@
 		public void Can_Deserialize_Feature()
 		{
 			string json = this.GetFeatureJson();
-			Feature expected = this.GetFeature();
+			SessionFeature expected = this.GetFeature();
 
-			var e = JsonConvert.DeserializeObject<Feature>(json);
+			var e = JsonConvert.DeserializeObject<SessionFeature>(json);
 
-			Feature feature = (Feature)e;
+			SessionFeature feature = (SessionFeature)e;
 
-			CompareLogic compareLogic = new CompareLogic();
-			ComparisonResult result = compareLogic.Compare(expected, feature);
-
-			//Assert.True(result.AreEqual, result.DifferencesString);
-			Assert.True(result.Differences.Count < 2);
+			Assert.Equal(expected.Id, feature.Id);
+			Assert.Equal(expected.Path, feature.Path);
+			Assert.Equal(expected.Title, feature.Title);
+			Assert.Equal(expected.Scenarios.FirstOrDefault().Data.UserName, feature.Scenarios.FirstOrDefault().Data.UserName);
+			Assert.Equal(expected.Scenarios.FirstOrDefault().Data.Password, feature.Scenarios.FirstOrDefault().Data.Password);
 		}
 
 		private string GetSuiteJson()
@@ -80,9 +83,9 @@
 								}";
 		}
 
-		private Suite GetSuite()
+		private SessionSuite GetSuite()
 		{
-			Suite suite = new Suite();
+			SessionSuite suite = new SessionSuite();
 			suite.Name = "Google";
 			suite.Browser = "Firefox";
 			suite.ApplicationKey = "C5851267-AD37-482B-9762-A3FE5DF017EE";
@@ -109,16 +112,16 @@
 
 			suite.DbConnections = dbConnections;
 
-			ICollection<Feature> features = new List<Feature>();
+			ICollection<SessionFeature> features = new List<SessionFeature>();
 
-			Feature feature = new Feature();
+			SessionFeature feature = new SessionFeature();
 
 			feature.Title = "Search";
 			feature.Id = "1";
 			feature.Path = "Feature_Search.json";
 			features.Add(feature);
 
-			feature = new Feature();
+			feature = new SessionFeature();
 			feature.Title = "Result";
 			feature.Id = "2";
 			feature.Path = "Feature_Result.json";
@@ -138,84 +141,36 @@
 									'Scenarios': [
 										{
 											'Id': '1',
-											'Data': [
-												{'Key':'key', 'Value':'value'},
-												{'Key':'key2', 'Value':'value2'},
-												{'Key':'keyName', 'Value':'valueString'}
-											],
-											'Objects': [
-												{
-													'Type': 'User',
-													'Name': 'testuser1',
-													'Database': 'TestPipe',
-													'Namespace': 'TestPipe.Data.Transfer.Dto.Test',
-													'Seed': false,
-													'Properties': [
-														{'FullName': ''},
-														{'User_ID': 0},
-														{'User_Name': 'testuser1'}
-													]
-												}
-											]
+											'Data': {
+												'UserName':'testuser1', 
+												'Password':'Abcd1234'
+											}
 										}
 									]
 								}";
 		}
 
-		private Feature GetFeature()
+		private SessionFeature GetFeature()
 		{
-			Feature feature = new Feature();
+			SessionFeature feature = new SessionFeature();
 
 			feature.Id = "1";
 			feature.Path = "Feature_Search.json";
 			feature.Title = "Search";
 
-			ICollection<Scenario> scenarios = new List<Scenario>();
+			ICollection<SessionScenario> scenarios = new List<SessionScenario>();
 
-			Scenario scenario = new Scenario();
+			SessionScenario scenario = new SessionScenario();
 			scenario.Id = "1";
 
-			ICollection<KeyValue> data = new List<KeyValue>();
+			dynamic data = new JObject();
 
-			KeyValue kv = new KeyValue();
-			kv.Key = "key";
-			kv.Value = "value";
-			data.Add(kv);
-
-			kv = new KeyValue();
-			kv.Key = "key2";
-			kv.Value = "value2";
-			data.Add(kv);
-
-			kv = new KeyValue();
-			kv.Key = "keyName";
-			kv.Value = "valueString";
-			data.Add(kv);
+			data.UserName = "testuser1";
+			data.Password = "Abcd1234";
 
 			scenario.Data = data;
 
 			scenarios.Add(scenario);
-
-			ICollection<DataObject> objects = new List<DataObject>();
-
-			DataObject obj = new DataObject();
-			obj.Name = "testuser1";
-			obj.Database = "TestPipe";
-			obj.Namespace = "TestPipe.Data.Transfer.Dto.Test";
-			obj.Type = "User";
-			obj.Seed = false;
-
-			ICollection<IDictionary<string, dynamic>> properties = new List<IDictionary<string, dynamic>>();
-
-			properties.Add(new Dictionary<string, dynamic>() { { "FullName", string.Empty } });
-			properties.Add(new Dictionary<string, dynamic>() { { "User_ID", 0 } });
-			properties.Add(new Dictionary<string, dynamic>() { { "User_Name", "testuser1" } });
-
-			obj.Properties = properties;
-
-			objects.Add(obj);
-
-			scenario.Objects = objects;
 
 			feature.Scenarios = scenarios;
 
