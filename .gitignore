@@ -124,3 +124,6 @@ WebProject.*
 /documentation/ProductElements.txt
 /documentation/heuristicTestStrategy.pdf
 /source/application/TestPipe.Build/Pub
+/NuGet/TestPipe.Plugins/Selenium/TestPipe.Plugins.Selenium.2.0.0
+/NuGet/TestPipe/TestPipe.1.0.0/*.nupkg
+*.nupkg
