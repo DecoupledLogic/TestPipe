@@ -99,15 +99,7 @@ public static string BuildConfig
 
 [Task] public static void Default()
 {
-	Greeting();
-}
-
-/// <summary> 
-/// Very simple demo task. See other demo tasks for more useful stuff ;)
-/// </summary>
-[Task] public static void Greeting()
-{
-	Log.Info("Hello from Nake!");
+	
 }
 
 /// <summary> 

@@ -1,3 +1,8 @@
+#r "..\..\..\packages\Nake.2.0.12\tools\net45\Meta.dll"
+#r "..\..\..\packages\Nake.2.0.12\tools\net45\Utility.dll"
+#r "System.Xml"
+#r "System.Xml.Linq"
+
 using System;
 using System.IO;
 using System.Linq;
@@ -14,25 +19,28 @@ public static string Trademark = "Trademark by " + CompanyName;
 public static string Divider = "-----------------------------------";
 public static string MajorMinorVersion = "1.0";
 public static string ApplicationVersion = MajorMinorVersion + ".0";
+
 public static string MsbuildExe = @"C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe";
 public static string NuGetExe = @"C:\_TestPipe\tools\nuget.exe";
+
 public static string SolutionRoot = @"C:\_TestPipe";
-public static string BuildPath = SolutionRoot + @"\Build";
 public static string SolutionFile = SolutionRoot + @"\TestPipe.sln";
+
 public static string SourcePath = SolutionRoot + @"\source";
 public static string ApplicationPath = SourcePath + @"\application";
-public static string DemoPath = SourcePath + @"\demo";
-public static string ReleasePath = BuildPath + @"\Release";
-public static string OutputPath = BuildPath + @"\Output";
-public static string PubPath = BuildPath + @"\Pub";
-public static string DocsPath = BuildPath + @"\Docs";
-public static string DistroPath = BuildPath + @"\Distro";
-public static string WebPath = BuildPath + @"\Output_PublishedWebsites";
 public static string TestPath = SourcePath + @"\tests";
+public static string DemoPath = SourcePath + @"\demo";
+
+public static string BuildPath = SolutionRoot + @"\Build";
+public static string DocsPath = BuildPath + @"\Docs";
+public static string ReportsPath = BuildPath + @"\Reports";
+public static string DistroPath = BuildPath + @"\Distro";
+public static string PubPath = BuildPath + @"\Pub";
+
 
 [Task] public static void Default()
 {
-	Greeting();
+	Go();
 }
 
 /// <summary>
@@ -56,14 +64,6 @@ public static string TestPath = SourcePath + @"\tests";
 }
 
 /// <summary> 
-/// Very simple demo task. See other demo tasks for more useful stuff ;)
-/// </summary>
-[Task] public static void Greeting()
-{
-	Log.Info("Hello from Nake!");
-}
-
-/// <summary> 
 /// Delete all build asset folders
 /// </summary>
 [Task] public static void Clean()
@@ -72,14 +72,14 @@ public static string TestPath = SourcePath + @"\tests";
 
 	try
 	{
-		Log.Info("Removing Folder: " + DocsPath);
-		DeleteDirectory(DocsPath);
+		
+		string[] folders = new string[]{BuildPath, DocsPath, ReportsPath, DistroPath, PubPath};
 
-		Log.Info("Removing Folder: " + DistroPath);
-		DeleteDirectory(DistroPath);
-
-		Log.Info("Removing Folder: " + OutputPath);	
-		DeleteDirectory(OutputPath);
+		foreach(var folder in folders)
+		{
+			Log.Info("Removing Folder: " + folder);
+			DeleteDirectory(folder);
+		}
 	}
   catch (System.Exception ex) 
   {
@@ -96,15 +96,14 @@ public static string TestPath = SourcePath + @"\tests";
 [Task] public static void Init()
 {
 	PrintHeader("Begin Task: Init");
-	
-	Log.Info("Creating Folder: " + DocsPath);
-	FS.MakeDir(DocsPath);
 
-	Log.Info("Creating Folder: " + DistroPath);
-	FS.MakeDir(DistroPath);
+	string[] folders = new string[]{BuildPath, DocsPath, ReportsPath, DistroPath, PubPath};
 
-	Log.Info("Creating Folder: " + OutputPath);	
-	FS.MakeDir(OutputPath);
+	foreach(var folder in folders)
+	{
+		Log.Info("Creating Folder: " + folder);
+		FS.MakeDir(folder);
+	}
 
 	PrintFooter("End Task: Init");
 }
@@ -219,7 +218,7 @@ public static string GetProjectName(string directory)
 
 public static string GetVersion()
 {
-	string defaultVersion = "1.0.0";
+	string defaultVersion = "2.0.1";
 	return defaultVersion;
 }
 

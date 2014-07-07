@@ -1,14 +1,12 @@
 ﻿{
-	"Name": "Google",
-	"Browser": "IE",
 	"ApplicationKey": "C5851267-AD37-482B-9762-A3FE5DF017EE",
-	"Environment": "Prod",
 	"BaseURL": "https://www.google.com/",
-	"LogoutURL": "",
-	"Timeout": 60,
-	"PageTimeout": 60,
+	"Browser": "IE",
+	"Environment": "Prod",
 	"LoginUrl": "",
-	"WaitTime": 60,
+	"LogoutURL": "",
+	"Name": "Google",
+	"Timeout": 60,
 	"DbConnections": [
 		{
 			"Name": "Main",

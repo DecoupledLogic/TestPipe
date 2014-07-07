@@ -25,8 +25,6 @@
 			{
 				this.testContextInstance = value;
 			}
-		}
-		
-		
+		}		
 	}
 }

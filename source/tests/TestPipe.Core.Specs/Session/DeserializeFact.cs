@@ -93,9 +93,7 @@
 			suite.BaseUrl = "http://www.bing.com/";
 			suite.LogoutUrl = string.Empty;
 			suite.Timeout = 60;
-			suite.PageTimeout = 60;
 			suite.LoginUrl = string.Empty;
-			suite.WaitTime = 60;
 
 			ICollection<DbConnection> dbConnections = new List<DbConnection>();
 

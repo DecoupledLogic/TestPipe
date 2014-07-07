@@ -1,10 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TestPipe.Core;
-using TestPipe.Core.Enums;
-
-namespace TestPipe.Runner.Specs
+﻿namespace TestPipe.Runner.Specs
 {
+	using System;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using TestPipe.Core;
+	using TestPipe.Core.Enums;
+
 	[TestClass]
 	public class RunnerHelperSpec
 	{
