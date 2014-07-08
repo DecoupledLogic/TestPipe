@@ -54,7 +54,7 @@
 
 		void AddCookie(string key, string value, string path = "/", string domain = null, DateTime? expiry = null);
 
-		void WaitForPageLoad(uint timeoutInSeconds = 0);
+		void WaitForPageLoad(uint timeoutInSeconds = 0, string title = "");
 
 		void MaximizeWindow();
 

@@ -315,7 +315,7 @@ namespace TestPipe.Core.Control
 			this.Element.Clear();
 		}
 
-		public void Click(uint timeoutInSeconds = 0)
+		public void Click(uint timeoutInSeconds = 0, string pageTitle = "")
 		{
 			if (timeoutInSeconds == 0)
 			{
@@ -326,7 +326,7 @@ namespace TestPipe.Core.Control
 
 			if (timeoutInSeconds > 0)
 			{
-				this.Browser.WaitForPageLoad(timeoutInSeconds);
+				this.Browser.WaitForPageLoad(timeoutInSeconds, pageTitle);
 			}
 		}
 

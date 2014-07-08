@@ -51,10 +51,14 @@
 		public BasePage Submit(string text)
 		{
 			this.SearchButton.Click();
-			//System.Threading.
+
 			BasePage resultPage = new SearchPage(this.Browser, this.TestEnvironment);
 
 			resultPage.Title = text + " - " + SearchPage.PageTitle;
+			
+			this.Browser.WaitForPageLoad(4, resultPage.Title);
+			
+			//System.Threading.
 			return resultPage;
 		}
 	}

@@ -204,9 +204,9 @@
 			}
 		}
 
-		public void WaitForPageLoad(uint timeoutInSeconds = 0)
+		public void WaitForPageLoad(uint timeoutInSeconds = 0, string pageTitle = "")
 		{
-			this.webDriver.WaitForPageLoad(timeoutInSeconds);
+			this.webDriver.WaitForPageLoad(timeoutInSeconds, pageTitle);
 		}
 
 		protected virtual void Dispose(bool disposing)

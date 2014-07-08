@@ -11,7 +11,7 @@
 
 		void Clear();
 
-		void Click(uint timeoutInSeconds = 0);
+		void Click(uint timeoutInSeconds = 0, string pageTitle = "");
 
 		void Click(int x, int y);
 

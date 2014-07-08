@@ -49,7 +49,7 @@
 			return driver.FindElements(by);
 		}
 
-		public static void WaitForPageLoad(this IWebDriver driver, uint timeoutInSeconds)
+		public static void WaitForPageLoad(this IWebDriver driver, uint timeoutInSeconds, string pageTitle = "")
 		{
 			string state = string.Empty;
 			try
@@ -78,7 +78,19 @@
 						//but we don't want to throw a TimeoutException as it would swallow this so we will try to rethrow the error in the TimeoutException catch.
 					}
 
-					return IsValidDocumentReadyState(state);
+					if (IsValidDocumentReadyState(state))
+					{
+						//If a title is not given just return true.
+						if (string.IsNullOrEmpty(pageTitle))
+						{
+							return true;
+						}
+
+						//If title is given, return result of comparison to browser title.
+						return d.Title == pageTitle;
+					}
+
+					return false;
 				});
 			}
 			catch (TimeoutException)

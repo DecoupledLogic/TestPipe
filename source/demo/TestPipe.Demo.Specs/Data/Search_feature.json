@@ -1,29 +1,12 @@
 ﻿{
 	"Id": "1",
-	"Path": "Feature_Search.json",
 	"Title": "Search",
 	"Scenarios": [
 		{
 			"Id": "1",
-			"Data": [
-				{"Key":"key", "Value":"value"},
-				{"Key":"key2", "Value":"value2"},
-				{"Key":"keyName", "Value":"valueString"}
-			],
-			"Objects": [
-				{
-					"Type": "User",
-					"Name": "testuser1",
-					"Database": "TestPipe",
-					"Namespace": "TestPipe.Data.Transfer.Dto.Test",
-					"Seed": false,
-					"Properties": [
-						{"FullName": ""},
-						{"User_ID": 0},
-						{"User_Name": "testuser1"}
-					]
-				}
-			]
+			"Data": {
+				"Q": "test pipe"
+			}
 		}
 	]
 }
