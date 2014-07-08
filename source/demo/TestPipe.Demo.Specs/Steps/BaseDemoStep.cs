@@ -19,8 +19,7 @@
 		//}
 
 		//These bindings are global to all features and scenarios, meaning this runs before and after every feature and before every scenario.
-
-	  [BeforeScenario]
+		[BeforeScenario]
 		public static void SetupScenario()
 		{
 			try

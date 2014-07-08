@@ -15,4 +15,3 @@ using System.Reflection;
 [assembly: AssemblyProductAttribute("TestPipe")]
 [assembly: AssemblyTrademarkAttribute("Trademark by Charles Bryant")]
 [assembly: AssemblyVersionAttribute("2.0.0")]
-
