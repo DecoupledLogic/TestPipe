@@ -123,7 +123,6 @@
       <DependentUpon>Search.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Steps\BaseDemoStep.cs" />
     <Compile Include="Steps\SearchSteps.cs" />
     <Compile Include="Steps\StepHelper.cs" />
   </ItemGroup>
