@@ -127,3 +127,4 @@ WebProject.*
 /NuGet/TestPipe.Plugins/Selenium/TestPipe.Plugins.Selenium.2.0.0
 /NuGet/TestPipe/TestPipe.1.0.0/*.nupkg
 *.nupkg
+/Plugins/Browsers/TestPipe.Selenium.dll
