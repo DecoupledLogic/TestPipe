@@ -1,0 +1,60 @@
+<html>
+<head>
+</head>
+
+<body>
+<div id="list">
+	<input type="checkbox" name="1" id="1" value = "6">
+	<label for="u"> allen </label>
+	<br>
+	<input type="checkbox" name="2" id="2" value = "7">
+	<label for="x"> asdfds </label>
+</div>
+
+<div id="cardSettings">
+			<h3>Manage Card Settings</h3>
+			Authorization Attempts
+
+			<div class="attemptOption">
+				<input checked="checked" data-val="true" data-val-required="The SwipeSelection field is required." id="SwipeSelection" name="SwipeSelection" type="radio" value="Default" />
+				Default
+			</div>
+			<div class="attemptOption">
+				<input id="SwipeSelection" name="SwipeSelection" type="radio" value="Max" />
+				Max
+			</div>
+			<div id="blockCard" class="cardOption">
+				<label for="blocked">
+					Block Card
+				</label>
+				<input data-val="true" data-val-required="The Blocked field is required." id="blocked" name="Blocked" type="checkbox" value="true" /><input name="Blocked" type="hidden" value="false" />
+				<select id="SelectedBlockReason" name="SelectedBlockReason"><option value="">Select One</option>
+<option value="a">Unable to Process Card Payment Over a Certain Amount</option>
+<option value="b">Unable to Process Card Payment</option>
+<option value="c">Duplicate Payment</option>
+<option value="d">Invoicing Issue</option>
+<option value="e">Other</option>
+</select>
+			</div>
+
+			<div id="recipients">
+				<span id="recipientLabel">Send Email To</span>
+				<div id="list">
+					<input id="UsersToNotify36" name="UsersToNotify" type="checkbox" value="5"></input><label for="UsersToNotify36">Allen Smith (asmith@tab.com)</label><br/><input id="UsersToNotify37" name="UsersToNotify" type="checkbox" value="6"></input><label for="UsersToNotify37">Tom Brown (tbrown@tab.com)</label><br/><input id="UsersToNotify38" name="UsersToNotify" type="checkbox" value="7"></input><label for="UsersToNotify38">Amy Hartwig (ahartwig@tab.com)</label><br/>
+				</div>
+			</div>
+		</div>
+
+
+<div id="bubble" class="breadCrumb">
+			
+	<ul>
+		<li><a href="#">Test Company</a></li>
+		<li><a href="#">Recipient Details</a></li> 
+		<li>Manage Card</li>
+	</ul>
+</div>
+
+
+</body>
+</html>

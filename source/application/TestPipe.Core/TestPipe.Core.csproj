@@ -76,6 +76,7 @@
     <Compile Include="Browser\BrowserConfiguration.cs" />
     <Compile Include="Control\CheckBox.cs" />
     <Compile Include="Helpers\TextHelper.cs" />
+    <Compile Include="Interfaces\IListElement.cs" />
     <Compile Include="ReadOnlyCache.cs" />
     <Compile Include="Exceptions\AggregateNotFoundException.cs" />
     <Compile Include="Exceptions\UnexpectedTagException.cs" />

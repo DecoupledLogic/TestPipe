@@ -29,6 +29,13 @@
 			return this.ToElement(element);
 		}
 
+        public IListElement FindList(ISelect by, uint timeoutInSeconds = 0, bool displayed = false)
+        {
+            IWebElement element = this.GetWebElement(by, timeoutInSeconds, displayed);
+
+            return new SeleniumListElement(this, element);
+        }
+
 		public ReadOnlyCollection<IElement> FindElements(ISelect by, uint timeoutInSeconds = 0)
 		{
 			By seleniumBy = GetSeleniumBy(by);
