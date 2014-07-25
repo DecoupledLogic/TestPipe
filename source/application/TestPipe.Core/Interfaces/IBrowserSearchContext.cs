@@ -11,6 +11,8 @@
 
 		ISelectElement SelectElement(ISelect by, uint timeoutInSeconds = 0, bool displayed = false);
 
+        IListElement FindList(ISelect by, uint timeoutInSeconds = 0, bool displayed = false);
+
 		IElement GetActiveElement();
 	}
 }

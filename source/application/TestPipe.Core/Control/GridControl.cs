@@ -281,11 +281,36 @@
 			return selectHeader;
 		}
 
+        /* Brief : if default XPath for columns fail, this function will be called
+         * Parameters : void 
+         * Return Value : IList<IControl> : All the columns in the table
+        */
+
+        private IList<IControl> GetAnotherColumnFromat()
+        {
+            IList<IControl> columns;
+            IControl control = new BaseControl(this.Browser, null, null);
+            Select selector = new Select(FindByEnum.XPath, string.Format("//*[@id='{0}']/tbody/tr/td", this.SelectId));
+            columns = control.FindAll(selector);
+            return columns;
+        }
 		private void SetColumns()
 		{
 			IControl control = new BaseControl(this.Browser, null, null);
 			Select selector = this.GetColumnsSelector();
+            int countColumnFormatFindingAttempts = 0;
 			this.columns = control.FindAll(selector);
+            
+            while (this.columns == null)
+            {
+                if (countColumnFormatFindingAttempts == 1)
+                {
+                    break;
+                }
+                this.columns = this.GetAnotherColumnFromat();
+                countColumnFormatFindingAttempts++;
+            }
+
 			this.ColumnCount = this.columns.Count;
 		}
 
