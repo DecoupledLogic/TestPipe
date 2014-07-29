@@ -10,6 +10,10 @@
 
 		ReadOnlyCollection<IControl> FindAll(ISelect by, uint timeout = 0);
 
+		IControl FindChild(ISelect by, uint timeout = 0, bool displayed = false);
+
+		ReadOnlyCollection<IControl> FindAllChildren(ISelect by, uint timeout = 0);
+
 		IControl FindById(string id, uint timeout = 0, bool displayed = false);
 
 		IControl FindByText(string text, uint timeout = 0, bool displayed = false);

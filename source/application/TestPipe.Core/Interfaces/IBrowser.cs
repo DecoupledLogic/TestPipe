@@ -10,7 +10,7 @@
 
 	public interface IBrowser
 	{
-		IBrowserSearchContext BrowserSearchContext { get; }
+		IDomSearchContext BrowserSearchContext { get; }
 
 		BrowserTypeEnum BrowserType { get; }
 

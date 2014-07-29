@@ -3,7 +3,7 @@
 	using System;
 	using System.Drawing;
 
-	public interface IElement
+	public interface IElement : IDomSearchContext
 	{
 		bool Displayed { get; }
 

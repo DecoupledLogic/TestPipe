@@ -179,6 +179,10 @@
       <Project>{f7a93c74-cbd6-4122-a15a-b2c4a7f2a659}</Project>
       <Name>TestPipe.Runner</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\application\TestPipe.Selenium\TestPipe.Selenium.csproj">
+      <Project>{1e7d0b83-afe8-4099-b827-b0adfd885997}</Project>
+      <Name>TestPipe.Selenium</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestPipe.Data.Dto.TestPipe\TestPipe.Data.Dto.TestPipeRepo.csproj">
       <Project>{6c66db6c-13ec-4e58-8b33-cd3a11c125aa}</Project>
       <Name>TestPipe.Data.Dto.TestPipeRepo</Name>

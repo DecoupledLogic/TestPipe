@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Browser\BrowserConfiguration.cs" />
     <Compile Include="Control\CheckBox.cs" />
+    <Compile Include="Exceptions\ManualOnlyException.cs" />
     <Compile Include="Helpers\TextHelper.cs" />
     <Compile Include="Interfaces\IListElement.cs" />
     <Compile Include="ReadOnlyCache.cs" />
@@ -108,15 +109,18 @@
     <Compile Include="Enum\EnvironmentEnum.cs" />
     <Compile Include="Enum\FindByEnum.cs" />
     <Compile Include="Interfaces\ISelectElement.cs" />
+    <Compile Include="Session\CultureInfo.cs" />
     <Compile Include="Session\DbConnection.cs" />
+    <Compile Include="Session\Result.cs" />
     <Compile Include="Session\SessionFeature.cs" />
+    <Compile Include="Session\SessionResult.cs" />
     <Compile Include="Session\SessionScenario.cs" />
     <Compile Include="Session\SessionSuite.cs" />
     <Compile Include="TestSession.cs" />
     <Compile Include="Interfaces\IAggregateRoot.cs" />
     <Compile Include="Interfaces\IApplication.cs" />
     <Compile Include="Interfaces\IBrowser.cs" />
-    <Compile Include="Interfaces\IBrowserSearchContext.cs" />
+    <Compile Include="Interfaces\IDomSearchContext.cs" />
     <Compile Include="Interfaces\IBrowserWait.cs" />
     <Compile Include="Interfaces\IClock.cs" />
     <Compile Include="Interfaces\IControl.cs" />

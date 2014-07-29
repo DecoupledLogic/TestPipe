@@ -83,6 +83,8 @@
   <ItemGroup>
     <Compile Include="Browsers\SeleniumBrowserSearchContext.cs" />
     <Compile Include="Browsers\SeleniumBrowserWait.cs" />
+    <Compile Include="Common\ISeleniumSearchContext.cs" />
+    <Compile Include="Common\SeleniumHelper.cs" />
     <Compile Include="Controls\SeleniumListElement.cs" />
     <Compile Include="Controls\SeleniumControl.cs" />
     <Compile Include="Browsers\Browser.cs" />

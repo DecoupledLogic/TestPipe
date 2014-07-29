@@ -3,7 +3,7 @@
 	using System;
 	using System.Collections.ObjectModel;
 
-	public interface IBrowserSearchContext
+	public interface IDomSearchContext
 	{
 		IElement FindElement(ISelect by, uint timeoutInSeconds = 0, bool displayed = false);
 

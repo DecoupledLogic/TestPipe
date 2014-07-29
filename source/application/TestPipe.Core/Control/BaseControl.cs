@@ -260,9 +260,49 @@ namespace TestPipe.Core.Control
 			return this;
 		}
 
+		public IControl FindChild(ISelect by, uint timeoutInSeconds = 0, bool displayed = false)
+		{
+			try
+			{
+				this.Element = this.Element.FindElement(by, timeoutInSeconds, displayed);
+			}
+			catch (ElementNotFoundException)
+			{
+				this.Element = null;
+			}
+
+			return this;
+		}
+
 		public ReadOnlyCollection<IControl> FindAll(ISelect by, uint timeoutInSeconds = 0)
 		{
 			ReadOnlyCollection<IElement> elements = this.Browser.BrowserSearchContext.FindElements(by, timeoutInSeconds);
+
+			if (elements == null)
+			{
+				return null;
+			}
+
+			if (elements.Count < 1)
+			{
+				return null;
+			}
+
+			List<IControl> controls = new List<IControl>();
+
+			foreach (var element in elements)
+			{
+				IControl control = new BaseControl(this.Browser, element);
+				controls.Add(control);
+			}
+
+			ReadOnlyCollection<IControl> results = new ReadOnlyCollection<IControl>(controls);
+			return results;
+		}
+
+		public ReadOnlyCollection<IControl> FindAllChildren(ISelect by, uint timeoutInSeconds = 0)
+		{
+			ReadOnlyCollection<IElement> elements = this.Element.FindElements(by, timeoutInSeconds);
 
 			if (elements == null)
 			{

@@ -61,16 +61,17 @@
   <ItemGroup>
     <Compile Include="ConditionAssertGreaterTests.cs" />
     <Compile Include="ConditionAssertLessTests.cs" />
-    <Compile Include="ConditionAssertTests.cs" />
-    <Compile Include="CustomAssertTests.cs" />
-    <Compile Include="ExceptionAssertTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeAssertTests.cs" />
+    <Compile Include="AssertsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\application\TestPipe.Assertions\TestPipe.Assertions.csproj">
       <Project>{f4823cf7-2ace-4271-ac16-caaae1b48a8e}</Project>
       <Name>TestPipe.Assertions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\application\TestPipe.Core\TestPipe.Core.csproj">
+      <Project>{15b21288-dec4-4e87-82eb-1f792e8678d8}</Project>
+      <Name>TestPipe.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

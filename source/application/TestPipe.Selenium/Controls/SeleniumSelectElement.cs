@@ -8,14 +8,15 @@
 	using TestPipe.Core.Exceptions;
 	using TestPipe.Core.Interfaces;
 	using TestPipe.Selenium.Browsers;
+	using TestPipe.Selenium.Common;
 
 	public class SeleniumSelectElement : SeleniumElement, ISelectElement
 	{
-		private SeleniumBrowserSearchContext context;
+		private ISeleniumSearchContext context;
 
 		private SelectElement selectElement;
 
-		public SeleniumSelectElement(SeleniumBrowserSearchContext context, IWebElement element)
+		public SeleniumSelectElement(ISeleniumSearchContext context, IWebElement element)
 			: base(element)
 		{
 			if (element.TagName.ToLower() != "select")

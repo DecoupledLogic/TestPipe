@@ -12,6 +12,7 @@
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Interfaces;
 	using TestPipe.Specs.Browser;
+	using TestPipe.Selenium.Browsers;
 
 	[TestClass]
 	public class GridControlSpec
@@ -47,7 +48,7 @@
 		public void SetUp()
 		{
 			ILogManager log = new Logger();
-			this.browserInstance = BrowserFactory.Create(BrowserTypeEnum.IE, log);
+			this.browserInstance = new Browser(BrowserTypeEnum.IE); 
 		}
 
 		[TestCleanup]

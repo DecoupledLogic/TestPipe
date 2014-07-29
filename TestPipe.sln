@@ -85,6 +85,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPipe.NPoco", "source\ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPipe.Specs.Selenium", "source\tests\TestPipe.Specs.Selenium\TestPipe.Specs.Selenium.csproj", "{727DF440-547B-47AB-BB32-1DD4CFD7599D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPipe.Analytics", "source\application\TestPipe.Analytics\TestPipe.Analytics.csproj", "{27E7026A-B893-449C-88CA-C6F5CAAE46E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -170,6 +172,10 @@ Global
 		{727DF440-547B-47AB-BB32-1DD4CFD7599D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{727DF440-547B-47AB-BB32-1DD4CFD7599D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{727DF440-547B-47AB-BB32-1DD4CFD7599D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E7026A-B893-449C-88CA-C6F5CAAE46E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E7026A-B893-449C-88CA-C6F5CAAE46E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E7026A-B893-449C-88CA-C6F5CAAE46E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E7026A-B893-449C-88CA-C6F5CAAE46E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

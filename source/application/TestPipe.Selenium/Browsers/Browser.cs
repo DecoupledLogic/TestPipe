@@ -34,7 +34,7 @@
 			this.LoadBrowser(browser);
 		}
 
-		public IBrowserSearchContext BrowserSearchContext
+		public IDomSearchContext BrowserSearchContext
 		{
 			get { return this.searchContext; }
 		}

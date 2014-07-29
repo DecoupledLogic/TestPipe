@@ -1,20 +1,28 @@
 ﻿namespace TestPipe.Assertions
 {
-    public static class TestHelper
-    {
-        public static void EvaluateAssert(AssertResult result)
-        {
-            if (result == null)
-            {
-                return;
-            }
+	using System;
+	using TestPipe.Core.Enums;
 
-            if (result.Exception == null)
-            {
-                return;
-            }
+	public static class TestHelper
+	{
+		public static void EvaluateAssert(AssertResult result)
+		{
+			if (result == null)
+			{
+				return;
+			}
 
-            throw result.Exception;
-        }
-    }
+			if (result.Exception == null)
+			{
+				return;
+			}
+
+			if (result.AssertStatus != AssertStatusEnum.Fail)
+			{
+				return;
+			}
+
+			throw result.Exception;
+		}
+	}
 }
