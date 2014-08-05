@@ -11,9 +11,9 @@
 	using TestPipe.Core.Control;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Interfaces;
+    using TestPipe.Selenium.Browsers;
 	using TestPipe.Specs.Browser;
-	using TestPipe.Selenium.Browsers;
-
+	
 	[TestClass]
 	public class GridControlSpec
 	{
@@ -313,7 +313,7 @@
 			this.sut = new GridControl(this.browserInstance, selector);
 		}
 
-		private ICollection<string> ExpectedColumnText()
+        private ICollection<string> ExpectedColumnText()
 		{
 			ICollection<string> list = new List<string>();
 			list.Add("Row 1 Column A");
