@@ -1,8 +1,9 @@
 ﻿namespace TestPipe.Core.Control
 {
 	using System;
-	using System.Collections.Generic;
-	using System.Collections.ObjectModel;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
 	using System.Text;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Exceptions;
@@ -14,7 +15,7 @@
 
 		private IList<IControl> rows;
 
-		public GridControl(IBrowser browser)
+        public GridControl(IBrowser browser)
 			: base(browser, null, null)
 		{
 		}
@@ -40,7 +41,7 @@
 
 		public int RowCount { get; set; }
 
-		private ReadOnlyCollection<IControl> ColumnHeaders
+        private ReadOnlyCollection<IControl> ColumnHeaders
 		{
 			get
 			{
@@ -53,7 +54,7 @@
 			}
 		}
 
-		public IControl GetCell(int row, int column, ControlTypeEnum type = ControlTypeEnum.Unknown)
+        public IControl GetCell(int row, int column, ControlTypeEnum type = ControlTypeEnum.Unknown)
 		{
 			Select selector = this.SelectByCell(row, column);
 			selector = this.AppendControlTypeXpath(selector, type);
@@ -186,6 +187,21 @@
 			return rowText;
 		}
 
+        public List<IControl> GetSelectedColumn(int columnNumber)
+        {
+            ReadOnlyCollection<IControl> columnsControl;
+            List<IControl> columnControl = new List<IControl>();
+            columnsControl = this.ColumnHeaders;
+            int numOfRows = this.RowCount;
+            int numOfColums = this.ColumnCount / this.RowCount;
+            columnsControl.ToArray<IControl>();
+            for (int i = 0; i < numOfRows; i++)
+            {
+                columnControl.Add(columnsControl[(i * numOfColums) + columnNumber]);
+            }
+            return columnControl;
+        }
+
 		private static string ColumnXPath(string id)
 		{
 			return string.Format("//*[@id='{0}']/tbody/tr/th", id);
@@ -294,6 +310,7 @@
             columns = control.FindAll(selector);
             return columns;
         }
+
 		private void SetColumns()
 		{
 			IControl control = new BaseControl(this.Browser, null, null);
