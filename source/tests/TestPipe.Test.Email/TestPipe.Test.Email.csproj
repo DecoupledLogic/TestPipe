@@ -58,6 +58,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ExchangeServiceTest.cs" />
+    <Compile Include="ExchangeServiceTest2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

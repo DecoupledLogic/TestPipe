@@ -187,6 +187,7 @@
 			return rowText;
 		}
 
+        /* Column number starts with zero, Dave needs to change that */
         public List<IControl> GetSelectedColumn(int columnNumber)
         {
             ReadOnlyCollection<IControl> columnsControl;

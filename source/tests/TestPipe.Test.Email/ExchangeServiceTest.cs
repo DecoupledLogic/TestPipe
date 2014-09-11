@@ -46,10 +46,9 @@ namespace TestPipe.Test.Email
 			MailBox sut = new MailBox(svc);
 
 			ItemView viewEmails = new ItemView(int.MaxValue) { PropertySet = new PropertySet(BasePropertySet.IdOnly) };
-			SearchFilter filter = new SearchFilter.ContainsSubstring(ItemSchema.Subject, "Puppet");
-
-			FindItemsResults<Item> findResults = svc.FindItems(WellKnownFolderName.Inbox, filter, viewEmails);
-			svc.LoadPropertiesForItems(findResults.Items, PropertySet.FirstClassProperties);
+            SearchFilter filter = new SearchFilter.ContainsSubstring(ItemSchema.Subject, "PayNetExchange");
+            FindItemsResults<Item> findResults = svc.FindItems(WellKnownFolderName.Inbox, filter, viewEmails);
+            svc.LoadPropertiesForItems(findResults.Items, PropertySet.FirstClassProperties);
 			
 			string result = string.Empty;
 			
@@ -57,7 +56,7 @@ namespace TestPipe.Test.Email
 			{
 				foreach (Item item in findResults)
 				{
-					result = item.Body;
+                    result = item.Body;
 				}
 			}
 
