@@ -214,7 +214,7 @@ public static string GetProjectName(string directory)
 
 public static string GetVersion()
 {
-	string defaultVersion = "2.0.1";
+	string defaultVersion = "2.1.0";
 	return defaultVersion;
 }
 

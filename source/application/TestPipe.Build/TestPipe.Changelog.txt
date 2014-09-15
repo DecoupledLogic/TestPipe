@@ -1,0 +1,39 @@
+﻿TestPipe
+
+2.1.0 - 7/31/2014
+
+Change:
++ Adding ability to find child controls within the context of a parent control.
++ Adding Analytics project to manage spec result persistence.
++ Updating to minimum Ninject 3.2.2.0.
++ Updating to minimum Ninject.Extensions.Logging 3.2.0.0.
++ Updating to minimum Ninject.Extensions.Logging.Log4net 3.2.0.0.
++ Updating to minimum Newtonsoft.Json 6.0.3.
++ Updating to minimum Selenium.WebDriver 2.42.0.
++ Updating to minimum Selenium.Support 2.42.0.
++ Updating to minimum TestPipe.Plugins.Selenium 2.0.0.
++ Updating to .Net 4.5.1.
+
+2.0.0 - 7/03/2014
+
+Breaking Change:
++ Updating session cache persistence from XML to JSON.
+
+Change:
++ Updating Demo Search page and step class to simplify test and add comments.
++ Updating implementation and usage of common SpecFlow bindings.
++ Updating BaseControl.Click() to use the default session timeout.
++ Updating BasePage.Open() to use the default session timeout.
+
+New:
++ Adding SpecFlow config to allow SpecFlow to find common bindings.
+
+1.0.1 - 5/3/2014
+
+Change:
++ Updating license.
++ Adding TestPipe.Plugins.Selenium
+
+1.0.0 - 5/3/2014
+
++ Initial Release

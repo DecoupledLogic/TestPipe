@@ -16,7 +16,7 @@ namespace TestPipe.Build
 		public static string Copyright = "Copyright (c) 2014, " + CompanyName;
 		public static string Trademark = "Trademark by " + CompanyName;
 		public static string Divider = "-----------------------------------";
-		public static string MajorMinorVersion = "1.0";
+		public static string MajorMinorVersion = "2.0";
 		public static string ApplicationVersion = MajorMinorVersion + ".0";
 
 		public static string MsbuildExe = @"C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe";
@@ -33,10 +33,11 @@ namespace TestPipe.Build
 		public static string BuildPath = SolutionRoot + @"\Build";
 		public static string DocsPath = BuildPath + @"\Docs";
 		public static string ReportsPath = BuildPath + @"\Reports";
-		public static string DistroPath = BuildPath + @"\Distro";
+		public static string DistroPath = BuildPath + @"\Distro\TestPipe";
 		public static string PubPath = BuildPath + @"\Pub";
 
-
+		public static string[] projects = new string[] { "TestPipe.Assertions", "TestPipe.Analytics", "TestPipe.Common", "TestPipe.Core", "TestPipe.Data", "TestPipe.NPoco", "TestPipe.Runner", "TestPipe.SpecFlow" };
+		
 		[Task]
 		public static void Default()
 		{
@@ -74,8 +75,6 @@ namespace TestPipe.Build
 
 			try
 			{
-				FS.RemoveDir(@"**\bin|**\obj");
-
 				string[] folders = new string[] { BuildPath, DocsPath, ReportsPath, DistroPath, PubPath };
 
 				foreach (var folder in folders)
@@ -201,16 +200,11 @@ namespace TestPipe.Build
 
 		public static void CopyFilesToDistro(string path)
 		{
-			foreach (string directory in Directory.GetDirectories(path))
+			foreach (string projectName in projects)
 			{
-				if (directory.EndsWith("Specs"))
-				{
-					continue;
-				}
+				string directory = string.Format(@"{0}\{1}", path, projectName);
 
-				Log.Info("------ Processing " + directory + "------");
-
-				string projectName = GetProjectName(directory);
+				Log.Info("------ Processing " + projectName + "------");
 
 				ProcessDistroSourceFiles(directory, projectName);
 			}
@@ -223,8 +217,14 @@ namespace TestPipe.Build
 
 		public static string GetVersion()
 		{
-			string defaultVersion = "2.0.1";
+			string defaultVersion = ApplicationVersion;
 			return defaultVersion;
+		}
+
+		public static string GetDistroVersionPath()
+		{
+			string path = string.Format(@"{0}.{1}", DistroPath, GetVersion()); ;
+			return path;
 		}
 
 		public static void ProcessDistroSourceFiles(string directory, string projectName)
@@ -238,13 +238,12 @@ namespace TestPipe.Build
 		{
 			Log.Info("Processing " + projectName + " nuspec files");
 
-			string source = directory;
+			string source = string.Format(@"{0}\{1}\TestPipe.nuspec", ApplicationPath, "TestPipe.Build");
 
-			string dest = string.Format(@"{0}\{1}", DistroPath, projectName);
+			string dest = string.Format(@"{0}\TestPipe.{2}.nuspec", GetDistroVersionPath(), GetVersion());
 
-			string[] fileMatch = new[] { ".nuspec" };
-
-			CopyFiles(source, fileMatch, dest);
+			Log.Info(string.Format("Copying {0} to {1}", source, dest));
+			FS.Copy(source, dest, true, false);
 		}
 
 		public static void CopyLibFiles(string directory, string projectName)
@@ -254,10 +253,10 @@ namespace TestPipe.Build
 			string source = string.Format(@"{0}\bin\{1}", directory, BuildConfig);
 			Log.Info("Lib Source: " + source);
 
-			string dest = string.Format(@"{0}\{1}\lib\net40", DistroPath, projectName);
+			string dest = string.Format(@"{0}\lib\net451", GetDistroVersionPath());
 			Log.Info("Lib Destination:  " + dest);
 
-			string[] fileMatch = new[] { ".dll", ".exe", ".config", ".xml" };
+			string[] fileMatch = new[] { projectName + ".dll" };
 
 			CopyFiles(source, fileMatch, dest);
 		}
@@ -267,8 +266,9 @@ namespace TestPipe.Build
 			Log.Info("Processing " + projectName + " content files");
 
 			string source = string.Format(@"{0}", directory);
-
-			string dest = string.Format(@"{0}\{1}\content", DistroPath, projectName);
+			Get data, features, pages, steps from Demo; App.config.transform from Build; 
+			New method to get root or add to nuspec method to copy TestPipe tools from build tools; TestPipe changelog and license from build root
+			string dest = string.Format(@"{0}\content", GetDistroVersionPath());
 
 			string[] fileMatch = new[] { ".txt", ".xml", ".config" };
 
@@ -302,7 +302,7 @@ namespace TestPipe.Build
 			DirectoryInfo directoryInfo = new DirectoryInfo(directory);
 
 			FileInfo[] files = directoryInfo.EnumerateFiles()
-				.Where(f => fileMatch.Contains(f.Extension.ToLower()))
+				.Where(f => fileMatch.Contains(f.Name.ToLower()))
 				.ToArray();
 
 			if (files.Length < 1)
