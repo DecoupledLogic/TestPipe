@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="Browser\BaseBrowserFixture.cs" />
     <Compile Include="Control\GridControlSpec.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Page\BasePageSpec.cs" />
     <Compile Include="CacheSpecs.cs" />
     <Compile Include="Session\DeserializeFact.cs" />
