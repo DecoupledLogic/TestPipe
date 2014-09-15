@@ -7,6 +7,6 @@ Feature: 1. Demo Search
 @Search
 Scenario: 1. Search for Something
 	Given I am on the search page
-	And when I do a search
+	And when I do a search for "TestPipe"
 	When I submit the search
 	Then results should be displayed

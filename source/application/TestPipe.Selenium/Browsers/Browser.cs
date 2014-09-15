@@ -12,7 +12,6 @@
 	using OpenQA.Selenium.Interactions;
 	using OpenQA.Selenium.Remote;
 	using TestPipe.Common;
-	using TestPipe.Core;
 	using TestPipe.Core.Browser;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Interfaces;
@@ -267,7 +266,7 @@
 		private void LoadDriver(BrowserTypeEnum browser, BrowserConfiguration configuration = null)
 		{
 			DesiredCapabilities capabilities = null;
-			
+
 			if (configuration != null)
 			{
 				capabilities = this.GetCapabiliities(configuration);
@@ -293,7 +292,7 @@
 				case BrowserTypeEnum.IE:
 					{
 						Proxy proxy = new Proxy();
-						
+
 						//proxy.IsAutoDetect = true;
 						proxy.Kind = ProxyKind.Manual;
 
