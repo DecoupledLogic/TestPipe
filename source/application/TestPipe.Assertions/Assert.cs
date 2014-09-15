@@ -233,6 +233,24 @@
 			Asserts.IsTrue(!double.IsNaN(value), failMessage, parameters);
 		}
 
+		public static void NotNull(object arg1, string message = "", params object[] parameters)
+		{
+			string reason = string.Format("{0} is null.", arg1);
+
+			string failMessage = GetFailMessage(reason, message);
+
+			Asserts.IsFalse(arg1 != null, failMessage, parameters);
+		}
+
+		public static void Null(object arg1, string message = "", params object[] parameters)
+		{
+			string reason = string.Format("{0} is not null.", arg1);
+
+			string failMessage = GetFailMessage(reason, message);
+
+			Asserts.IsTrue(arg1 == null, failMessage, parameters);
+		}
+
 		/// <summary>
 		/// Checks to make sure that the input delegate throws a exception of type exceptionType.
 		/// </summary>
@@ -283,24 +301,6 @@
 			}
 
 			return string.Format("{0} {1}", message, message2);
-		}
-
-		public static void Null(object arg1, string message = "", params object[] parameters)
-		{
-			string reason = string.Format("{0} is not null.", arg1);
-
-			string failMessage = GetFailMessage(reason, message);
-
-			Asserts.IsTrue(arg1 == null, failMessage, parameters);
-		}
-
-		public static void NotNull(object arg1, string message = "", params object[] parameters)
-		{
-			string reason = string.Format("{0} is null.", arg1);
-
-			string failMessage = GetFailMessage(reason, message);
-
-			Asserts.IsFalse(arg1 != null, failMessage, parameters);
 		}
 	}
 }
