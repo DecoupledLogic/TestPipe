@@ -130,6 +130,11 @@
 			return this.browser.GetAllCookies();
 		}
 
+		public BaseControl GetBaseControl(ISelect select)
+		{
+			return new BaseControl(this.Browser, select);
+		}
+
 		public string GetCookieValue(string key)
 		{
 			return this.GetAllPageCookies().FirstOrDefault(x => x.Key == key).Value;
