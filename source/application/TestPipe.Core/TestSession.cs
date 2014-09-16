@@ -144,14 +144,17 @@
 			return null;
 		}
 
-		public static SessionFeature GetFeature(string id)
+        /* Uncomment below if ids are significant for features */
+		//public static SessionFeature GetFeature(string id)
+        /* Comment below if ids are significant for features */
+        public static SessionFeature GetFeature(string title)
 		{
 			if (Features == null)
 			{
 				throw new NullReferenceException("Features cannot be a null value.");
 			}
 
-			SessionFeature feature = TestSession.Features.Where(x => x.Id == id).FirstOrDefault();
+			SessionFeature feature = TestSession.Features.Where(x => x.Title == title).FirstOrDefault();
 
 			if (feature == null)
 			{
