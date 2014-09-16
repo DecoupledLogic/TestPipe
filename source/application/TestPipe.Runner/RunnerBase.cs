@@ -48,10 +48,12 @@
 			{
 				throw new IgnoreException();
 			}
-
-			string featureId = RunnerHelper.GetIdFromTitle(featureTitle);
-
-			SessionFeature currentFeature = TestSession.Features.Where(x => x.Id == featureId).FirstOrDefault();
+            /* Uncommnet below if ids are significant for features */
+			//string featureId = RunnerHelper.GetIdFromTitle(featureTitle);
+            /* Uncomment below if ids are significant for features */
+			//SessionFeature currentFeature = TestSession.Features.Where(x => x.Id == featureId).FirstOrDefault();
+            /* Commnet below if ids are significant for features */
+            SessionFeature currentFeature = TestSession.Features.Where(x => x.Title == featureTitle).FirstOrDefault();
 
 			string scenarioId = RunnerHelper.GetIdFromTitle(title);
 
