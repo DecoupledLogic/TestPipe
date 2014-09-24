@@ -66,8 +66,12 @@
 
 		public static void SetupSuite()
 		{
-			if (TestSession.Suite != null)
+            if (TestSession.Suite != null)
 			{
+                if (TestSession.Browser == null)
+                {
+                    TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
+                }
 				return;
 			}
 			string file = ConfigurationManager.AppSettings["file.testSuite"];
@@ -78,14 +82,16 @@
 
 			TestSession.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(TestSession.Suite.Timeout));
 
-			TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
+            TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
+			
 		}
 
 		public static void TeardownFeature()
 		{
 			TestSession.Browser.Quit();
-
-			TestSession.Cache.Clear();
+            /* change , remove if error */
+            TestSession.Browser = null;
+			//TestSession.Cache.Clear();
 		}
 
 		public static void TeardownScenario()

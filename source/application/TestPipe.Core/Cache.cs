@@ -75,10 +75,10 @@
 
 		protected void SetKey(TKey key, TValue value)
 		{
-			if (!this.TryAdd(key, value))
-			{
-				throw new ArgumentException(string.Format("Duplicate key: \"{0}\" with value: \"{1}\" provided during Dictionary Merge.", key.ToString(), value.ToString()));
-			}
+           if (!this.TryAdd(key, value))
+           {
+               throw new ArgumentException(string.Format("Duplicate key: \"{0}\" with value: \"{1}\" provided during Dictionary Merge.", key.ToString(), value.ToString()));
+           }		
 		}
 
 		private static TKey GetKey(string key)

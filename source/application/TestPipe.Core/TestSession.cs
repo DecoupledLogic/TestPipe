@@ -41,7 +41,16 @@
 			}
 			set
 			{
-				Cache[DriverKey] = value;
+                if (Cache.ContainsKey(DriverKey))
+                {
+                    object o = null;
+                    Cache.TryRemove(DriverKey, out o);
+                    Cache[DriverKey] = value;
+                }
+                else
+                {
+                    Cache[DriverKey] = value;
+                }  
 			}
 		}
 
@@ -129,7 +138,16 @@
 			}
 			set
 			{
-				Cache[WaitKey] = value;
+                if (Cache.ContainsKey(WaitKey))
+                {
+                    object o = null;
+                    Cache.TryRemove(WaitKey, out o);
+                    Cache[WaitKey] = value;
+                }
+                else
+                {
+                    Cache[WaitKey] = value;
+                }
 			}
 		}
 
