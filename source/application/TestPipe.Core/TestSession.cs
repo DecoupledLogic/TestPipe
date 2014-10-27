@@ -41,16 +41,16 @@
 			}
 			set
 			{
-                if (Cache.ContainsKey(DriverKey))
-                {
-                    object o = null;
-                    Cache.TryRemove(DriverKey, out o);
-                    Cache[DriverKey] = value;
-                }
-                else
-                {
-                    Cache[DriverKey] = value;
-                }  
+				if (Cache.ContainsKey(DriverKey))
+				{
+					object o = null;
+					Cache.TryRemove(DriverKey, out o);
+					Cache[DriverKey] = value;
+				}
+				else
+				{
+					Cache[DriverKey] = value;
+				}
 			}
 		}
 
@@ -138,16 +138,16 @@
 			}
 			set
 			{
-                if (Cache.ContainsKey(WaitKey))
-                {
-                    object o = null;
-                    Cache.TryRemove(WaitKey, out o);
-                    Cache[WaitKey] = value;
-                }
-                else
-                {
-                    Cache[WaitKey] = value;
-                }
+				if (Cache.ContainsKey(WaitKey))
+				{
+					object o = null;
+					Cache.TryRemove(WaitKey, out o);
+					Cache[WaitKey] = value;
+				}
+				else
+				{
+					Cache[WaitKey] = value;
+				}
 			}
 		}
 
@@ -162,10 +162,10 @@
 			return null;
 		}
 
-        /* Uncomment below if ids are significant for features */
+		// Uncomment below if ids are significant for features 
 		//public static SessionFeature GetFeature(string id)
-        /* Comment below if ids are significant for features */
-        public static SessionFeature GetFeature(string title)
+		// Comment below if ids are significant for features 
+		public static SessionFeature GetFeature(string title)
 		{
 			if (Features == null)
 			{

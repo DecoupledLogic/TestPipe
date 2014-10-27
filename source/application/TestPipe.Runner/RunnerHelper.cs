@@ -159,18 +159,19 @@
 
 		public static string LoadFeature(string title)
 		{
-            /* Uncomment below if ids are significant for features */
+			// Uncomment below if ids are significant for features 
 			//string featureKey = RunnerHelper.GetIdFromTitle(title);
-            /* Uncomment below if ids are significant for features */
+			// Uncomment below if ids are significant for features 
 			//SessionFeature feature = TestSession.Suite.Features.Where(x => x.Id == featureKey).FirstOrDefault();
-            /* Comment below if ids are significant for features */
-            SessionFeature feature = TestSession.Suite.Features.Where(x => x.Title == title).FirstOrDefault();
+			// Comment below if ids are significant for features 
+			SessionFeature feature = TestSession.Suite.Features.Where(x => x.Title == title).FirstOrDefault();
 			string path = RunnerHelper.GetDataFilePath(feature.Path);
 			TestSession.LoadFeature(path);
-            /* Uncomment below if ids are significant for features */
+
+			// Uncomment below if ids are significant for features 
 			//return featureKey;
-            /* Comment below if ids are significant for features */
-            return title;
+			// Comment below if ids are significant for features 
+			return title;
 		}
 
 		public static IBrowser SetBrowser(string browserName)

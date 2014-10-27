@@ -6,7 +6,6 @@
 	using System.Linq;
 	using TestPipe.Assertions;
 	using TestPipe.Core;
-	using TestPipe.Core.Enums;
 	using TestPipe.Core.Exceptions;
 	using TestPipe.Core.Session;
 
@@ -48,12 +47,13 @@
 			{
 				throw new IgnoreException();
 			}
-            /* Uncommnet below if ids are significant for features */
+
+			//Uncommnet below if ids are significant for features
 			//string featureId = RunnerHelper.GetIdFromTitle(featureTitle);
-            /* Uncomment below if ids are significant for features */
+			//Uncomment below if ids are significant for features
 			//SessionFeature currentFeature = TestSession.Features.Where(x => x.Id == featureId).FirstOrDefault();
-            /* Commnet below if ids are significant for features */
-            SessionFeature currentFeature = TestSession.Features.Where(x => x.Title == featureTitle).FirstOrDefault();
+			//Commnet below if ids are significant for features
+			SessionFeature currentFeature = TestSession.Features.Where(x => x.Title == featureTitle).FirstOrDefault();
 
 			string scenarioId = RunnerHelper.GetIdFromTitle(title);
 
@@ -66,12 +66,12 @@
 
 		public static void SetupSuite()
 		{
-            if (TestSession.Suite != null)
+			if (TestSession.Suite != null)
 			{
-                if (TestSession.Browser == null)
-                {
-                    TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
-                }
+				if (TestSession.Browser == null)
+				{
+					TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
+				}
 				return;
 			}
 			string file = ConfigurationManager.AppSettings["file.testSuite"];
@@ -82,16 +82,13 @@
 
 			TestSession.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(TestSession.Suite.Timeout));
 
-            TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
-			
+			TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
 		}
 
 		public static void TeardownFeature()
 		{
 			TestSession.Browser.Quit();
-            /* change , remove if error */
-            TestSession.Browser = null;
-			//TestSession.Cache.Clear();
+			TestSession.Browser = null;
 		}
 
 		public static void TeardownScenario()

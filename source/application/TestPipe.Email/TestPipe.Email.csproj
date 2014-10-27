@@ -43,13 +43,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Exchange.WebServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Exchange.WebServices, Version=14.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\tools\EwsManagedApi\2.0\Microsoft.Exchange.WebServices.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Exchange.WebServices.Auth, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\tools\EwsManagedApi\2.0\Microsoft.Exchange.WebServices.Auth.dll</HintPath>
+      <HintPath>..\..\..\packages\Microsoft.Exchange.WebServices.1.2\lib\Microsoft.Exchange.WebServices.dll</HintPath>
     </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -86,6 +82,7 @@
     <Compile Include="Authentication\TextFileTraceListener.cs" />
     <Compile Include="Authentication\UserDataFromConsole.cs" />
     <Compile Include="Authentication\UserDataFromConfig.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MailBox.cs" />
     <Compile Include="MailFilter.cs" />
     <Compile Include="MailItem.cs" />
@@ -98,7 +95,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="TestPipe.Email.xnuspec" />
+    <None Include="TestPipe.Email.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

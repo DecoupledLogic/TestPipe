@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<version>3.0.0</version>
+		<authors>Charles Bryant</authors>
+		<owners>CharlesBryant.com</owners>
+		<language>en-us</language>
+		<projectUrl>https://github.com/DecoupledLogic/TestPipe</projectUrl>
+		<iconUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
+		<licenseUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/license</licenseUrl>
+		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<tags>test, automated test, webdriver, selenium</tags>
+	</metadata>
+</package>

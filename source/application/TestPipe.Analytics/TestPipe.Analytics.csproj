@@ -47,7 +47,13 @@
     <Compile Include="Domain\TestMetrics.cs" />
     <Compile Include="Domain\TestMetricType.cs" />
     <Compile Include="Domain\TestRunner.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestPipe.Analytics.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

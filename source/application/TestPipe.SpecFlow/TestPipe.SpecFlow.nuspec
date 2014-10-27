@@ -17,20 +17,13 @@
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<tags>test, automated test, webdriver, selenium</tags>
 		<dependencies>
-			<dependency id="NUnit" version="2.6.3" />
-			<dependency id="Selenium.Support" version="2.39.0" />
-			<dependency id="Selenium.WebDriver" version="2.39.0" />
 			<dependency id="SpecFlow" version="1.9.0" />
-			<dependency id="SpecFlow.NUnit" version="1.1.1" />
+			<dependency id="TestPipe.Assertions" version="1.0.0" />
+			<dependency id="TestPipe.Core" version="1.0.0" />
+			<dependency id="TestPipe.Runner" version="1.0.0" />
 		</dependencies>
 	</metadata>
 	<files>
 		<file src="lib\net40\TestPipe.SpecFlow.dll" target="lib\net40\TestPipe.SpecFlow.dll" />
-		<file src="lib\net40\TestPipe.Assertions.dll" target="lib\net40\TestPipe.Assertions.dll" />
-		<file src="lib\net40\TestPipe.Common.dll" target="lib\net40\TestPipe.Common.dll" />
-		<file src="lib\net40\TestPipe.Core.dll" target="lib\net40\TestPipe.Core.dll" />
-		<file src="lib\net40\TestPipe.Data.dll" target="lib\net40\TestPipe.Data.dll" />
-		<file src="lib\net40\TestPipe.NPoco.dll" target="lib\net40\TestPipe.NPoco.dll" />
-		<file src="lib\net40\TestPipe.Runner.dll" target="lib\net40\TestPipe.Runner.dll" />
 	</files>
 </package>

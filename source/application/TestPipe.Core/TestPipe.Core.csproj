@@ -76,6 +76,7 @@
     <Compile Include="Browser\BrowserConfiguration.cs" />
     <Compile Include="Control\CheckBox.cs" />
     <Compile Include="Exceptions\ManualOnlyException.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\TextHelper.cs" />
     <Compile Include="Interfaces\IListElement.cs" />
     <Compile Include="ReadOnlyCache.cs" />
@@ -145,10 +146,6 @@
     <ProjectReference Include="..\TestPipe.Common\TestPipe.Common.csproj">
       <Project>{89a1198f-15dd-40c3-98d1-14466fece5ec}</Project>
       <Name>TestPipe.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestPipe.Data\TestPipe.Data.csproj">
-      <Project>{8446c2e8-2759-4e5a-ae28-1a489e3719b5}</Project>
-      <Name>TestPipe.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

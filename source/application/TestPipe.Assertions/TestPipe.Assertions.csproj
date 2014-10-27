@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assert.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultHelper.cs" />
     <Compile Include="TestHelper.cs" />
     <Compile Include="AssertResult.cs" />
@@ -60,7 +62,6 @@
     <Compile Include="Internal\Contracts\AssumptionException.cs" />
     <Compile Include="Internal\Contracts\Requires.cs" />
     <Compile Include="Internal\ExceptionBuilder.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,8 +70,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="TestPipe.Assertions.nuspec" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestPipe.Assertions.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestPipe.Core\TestPipe.Core.csproj">

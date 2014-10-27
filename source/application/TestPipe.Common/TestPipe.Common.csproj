@@ -59,6 +59,7 @@
     <Compile Include="Crypto.cs" />
     <Compile Include="Formatter.cs" />
     <Compile Include="FormatValidator.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ILogManager.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,7 +67,9 @@
     <Compile Include="StringUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="TestPipe.Common.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

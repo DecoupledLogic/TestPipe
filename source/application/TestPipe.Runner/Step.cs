@@ -13,15 +13,14 @@
 
 		public string Input { get; set; }
 
+		public string Result { get; set; }
+
 		public ICollection<Step> Steps { get; set; }
+
+		public DateTime Time { get; set; }
 
 		public string Validation { get; set; }
 
 		public uint Wait { get; set; }
-
-        public string Result { get; set; }
-
-        public DateTime Time { get; set; }
-
 	}
 }

@@ -4,33 +4,22 @@
 		<id>TestPipe.Assertions</id>
 		<version>1.0.0</version>
 		<title>TestPipe Assertions</title>
-		<summary>Custom assertions.</summary>
-		<description>This project provides an API to implement custom assertions. Currently, the only implementation is based on MSTest.</description>
+		<summary>Custom test assertions.</summary>
+		<description>This project provides assertion methods that can be used in TestPipe tests.</description>
 		<authors>Charles Bryant</authors>
 		<owners>CharlesBryant.com</owners>
-		<releaseNotes>Initial release.</releaseNotes>
 		<language>en-us</language>
-		<projectUrl>https://github.com/charleslbryant/TestPipe</projectUrl>
-		<iconUrl>https://github.com/charleslbryant/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
-		<licenseUrl>https://github.com/charleslbryant/TestPipe/blob/master/license</licenseUrl>
+		<projectUrl>https://github.com/DecoupledLogic/TestPipe</projectUrl>
+		<iconUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
+		<licenseUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/license</licenseUrl>
 		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<tags>test, automated test, webdriver, selenium</tags>
 		<dependencies>
-			<dependency id="PublishedApplications" version="2.4.0.0" />
-			<dependency id="log4net" version="2.0.3" />
-			<dependency id="Newtonsoft.Json" version="5.0.8" />
-			<dependency id="Selenium.Support" version="2.39.0" />
-			<dependency id="AutoMapper" version="3.1.1" />
+			<dependency id="TestPipe.Core" version="1.0.0" />
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="content\Credit.txt" target="content\Credit.txt" />
 		<file src="lib\net40\TestPipe.Assertions.dll" target="lib\net40\TestPipe.Assertions.dll" />
-		<file src="lib\net40\TestPipe.Assertions.dll" target="lib\net40\TestPipe.Assertions.dll" />
-		<file src="lib\net40\TestPipe.Common.dll" target="lib\net40\TestPipe.Common.dll" />
-		<file src="lib\net40\TestPipe.Core.dll" target="lib\net40\TestPipe.Core.dll" />
-		<file src="lib\net40\TestPipe.Data.dll" target="lib\net40\TestPipe.Data.dll" />
-		<file src="lib\net40\TestPipe.NPoco.dll" target="lib\net40\TestPipe.NPoco.dll" />
 	</files>
 </package>

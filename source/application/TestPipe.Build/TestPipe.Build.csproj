@@ -50,6 +50,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Nuspec.cs" />
+    <Compile Include="Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +77,9 @@
     <Folder Include="nuget\src\" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AssemblyInfoManager">
+      <HintPath>..\..\..\tools\AssemblyInfoManager\AssemblyInfoManager.dll</HintPath>
+    </Reference>
     <Reference Include="Meta">
       <HintPath>..\..\..\tools\Nake\Meta.dll</HintPath>
     </Reference>

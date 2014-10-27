@@ -33,7 +33,7 @@ namespace TestPipe.Core.Control
 
 		public BaseControl(IBrowser browser, ISelect selector = null, string id = "", uint timeoutInSeconds = 0, bool displayed = false)
 		{
-			Initialize(browser, selector, id, timeoutInSeconds, displayed);
+			this.Initialize(browser, selector, id, timeoutInSeconds, displayed);
 		}
 
 		public void Initialize(IBrowser browser, ISelect selector = null, string id = "", uint timeoutInSeconds = 0, bool displayed = false)
