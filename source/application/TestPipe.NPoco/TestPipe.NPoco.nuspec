@@ -19,6 +19,7 @@
 	</metadata>
 	<files>
 		<file src="content\License.txt" target="content\License.txt" />
-		<file src="lib\net40\TestPipe.NPoco.dll" target="lib\net40\TestPipe.NPoco.dll" />
+		<file src="lib\net40\TestPipe.NPoco.dll" target="lib\net451" />
+		<file src="lib\net40\TestPipe.NPoco.pdb" target="lib\net451" />
 	</files>
 </package>

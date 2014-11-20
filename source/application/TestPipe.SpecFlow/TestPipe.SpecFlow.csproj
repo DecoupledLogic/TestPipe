@@ -78,7 +78,9 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="TestPipe.SpecFlow.nuspec" />
+    <None Include="TestPipe.SpecFlow.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestPipe.Assertions\TestPipe.Assertions.csproj">

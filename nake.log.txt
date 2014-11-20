@@ -1,44 +1,20 @@
 
 ---------------------------------
 @@Go : Started
-@@Timestamp: 10/27/2014 1:08:30 PM
+@@Timestamp: 10/28/2014 11:19:23 PM
 ---------------------------------
 
-Configuration: Release
-Platform: Any CPU
 Version: 3.0.0
 
 ---------------------------------
-@@Clean : Started
-@@Timestamp: 10/27/2014 1:08:30 PM
----------------------------------
-
-Removing Folder: C:\_TestPipe\Build
-
----------------------------------
-@@Clean : Completed
-@@Timestamp: 10/27/2014 1:08:30 PM
----------------------------------
-
-
----------------------------------
-@@Init : Started
-@@Timestamp: 10/27/2014 1:08:30 PM
----------------------------------
-
-Creating Folder: C:\_TestPipe\Build
-Creating Folder: C:\_TestPipe\Build\Docs
-Creating Folder: C:\_TestPipe\Build\Reports
-
----------------------------------
-@@Init : Completed
-@@Timestamp: 10/27/2014 1:08:30 PM
+@@Build : Started
+@@Timestamp: 10/28/2014 11:19:23 PM
 ---------------------------------
 
 
 ---------------------------------
 @@UpdateAssembly : Started
-@@Timestamp: 10/27/2014 1:08:30 PM
+@@Timestamp: 10/28/2014 11:19:23 PM
 ---------------------------------
 
 Version: 3.0.0
@@ -57,13 +33,7 @@ Updating: C:\_TestPipe\source\application\TestPipe.SpecFlow\Properties\AssemblyI
 
 ---------------------------------
 @@UpdateAssembly : Completed
-@@Timestamp: 10/27/2014 1:08:30 PM
----------------------------------
-
-
----------------------------------
-@@Build : Started
-@@Timestamp: 10/27/2014 1:08:30 PM
+@@Timestamp: 10/28/2014 11:19:23 PM
 ---------------------------------
 
 Configuration: Release
@@ -71,32 +41,131 @@ Platform: Any CPU
 
 ---------------------------------
 @@Build : Completed
-@@Timestamp: 10/27/2014 1:08:42 PM
+@@Timestamp: 10/28/2014 11:19:32 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Distro : Started
-@@Timestamp: 10/27/2014 1:08:42 PM
+@@Timestamp: 10/28/2014 11:19:32 PM
 ---------------------------------
 
 Removing Folder: C:\_TestPipe\Build\Distro
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Analytics
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Analytics
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Assertions
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Assertions
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Build
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Build
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Build\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Build\content
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Build\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Build\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Common
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Common
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Common\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Common\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Core
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Core
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Core\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Core\content
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Core\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Core\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Data
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Data
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Data\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Data\content
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Data\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Data\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Demo.KeywordDriven
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Demo.KeywordDriven
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Demo.KeywordDriven\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Demo.KeywordDriven\content
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Email
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Email
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Email\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Email\content
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Email\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Email\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Grid
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Grid
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.NPoco
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.NPoco
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.NPoco\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.NPoco\content
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.NPoco\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.NPoco\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.NPoco\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.NPoco\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Runner
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Runner
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Runner\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Runner\content
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Runner\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Runner\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Selenium
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Selenium
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Selenium\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Selenium\content
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.SpecFlow
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.SpecFlow
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\content
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.TestSite
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.TestSite
+Deleting files in C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
+Deleting directory C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
 Creating Folder: C:\_TestPipe\Build\Distro
------- Processing C:\_TestPipe\source\application\TestPipe.Analytics------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Analytics
 Processing TestPipe.Analytics nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.Analytics\TestPipe.Analytics.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Analytics
-Processing TestPipe.Analytics lib files
+Copying TestPipe.Analytics lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Analytics\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Analytics\bin\Release\TestPipe.Analytics.dll to C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib\net40
-Processing TestPipe.Analytics content files
-Processing TestPipe.Analytics NuGet tools files
-Processing TestPipe.Analytics license files
+Copying C:\_TestPipe\source\application\TestPipe.Analytics\bin\Release\TestPipe.Analytics.pdb to C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib\net40
+Copying TestPipe.Analytics content files
+Copying TestPipe.Analytics NuGet tools files
+Copyng TestPipe.Analytics license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Analytics
------- Processing C:\_TestPipe\source\application\TestPipe.Assertions------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Assertions
 Processing TestPipe.Assertions nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\TestPipe.Assertions.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Assertions
-Processing TestPipe.Assertions lib files
+Copying TestPipe.Assertions lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\log4net.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
@@ -106,36 +175,42 @@ Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\Newtonso
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Assertions.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Assertions.pdb to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
-Processing TestPipe.Assertions content files
-Processing TestPipe.Assertions NuGet tools files
-Processing TestPipe.Assertions license files
+Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Core.pdb to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
+Copying TestPipe.Assertions content files
+Copying TestPipe.Assertions NuGet tools files
+Copyng TestPipe.Assertions license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Assertions
------- Processing C:\_TestPipe\source\application\TestPipe.Build------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Build
 Processing TestPipe.Build nuspec files
-Copying C:\_TestPipe\source\application\TestPipe.Build\TestPipe.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Build
-Processing TestPipe.Build lib files
+Copying TestPipe.Build lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Build\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\AssemblyInfoManager.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\GlobDir.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Meta.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Meta.pdb to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Nake.exe to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Nake.pdb to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\NuGet.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\TestPipe.Build.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\TestPipe.Build.pdb to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Utility.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Processing TestPipe.Build content files
+Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Utility.pdb to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
+Copying TestPipe.Build content files
 Copying C:\_TestPipe\source\application\TestPipe.Build\ReadMe.txt to C:\_TestPipe\Build\Distro\TestPipe.Build\content
 Copying C:\_TestPipe\source\application\TestPipe.Build\TestPipe.Changelog.txt to C:\_TestPipe\Build\Distro\TestPipe.Build\content
 Copying C:\_TestPipe\source\application\TestPipe.Build\TestPipe.License.txt to C:\_TestPipe\Build\Distro\TestPipe.Build\content
-Processing TestPipe.Build NuGet tools files
-Processing TestPipe.Build license files
+Copying TestPipe.Build NuGet tools files
+Copyng TestPipe.Build license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Build
------- Processing C:\_TestPipe\source\application\TestPipe.Common------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Common
 Processing TestPipe.Common nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.Common\TestPipe.Common.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Common
-Processing TestPipe.Common lib files
+Copying TestPipe.Common lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Common\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\log4net.dll to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
@@ -143,14 +218,15 @@ Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\log4net.xml 
 Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
-Processing TestPipe.Common content files
-Processing TestPipe.Common NuGet tools files
-Processing TestPipe.Common license files
+Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
+Copying TestPipe.Common content files
+Copying TestPipe.Common NuGet tools files
+Copyng TestPipe.Common license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Common
------- Processing C:\_TestPipe\source\application\TestPipe.Core------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Core
 Processing TestPipe.Core nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.Core\TestPipe.Core.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Core
-Processing TestPipe.Core lib files
+Copying TestPipe.Core lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Core\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\log4net.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
@@ -160,21 +236,23 @@ Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\Newtonsoft.Jso
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Core.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Core.pdb to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\WebDriver.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\WebDriver.Support.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\WebDriver.Support.xml to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\WebDriver.xml to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
-Processing TestPipe.Core content files
+Copying TestPipe.Core content files
 Copying C:\_TestPipe\source\application\TestPipe.Core\App.config to C:\_TestPipe\Build\Distro\TestPipe.Core\content
-Processing TestPipe.Core NuGet tools files
-Processing TestPipe.Core license files
+Copying TestPipe.Core NuGet tools files
+Copyng TestPipe.Core license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Core
------- Processing C:\_TestPipe\source\application\TestPipe.Data------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Data
 Processing TestPipe.Data nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.Data\TestPipe.Data.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Data
-Processing TestPipe.Data lib files
+Copying TestPipe.Data lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Data\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\AutoMapper.dll to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
@@ -188,18 +266,21 @@ Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\Microsoft.SqlS
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Data.dll to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Data.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Data.pdb to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.NPoco.dll to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
-Processing TestPipe.Data content files
+Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.NPoco.pdb to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
+Copying TestPipe.Data content files
 Copying C:\_TestPipe\source\application\TestPipe.Data\App.config to C:\_TestPipe\Build\Distro\TestPipe.Data\content
-Processing TestPipe.Data NuGet tools files
-Processing TestPipe.Data license files
+Copying TestPipe.Data NuGet tools files
+Copyng TestPipe.Data license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Data
------- Processing C:\_TestPipe\source\application\TestPipe.Email------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Email
 Processing TestPipe.Email nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.Email\TestPipe.Email.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Email
-Processing TestPipe.Email lib files
+Copying TestPipe.Email lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Email\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\log4net.config to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
@@ -216,37 +297,39 @@ Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\StyleCop.CSha
 Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\TestPipe.Email.dll to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\TestPipe.Email.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
-Processing TestPipe.Email content files
+Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\TestPipe.Email.pdb to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
+Copying TestPipe.Email content files
 Copying C:\_TestPipe\source\application\TestPipe.Email\App.config to C:\_TestPipe\Build\Distro\TestPipe.Email\content
 Copying C:\_TestPipe\source\application\TestPipe.Email\log4net.config to C:\_TestPipe\Build\Distro\TestPipe.Email\content
-Processing TestPipe.Email NuGet tools files
-Processing TestPipe.Email license files
+Copying TestPipe.Email NuGet tools files
+Copyng TestPipe.Email license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Email
------- Processing C:\_TestPipe\source\application\TestPipe.Grid------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Grid
 Processing TestPipe.Grid nuspec files
-Processing TestPipe.Grid lib files
+Copying TestPipe.Grid lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Grid\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Grid\lib\net40
-Processing TestPipe.Grid content files
-Processing TestPipe.Grid NuGet tools files
-Processing TestPipe.Grid license files
+Copying TestPipe.Grid content files
+Copying TestPipe.Grid NuGet tools files
+Copyng TestPipe.Grid license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Grid
------- Processing C:\_TestPipe\source\application\TestPipe.NPoco------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.NPoco
 Processing TestPipe.NPoco nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.NPoco\TestPipe.NPoco.nuspec to C:\_TestPipe\Build\Distro\TestPipe.NPoco
-Processing TestPipe.NPoco lib files
+Copying TestPipe.NPoco lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.NPoco\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.NPoco\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.NPoco\bin\Release\TestPipe.NPoco.dll to C:\_TestPipe\Build\Distro\TestPipe.NPoco\lib\net40
-Processing TestPipe.NPoco content files
+Copying C:\_TestPipe\source\application\TestPipe.NPoco\bin\Release\TestPipe.NPoco.pdb to C:\_TestPipe\Build\Distro\TestPipe.NPoco\lib\net40
+Copying TestPipe.NPoco content files
 Copying C:\_TestPipe\source\application\TestPipe.NPoco\License.txt to C:\_TestPipe\Build\Distro\TestPipe.NPoco\content
-Processing TestPipe.NPoco NuGet tools files
-Processing TestPipe.NPoco license files
+Copying TestPipe.NPoco NuGet tools files
+Copyng TestPipe.NPoco license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.NPoco
------- Processing C:\_TestPipe\source\application\TestPipe.Runner------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Runner
 Processing TestPipe.Runner nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.Runner\TestPipe.Runner.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Runner
-Processing TestPipe.Runner lib files
+Copying TestPipe.Runner lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Runner\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\log4net.dll to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
@@ -262,19 +345,24 @@ Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\Ninject.xml 
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Assertions.dll to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Assertions.pdb to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Core.pdb to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Runner.dll to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Runner.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
-Processing TestPipe.Runner content files
+Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Runner.pdb to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
+Copying TestPipe.Runner content files
 Copying C:\_TestPipe\source\application\TestPipe.Runner\app.config to C:\_TestPipe\Build\Distro\TestPipe.Runner\content
-Processing TestPipe.Runner NuGet tools files
-Processing TestPipe.Runner license files
+Copying TestPipe.Runner NuGet tools files
+Copyng TestPipe.Runner license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Runner
------- Processing C:\_TestPipe\source\application\TestPipe.Selenium------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Selenium
 Processing TestPipe.Selenium nuspec files
+Copying C:\_TestPipe\source\application\TestPipe.Selenium\TestPipe.Plugins.Selenium.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Selenium
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\TestPipe.Selenium.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Selenium
-Processing TestPipe.Selenium lib files
+Copying TestPipe.Selenium lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\log4net.config to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
@@ -291,23 +379,26 @@ Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\Ninject.xm
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Core.pdb to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Selenium.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Selenium.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Selenium.pdb to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\WebDriver.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\WebDriver.Support.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\WebDriver.Support.xml to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\WebDriver.xml to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
-Processing TestPipe.Selenium content files
+Copying TestPipe.Selenium content files
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\app.config to C:\_TestPipe\Build\Distro\TestPipe.Selenium\content
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\log4net.config to C:\_TestPipe\Build\Distro\TestPipe.Selenium\content
-Processing TestPipe.Selenium NuGet tools files
-Processing TestPipe.Selenium license files
+Copying TestPipe.Selenium NuGet tools files
+Copyng TestPipe.Selenium license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Selenium
------- Processing C:\_TestPipe\source\application\TestPipe.SpecFlow------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.SpecFlow
 Processing TestPipe.SpecFlow nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\TestPipe.SpecFlow.nuspec to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow
-Processing TestPipe.SpecFlow lib files
+Copying TestPipe.SpecFlow lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\log4net.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
@@ -318,22 +409,27 @@ Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\StyleCop.C
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TechTalk.SpecFlow.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Assertions.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Assertions.pdb to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Core.pdb to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Runner.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Runner.pdb to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.SpecFlow.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.SpecFlow.dll.config to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
-Processing TestPipe.SpecFlow content files
+Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.SpecFlow.pdb to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
+Copying TestPipe.SpecFlow content files
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\App.config to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\content
-Processing TestPipe.SpecFlow NuGet tools files
-Processing TestPipe.SpecFlow license files
+Copying TestPipe.SpecFlow NuGet tools files
+Copyng TestPipe.SpecFlow license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow
------- Processing C:\_TestPipe\source\application\TestPipe.TestSite------
+Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.TestSite
 Processing TestPipe.TestSite nuspec files
-Processing TestPipe.TestSite lib files
+Copying TestPipe.TestSite lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.TestSite\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.TestSite\lib\net40
-Processing TestPipe.TestSite content files
+Copying TestPipe.TestSite content files
 Copying C:\_TestPipe\source\application\TestPipe.TestSite\ajaxy_page.html to C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
 Copying C:\_TestPipe\source\application\TestPipe.TestSite\alerts.html to C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
 Copying C:\_TestPipe\source\application\TestPipe.TestSite\banner.gif to C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
@@ -443,22 +539,22 @@ Copying C:\_TestPipe\source\application\TestPipe.TestSite\visibility-css.html to
 Copying C:\_TestPipe\source\application\TestPipe.TestSite\welcome.htm to C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
 Copying C:\_TestPipe\source\application\TestPipe.TestSite\win32frameset.html to C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
 Copying C:\_TestPipe\source\application\TestPipe.TestSite\xhtmlTest.html to C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
-Processing TestPipe.TestSite NuGet tools files
-Processing TestPipe.TestSite license files
+Copying TestPipe.TestSite NuGet tools files
+Copyng TestPipe.TestSite license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.TestSite
------- Processing C:\_TestPipe\source\demo\TestPipe.Demo.KeywordDriven------
+Copying files to distribution path: C:\_TestPipe\source\demo\TestPipe.Demo.KeywordDriven
 Processing TestPipe.Demo.KeywordDriven nuspec files
-Processing TestPipe.Demo.KeywordDriven lib files
+Copying TestPipe.Demo.KeywordDriven lib files
 Lib Source: C:\_TestPipe\source\demo\TestPipe.Demo.KeywordDriven\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Demo.KeywordDriven\lib\net40
-Processing TestPipe.Demo.KeywordDriven content files
+Copying TestPipe.Demo.KeywordDriven content files
 Copying C:\_TestPipe\source\demo\TestPipe.Demo.KeywordDriven\App.config to C:\_TestPipe\Build\Distro\TestPipe.Demo.KeywordDriven\content
-Processing TestPipe.Demo.KeywordDriven NuGet tools files
-Processing TestPipe.Demo.KeywordDriven license files
+Copying TestPipe.Demo.KeywordDriven NuGet tools files
+Copyng TestPipe.Demo.KeywordDriven license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Demo.KeywordDriven
------- Processing C:\_TestPipe\source\demo\TestPipe.Demo.Pages------
+Copying files to distribution path: C:\_TestPipe\source\demo\TestPipe.Demo.Pages
 Processing TestPipe.Demo.Pages nuspec files
-Processing TestPipe.Demo.Pages lib files
+Copying TestPipe.Demo.Pages lib files
 Lib Source: C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
 Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\log4net.dll to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
@@ -468,25 +564,27 @@ Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\Newtonsoft.Json
 Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
 Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
 Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
+Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
 Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\TestPipe.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
+Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\TestPipe.Core.pdb to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
 Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\TestPipe.Demo.Pages.dll to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
-Processing TestPipe.Demo.Pages content files
-Processing TestPipe.Demo.Pages NuGet tools files
-Processing TestPipe.Demo.Pages license files
+Copying C:\_TestPipe\source\demo\TestPipe.Demo.Pages\bin\Release\TestPipe.Demo.Pages.pdb to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages\lib\net40
+Copying TestPipe.Demo.Pages content files
+Copying TestPipe.Demo.Pages NuGet tools files
+Copyng TestPipe.Demo.Pages license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Demo.Pages
 
 ---------------------------------
 @@Distro : Completed
-@@Timestamp: 10/27/2014 1:08:46 PM
+@@Timestamp: 10/28/2014 11:19:35 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Package : Started
-@@Timestamp: 10/27/2014 1:08:46 PM
+@@Timestamp: 10/28/2014 11:19:35 PM
 ---------------------------------
 
-Version: 3.0.0
 Removing Folder: C:\_TestPipe\Build\Pub
 Creating Folder: C:\_TestPipe\Build\Pub
 Packaging:C:\_TestPipe\Build\Distro\TestPipe.Analytics
@@ -517,24 +615,24 @@ Packaging:C:\_TestPipe\Build\Distro\TestPipe.TestSite
 
 ---------------------------------
 @@Package : Completed
-@@Timestamp: 10/27/2014 1:08:51 PM
+@@Timestamp: 10/28/2014 11:19:41 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Publish : Started
-@@Timestamp: 10/27/2014 1:08:51 PM
+@@Timestamp: 10/28/2014 11:19:41 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Publish : Completed
-@@Timestamp: 10/27/2014 1:08:51 PM
+@@Timestamp: 10/28/2014 11:19:41 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Go : Completed
-@@Timestamp: 10/27/2014 1:08:51 PM
+@@Timestamp: 10/28/2014 11:19:41 PM
 ---------------------------------
 

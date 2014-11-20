@@ -101,6 +101,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="TestPipe.Plugins.Selenium.nuspec" />
     <None Include="TestPipe.Selenium.nuspec" />
   </ItemGroup>
   <ItemGroup>
