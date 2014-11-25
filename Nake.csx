@@ -15,7 +15,7 @@ using AssemblyInfoManager;
 
 public static string ApplicationName = "TestPipe";
 public static string BuildConfig = "Release";
-public static string BuildPlatform = "Any CPU";
+public static string BuildPlatform = "AnyCPU";
 public static string CompanyName = "CharlesBryant.com";
 public static string Copyright = "Copyright (c) 2014, " + CompanyName;
 public static string Trademark = "Trademark by " + CompanyName;
@@ -44,20 +44,25 @@ public static string OutputPath = ReportsPath;
 public static string[] DistributeAppPaths = new string[] { ApplicationPath, DemoPath };
 
 [Task]
-public static void Default(string version = "", string configuration = "Release", string platform = "Any CPU", string logPath = "nake.log.txt")
+public static void Default(string version = "", string configuration = "Release", string platform = "AnyCPU", string logPath = "nake.log.txt")
 {
-	Go(configuration, platform, version, logPath);
+	Go(version, configuration, platform, logPath);
 }
 
 /// <summary>
 /// Build and package TestPipe  
 /// </summary>
 [Task]
-public static void Go(string version = "", string configuration = "Release", string platform = "Any CPU", string logPath = "nake.log.txt")
+public static void Go(string version = "", string configuration = "Release", string platform = "AnyCPU", string logPath = "nake.log.txt")
 {
 	SetLogging(logPath, true);
 
 	PrintHeader("Go");
+
+	if (string.IsNullOrWhiteSpace(version))
+	{
+		version = GetVersion();
+	}
 
 	Log.Info("Version: " + version);
 		
@@ -76,7 +81,7 @@ public static void Go(string version = "", string configuration = "Release", str
 /// Builds you solution's sources  
 /// </summary>
 [Task]
-public static void Build(string version, string configuration = "Release", string platform = "Any CPU")
+public static void Build(string version, string configuration = "Release", string platform = "AnyCPU")
 {
 	PrintHeader("Build");
 
