@@ -9,9 +9,9 @@
 		<authors>Charles Bryant</authors>
 		<owners>CharlesBryant.com</owners>
 		<language>en-us</language>
-		<projectUrl>https://github.com/charleslbryant/TestPipe</projectUrl>
-		<iconUrl>https://github.com/charleslbryant/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
-		<licenseUrl>https://github.com/charleslbryant/TestPipe/blob/master/license</licenseUrl>
+		<projectUrl>https://github.com/DecoupledLogic/TestPipe</projectUrl>
+		<iconUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
+		<licenseUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/license</licenseUrl>
 		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<tags>test, automated test, webdriver, selenium</tags>
@@ -23,7 +23,7 @@
 		</frameworkAssemblies>
 	</metadata>
 	<files>
-		<file src="lib\net40\TestPipe.Common.dll" target="lib\net51" />
+		<file src="lib\net40\TestPipe.Common.dll" target="lib\net451" />
 		<file src="lib\net40\TestPipe.Common.pdb" target="lib\net451" />
 	</files>
 </package>

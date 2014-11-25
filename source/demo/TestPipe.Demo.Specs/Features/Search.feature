@@ -1,5 +1,5 @@
 ﻿@Demo @Search
-Feature: 1. Demo Search
+Feature: Demo Search
 	In order to find what I am looking for
 	As a user
 	I want to be able to search 

@@ -46,35 +46,39 @@
       <HintPath>..\..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Extensions.Logging, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Ninject.Extensions.Logging.3.2.0.0\lib\net45-full\Ninject.Extensions.Logging.dll</HintPath>
+      <HintPath>..\..\..\packages\Ninject.Extensions.Logging.3.2.1.0\lib\net45-full\Ninject.Extensions.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Extensions.Logging.Log4Net, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Ninject.Extensions.Logging.Log4net.3.2.0.0\lib\net45-full\Ninject.Extensions.Logging.Log4Net.dll</HintPath>
+      <HintPath>..\..\..\packages\Ninject.Extensions.Logging.Log4net.3.2.1.0\lib\net45-full\Ninject.Extensions.Logging.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="nunit.core">
-      <HintPath>..\..\..\packages\NUnitTestAdapter.1.1\lib\nunit.core.dll</HintPath>
+      <HintPath>..\..\..\packages\NUnitTestAdapter.1.2\lib\nunit.core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.core.interfaces">
-      <HintPath>..\..\..\packages\NUnitTestAdapter.1.1\lib\nunit.core.interfaces.dll</HintPath>
+      <HintPath>..\..\..\packages\NUnitTestAdapter.1.2\lib\nunit.core.interfaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="nunit.util">
-      <HintPath>..\..\..\packages\NUnitTestAdapter.1.1\lib\nunit.util.dll</HintPath>
+      <HintPath>..\..\..\packages\NUnitTestAdapter.1.2\lib\nunit.util.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="NUnit.VisualStudio.TestAdapter">
-      <HintPath>..\..\..\packages\NUnitTestAdapter.1.1\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <HintPath>..\..\..\packages\NUnitTestAdapter.1.2\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="StyleCop">
@@ -95,13 +99,29 @@
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\..\..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver, Version=2.42.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TestPipe.Assertions, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Selenium.WebDriver.2.42.0\lib\net40\WebDriver.dll</HintPath>
+      <HintPath>..\..\..\packages\TestPipe.Assertions.3.0.1.0\lib\net451\TestPipe.Assertions.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=2.42.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TestPipe.Core, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Selenium.Support.2.42.0\lib\net40\WebDriver.Support.dll</HintPath>
+      <HintPath>..\..\..\packages\TestPipe.Core.3.0.1.0\lib\net451\TestPipe.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="TestPipe.Runner, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\TestPipe.Runner.3.0.1.0\lib\net451\TestPipe.Runner.dll</HintPath>
+    </Reference>
+    <Reference Include="TestPipe.SpecFlow, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\TestPipe.SpecFlow.3.0.1.0\lib\net451\TestPipe.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=2.44.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Selenium.WebDriver.2.44.0\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=2.44.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Selenium.Support.2.44.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Choose>
@@ -126,20 +146,25 @@
     <Compile Include="Steps\SearchSteps.cs" />
     <Compile Include="Steps\StepHelper.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="..\..\..\packages\WebDriver.ChromeDriver.win32.2.10.0.0\content\chromedriver.exe">
+    <ProjectReference Include="..\TestPipe.Demo.Pages\TestPipe.Demo.Pages.csproj">
+      <Project>{55ffc6ce-d960-47bf-bfec-dad868ab22f2}</Project>
+      <Name>TestPipe.Demo.Pages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\packages\WebDriver.ChromeDriver.win32.2.12.0.0\content\chromedriver.exe">
       <Link>chromedriver.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\..\packages\WebDriver.IEDriverServer.win32.2.34.0\content\IEDriverServer.exe">
-      <Link>IEDriverServer.exe</Link>
+    <Content Include="IEDriverServer.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <Content Include="Data\Search_feature.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -152,28 +177,6 @@
       <LastGenOutput>Search.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\application\TestPipe.Assertions\TestPipe.Assertions.csproj">
-      <Project>{f4823cf7-2ace-4271-ac16-caaae1b48a8e}</Project>
-      <Name>TestPipe.Assertions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\application\TestPipe.Core\TestPipe.Core.csproj">
-      <Project>{15b21288-dec4-4e87-82eb-1f792e8678d8}</Project>
-      <Name>TestPipe.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\application\TestPipe.Data\TestPipe.Data.csproj">
-      <Project>{8446c2e8-2759-4e5a-ae28-1a489e3719b5}</Project>
-      <Name>TestPipe.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\application\TestPipe.SpecFlow\TestPipe.SpecFlow.csproj">
-      <Project>{4dda57c9-18b1-4c3e-a4fd-a76268caafc7}</Project>
-      <Name>TestPipe.SpecFlow</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestPipe.Demo.Pages\TestPipe.Demo.Pages.csproj">
-      <Project>{55ffc6ce-d960-47bf-bfec-dad868ab22f2}</Project>
-      <Name>TestPipe.Demo.Pages</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

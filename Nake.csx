@@ -15,7 +15,7 @@ using AssemblyInfoManager;
 
 public static string ApplicationName = "TestPipe";
 public static string BuildConfig = "Release";
-public static string BuildPlatform = "AnyCPU";
+public static string BuildPlatform = "Any CPU";
 public static string CompanyName = "CharlesBryant.com";
 public static string Copyright = "Copyright (c) 2014, " + CompanyName;
 public static string Trademark = "Trademark by " + CompanyName;
@@ -43,8 +43,10 @@ public static string PubPath = BuildPath + @"\Pub";
 public static string OutputPath = ReportsPath;
 public static string[] DistributeAppPaths = new string[] { ApplicationPath, DemoPath };
 
+//Command Line >nake Go "3.0.0"
+//Where "3.0.0" is the version of the build
 [Task]
-public static void Default(string version = "", string configuration = "Release", string platform = "AnyCPU", string logPath = "nake.log.txt")
+public static void Default(string version = "", string configuration = "Release", string platform = "Any CPU", string logPath = "nake.log.txt")
 {
 	Go(version, configuration, platform, logPath);
 }
@@ -53,7 +55,7 @@ public static void Default(string version = "", string configuration = "Release"
 /// Build and package TestPipe  
 /// </summary>
 [Task]
-public static void Go(string version = "", string configuration = "Release", string platform = "AnyCPU", string logPath = "nake.log.txt")
+public static void Go(string version = "", string configuration = "Release", string platform = "Any CPU", string logPath = "nake.log.txt")
 {
 	SetLogging(logPath, true);
 
@@ -81,7 +83,7 @@ public static void Go(string version = "", string configuration = "Release", str
 /// Builds you solution's sources  
 /// </summary>
 [Task]
-public static void Build(string version, string configuration = "Release", string platform = "AnyCPU")
+public static void Build(string version, string configuration = "Release", string platform = "Any CPU")
 {
 	PrintHeader("Build");
 
@@ -99,8 +101,8 @@ public static void Build(string version, string configuration = "Release", strin
 
 	MSBuild
 		.Projects(SolutionFile)
-			.Property("Configuration", configuration)
-			.Property("Platform", platform)
+			//.Property("Configuration", configuration)
+			//.Property("Platform", platform)
 			.Property("ReferencePath", BuildPath)
 			.Targets(new[] { "Rebuild" })
 		.BuildInParallel();

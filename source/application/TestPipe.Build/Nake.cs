@@ -13,7 +13,7 @@ public class BuildScript
 {
 	public static string ApplicationName = "TestPipe";
 	public static string BuildConfig = "Release";
-	public static string BuildPlatform = "Any CPU";
+	public static string BuildPlatform = "AnyCPU";
 	public static string CompanyName = "CharlesBryant.com";
 	public static string Copyright = "Copyright (c) 2014, " + CompanyName;
 	public static string Trademark = "Trademark by " + CompanyName;
@@ -50,7 +50,7 @@ public class BuildScript
 	/// Build and package TestPipe  
 	/// </summary>
 	[Task]
-	public static void Go(string configuration = "Release", string platform = "Any CPU")
+	public static void Go(string configuration = "Release", string platform = "AnyCPU")
 	{
 		Thread.Sleep(5);
 		PrintHeader("Go");
@@ -104,7 +104,7 @@ public class BuildScript
 	/// Builds you solution's sources  
 	/// </summary>
 	[Task]
-	public static void Build(string configuration = "Release", string platform = "Any CPU")
+	public static void Build(string configuration = "Release", string platform = "AnyCPU")
 	{
 		PrintHeader("Build");
 

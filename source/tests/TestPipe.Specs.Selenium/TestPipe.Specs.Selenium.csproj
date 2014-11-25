@@ -74,8 +74,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\packages\WebDriver.IEDriverServer.win32.2.34.0\content\IEDriverServer.exe">
-      <Link>IEDriverServer.exe</Link>
+    <Content Include="IEDriverServer.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

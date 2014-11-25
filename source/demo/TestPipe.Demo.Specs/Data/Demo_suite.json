@@ -19,13 +19,11 @@
 	],
 	"Features": [
 		{
-			"Title": "Search",
-			"Id": "1",
+			"Title": "Demo Search",
 			"Path": "Search_feature.json"
 		},
 		{
 			"Title": "Result",
-			"Id": "2",
 			"Path": "Result_feature.json"
 		}
 	]

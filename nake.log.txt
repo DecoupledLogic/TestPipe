@@ -1,23 +1,23 @@
 
 ---------------------------------
 @@Go : Started
-@@Timestamp: 10/28/2014 11:19:23 PM
+@@Timestamp: 11/25/2014 10:27:37 AM
 ---------------------------------
 
-Version: 3.0.0
+Version: 3.0.1.1
 
 ---------------------------------
 @@Build : Started
-@@Timestamp: 10/28/2014 11:19:23 PM
+@@Timestamp: 11/25/2014 10:27:37 AM
 ---------------------------------
 
 
 ---------------------------------
 @@UpdateAssembly : Started
-@@Timestamp: 10/28/2014 11:19:23 PM
+@@Timestamp: 11/25/2014 10:27:37 AM
 ---------------------------------
 
-Version: 3.0.0
+Version: 3.0.1.1
 Updating: C:\_TestPipe\source\application\TestPipe.Analytics\Properties\AssemblyInfo.cs
 Updating: C:\_TestPipe\source\application\TestPipe.Assertions\Properties\AssemblyInfo.cs
 Updating: C:\_TestPipe\source\application\TestPipe.Build\Properties\AssemblyInfo.cs
@@ -33,21 +33,21 @@ Updating: C:\_TestPipe\source\application\TestPipe.SpecFlow\Properties\AssemblyI
 
 ---------------------------------
 @@UpdateAssembly : Completed
-@@Timestamp: 10/28/2014 11:19:23 PM
+@@Timestamp: 11/25/2014 10:27:37 AM
 ---------------------------------
 
-Configuration: Release
+Configuration: Debug
 Platform: Any CPU
 
 ---------------------------------
 @@Build : Completed
-@@Timestamp: 10/28/2014 11:19:32 PM
+@@Timestamp: 11/25/2014 10:27:49 AM
 ---------------------------------
 
 
 ---------------------------------
 @@Distro : Started
-@@Timestamp: 10/28/2014 11:19:32 PM
+@@Timestamp: 11/25/2014 10:27:49 AM
 ---------------------------------
 
 Removing Folder: C:\_TestPipe\Build\Distro
@@ -157,6 +157,7 @@ Copying TestPipe.Analytics lib files
 Lib Source: C:\_TestPipe\source\application\TestPipe.Analytics\bin\Release
 Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Analytics\bin\Release\TestPipe.Analytics.dll to C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Analytics\bin\Release\TestPipe.Analytics.dll.CodeAnalysisLog.xml to C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Analytics\bin\Release\TestPipe.Analytics.pdb to C:\_TestPipe\Build\Distro\TestPipe.Analytics\lib\net40
 Copying TestPipe.Analytics content files
 Copying TestPipe.Analytics NuGet tools files
@@ -175,6 +176,7 @@ Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\Newtonso
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Assertions.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Assertions.dll.CodeAnalysisLog.xml to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Assertions.pdb to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Assertions\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
@@ -218,6 +220,7 @@ Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\log4net.xml 
 Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\TestPipe.Common.dll.CodeAnalysisLog.xml to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Common\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Common\lib\net40
 Copying TestPipe.Common content files
 Copying TestPipe.Common NuGet tools files
@@ -238,6 +241,7 @@ Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\StyleCop.dll t
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Core.dll.CodeAnalysisLog.xml to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Core.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\TestPipe.Core.pdb to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Core\bin\Release\WebDriver.dll to C:\_TestPipe\Build\Distro\TestPipe.Core\lib\net40
@@ -268,6 +272,7 @@ Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\StyleCop.dll t
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Common.dll to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Common.pdb to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Data.dll to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Data.dll.CodeAnalysisLog.xml to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Data.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.Data.pdb to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Data\bin\Release\TestPipe.NPoco.dll to C:\_TestPipe\Build\Distro\TestPipe.Data\lib\net40
@@ -296,6 +301,7 @@ Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\Ninject.xml t
 Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\StyleCop.CSharp.dll to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\StyleCop.dll to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\TestPipe.Email.dll to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\TestPipe.Email.dll.CodeAnalysisLog.xml to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\TestPipe.Email.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Email\bin\Release\TestPipe.Email.pdb to C:\_TestPipe\Build\Distro\TestPipe.Email\lib\net40
 Copying TestPipe.Email content files
@@ -351,6 +357,7 @@ Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Com
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Core.pdb to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Runner.dll to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Runner.dll.CodeAnalysisLog.xml to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Runner.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Runner\bin\Release\TestPipe.Runner.pdb to C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Copying TestPipe.Runner content files
@@ -383,6 +390,7 @@ Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.C
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Core.pdb to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Selenium.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Selenium.dll.CodeAnalysisLog.xml to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Selenium.dll.config to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\TestPipe.Selenium.pdb to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.Selenium\bin\Release\WebDriver.dll to C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
@@ -417,6 +425,7 @@ Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.C
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Runner.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.Runner.pdb to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.SpecFlow.dll to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
+Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.SpecFlow.dll.CodeAnalysisLog.xml to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.SpecFlow.dll.config to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying C:\_TestPipe\source\application\TestPipe.SpecFlow\bin\Release\TestPipe.SpecFlow.pdb to C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
 Copying TestPipe.SpecFlow content files
@@ -576,13 +585,13 @@ Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Demo.Page
 
 ---------------------------------
 @@Distro : Completed
-@@Timestamp: 10/28/2014 11:19:35 PM
+@@Timestamp: 11/25/2014 10:27:54 AM
 ---------------------------------
 
 
 ---------------------------------
 @@Package : Started
-@@Timestamp: 10/28/2014 11:19:35 PM
+@@Timestamp: 11/25/2014 10:27:54 AM
 ---------------------------------
 
 Removing Folder: C:\_TestPipe\Build\Pub
@@ -615,24 +624,24 @@ Packaging:C:\_TestPipe\Build\Distro\TestPipe.TestSite
 
 ---------------------------------
 @@Package : Completed
-@@Timestamp: 10/28/2014 11:19:41 PM
+@@Timestamp: 11/25/2014 10:28:00 AM
 ---------------------------------
 
 
 ---------------------------------
 @@Publish : Started
-@@Timestamp: 10/28/2014 11:19:41 PM
+@@Timestamp: 11/25/2014 10:28:00 AM
 ---------------------------------
 
 
 ---------------------------------
 @@Publish : Completed
-@@Timestamp: 10/28/2014 11:19:41 PM
+@@Timestamp: 11/25/2014 10:28:00 AM
 ---------------------------------
 
 
 ---------------------------------
 @@Go : Completed
-@@Timestamp: 10/28/2014 11:19:41 PM
+@@Timestamp: 11/25/2014 10:28:00 AM
 ---------------------------------
 

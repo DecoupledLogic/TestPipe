@@ -19,10 +19,10 @@ namespace TestPipe.Demo.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("1. Demo Search")]
+    [NUnit.Framework.DescriptionAttribute("Demo Search")]
     [NUnit.Framework.CategoryAttribute("Demo")]
     [NUnit.Framework.CategoryAttribute("Search")]
-    public partial class _1_DemoSearchFeature
+    public partial class DemoSearchFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -34,7 +34,7 @@ namespace TestPipe.Demo.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "1. Demo Search", "In order to find what I am looking for\r\nAs a user\r\nI want to be able to search", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Demo Search", "In order to find what I am looking for\r\nAs a user\r\nI want to be able to search", ProgrammingLanguage.CSharp, new string[] {
                         "Demo",
                         "Search"});
             testRunner.OnFeatureStart(featureInfo);

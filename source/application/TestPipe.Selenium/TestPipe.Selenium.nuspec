@@ -7,12 +7,11 @@
 		<summary>TestPipe Browser Plug-in based on Selenium WebDriver.</summary>
 		<description>This is an Selenium WebDriver implementation of TestPipe IBrowser API.</description>
 		<authors>Charles Bryant</authors>
-		<owners>CharlesBryant.com</owners>
-		<releaseNotes>Initial release.</releaseNotes>
+		<owners>Charles Bryant</owners>
 		<language>en-us</language>
-		<projectUrl>https://github.com/charleslbryant/TestPipe</projectUrl>
-		<iconUrl>https://github.com/charleslbryant/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
-		<licenseUrl>https://github.com/charleslbryant/TestPipe/blob/master/license</licenseUrl>
+		<projectUrl>https://github.com/DecoupledLogic/TestPipe</projectUrl>
+		<iconUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
+		<licenseUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/license</licenseUrl>
 		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<tags>test, automated test, webdriver, selenium</tags>
@@ -23,8 +22,8 @@
 			<dependency id="Ninject.Extensions.Logging.Log4net" version="3.2.0.0" />
 			<dependency id="Selenium.Support" version="2.42.0" />
 			<dependency id="Selenium.WebDriver" version="2.42.0" />
-			<dependency id="TestPipe.Common" version="1.0.0" />
-			<dependency id="TestPipe.Core" version="1.0.0" />
+			<dependency id="TestPipe.Common" version="3.0.1.0" />
+			<dependency id="TestPipe.Core" version="3.0.1.0" />
 		</dependencies>
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="net40" />

@@ -7,20 +7,19 @@
 		<summary>SpecFlow for TestPipe.</summary>
 		<description>SpecFlow provides the framework for writing test in TestPipe. SpecFlow also provides the intergration with the UnitTest framework for running tests.</description>
 		<authors>Charles Bryant</authors>
-		<owners>CharlesBryant.com</owners>
-		<releaseNotes>Initial release.</releaseNotes>
+		<owners>Charles Bryant</owners>
 		<language>en-us</language>
-		<projectUrl>https://github.com/charleslbryant/TestPipe</projectUrl>
-		<iconUrl>https://github.com/charleslbryant/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
-		<licenseUrl>https://github.com/charleslbryant/TestPipe/blob/master/license</licenseUrl>
+		<projectUrl>https://github.com/DecoupledLogic/TestPipe</projectUrl>
+		<iconUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
+		<licenseUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/license</licenseUrl>
 		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<tags>test, automated test, webdriver, selenium</tags>
 		<dependencies>
 			<dependency id="SpecFlow" version="1.9.0" />
-			<dependency id="TestPipe.Assertions" version="1.0.0" />
-			<dependency id="TestPipe.Core" version="1.0.0" />
-			<dependency id="TestPipe.Runner" version="1.0.0" />
+			<dependency id="TestPipe.Assertions" version="3.0.1.0" />
+			<dependency id="TestPipe.Core" version="3.0.1.0" />
+			<dependency id="TestPipe.Runner" version="3.0.1.0" />
 		</dependencies>
 	</metadata>
 	<files>

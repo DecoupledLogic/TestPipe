@@ -7,12 +7,11 @@
 		<summary>Core TestPipe domain.</summary>
 		<description>This project houses the main domain logic for TestPipe.</description>
 		<authors>Charles Bryant</authors>
-		<owners>CharlesBryant.com</owners>
-		<releaseNotes>Initial release.</releaseNotes>
+		<owners>Charles Bryant</owners>
 		<language>en-us</language>
-		<projectUrl>https://github.com/charleslbryant/TestPipe</projectUrl>
-		<iconUrl>https://github.com/charleslbryant/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
-		<licenseUrl>https://github.com/charleslbryant/TestPipe/blob/master/license</licenseUrl>
+		<projectUrl>https://github.com/DecoupledLogic/TestPipe</projectUrl>
+		<iconUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
+		<licenseUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/license</licenseUrl>
 		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<tags>test, automated test, webdriver, selenium</tags>
@@ -21,7 +20,7 @@
 			<dependency id="Newtonsoft.Json" version="6.0.3" />
 			<dependency id="Selenium.Support" version="2.42.0" />
 			<dependency id="Selenium.WebDriver" version="2.42.0" />
-			<dependency id="TestPipe.Common" version="1.0.0" />
+			<dependency id="TestPipe.Common" version="3.0.1.0" />
 		</dependencies>
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="net40" />

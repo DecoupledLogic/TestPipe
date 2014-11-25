@@ -6,13 +6,13 @@
 		<title>TestPipe Plugins Selenium</title>
 		<summary>Selenium Plugin for the TestPipe Test Automation Framework.</summary>
 		<description>Selenium Plugin for the TestPipe Test Automation Framework.</description>
-		<authors>Charles Bryant, decoupledlogic.wordpress.com</authors>
-		<owners>Charles Bryant, decoupledlogic.wordpress.com</owners>
+		<authors>Charles Bryant</authors>
+		<owners>Charles Bryant</owners>
 		<language>en-us</language>
-		<projectUrl>https://github.com/charleslbryant/TestPipe</projectUrl>
-		<iconUrl>https://github.com/charleslbryant/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
-		<licenseUrl>https://github.com/charleslbryant/TestPipe/blob/master/license</licenseUrl>
-		<copyright>Copyright (c) 2014, Charles Bryant</copyright>
+		<projectUrl>https://github.com/DecoupledLogic/TestPipe</projectUrl>
+		<iconUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
+		<licenseUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/license</licenseUrl>
+		<copyright>Copyright (c) 2014, CharlesBryant.com</copyright>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<tags>testpipe, test, automated test, webdriver, selenium</tags>
 	</metadata>

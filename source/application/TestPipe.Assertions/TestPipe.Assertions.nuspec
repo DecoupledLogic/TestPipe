@@ -7,7 +7,7 @@
 		<summary>Custom test assertions.</summary>
 		<description>This project provides assertion methods that can be used in TestPipe tests.</description>
 		<authors>Charles Bryant</authors>
-		<owners>CharlesBryant.com</owners>
+		<owners>Charles Bryant</owners>
 		<language>en-us</language>
 		<projectUrl>https://github.com/DecoupledLogic/TestPipe</projectUrl>
 		<iconUrl>https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo_pipe_icon.png?raw=true</iconUrl>
@@ -16,7 +16,7 @@
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<tags>test, automated test, webdriver, selenium</tags>
 		<dependencies>
-			<dependency id="TestPipe.Core" version="1.0.0" />
+			<dependency id="TestPipe.Core" version="3.0.1.0" />
 		</dependencies>
 	</metadata>
 	<files>
