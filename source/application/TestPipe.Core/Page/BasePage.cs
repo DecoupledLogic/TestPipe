@@ -130,9 +130,9 @@
 			return this.browser.GetAllCookies();
 		}
 
-		public BaseControl GetBaseControl(ISelect select)
+		public BaseControl GetBaseControl(ISelect select, uint timeoutInSeconds = 0, bool displayed = false)
 		{
-			return new BaseControl(this.Browser, select);
+			return new BaseControl(this.Browser, select, "", timeoutInSeconds, displayed);
 		}
 
 		public string GetCookieValue(string key)
