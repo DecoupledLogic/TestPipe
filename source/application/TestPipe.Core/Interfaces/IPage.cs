@@ -32,7 +32,7 @@
 
 		bool IsActiveControlId(string controlId);
 
-		bool IsOpen();
+		bool IsOpen(uint timeoutInSeconds = 0);
 
 		void Open(string url, uint timeoutInSeconds = 0);
 

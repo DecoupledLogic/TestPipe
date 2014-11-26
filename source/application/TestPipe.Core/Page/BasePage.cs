@@ -165,7 +165,33 @@
 			return this.GetActiveControlById(controlId) != null;
 		}
 
-		public virtual bool IsOpen()
+		public virtual bool IsOpen(uint timeoutInSeconds = 0)
+		{
+			if (timeoutInSeconds == 0)
+			{
+				return this.IsPageOpen();
+			}
+
+			int interval = 500;//half second
+			long startTime = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+			long timeout = timeoutInSeconds * 1000;
+
+			while(!this.IsPageOpen())
+			{
+				System.Threading.Thread.Sleep(interval);
+
+				long elapsedTime = (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - startTime;
+
+				if (elapsedTime > timeout)
+				{
+					return this.IsPageOpen();
+				}
+			}
+
+			return this.IsPageOpen();
+		}
+
+		private bool IsPageOpen()
 		{
 			bool isOpen = false;
 			bool titleMatch = true;
