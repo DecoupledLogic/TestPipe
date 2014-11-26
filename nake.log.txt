@@ -1,26 +1,25 @@
 
 ---------------------------------
 @@Go : Started
-@@Timestamp: 11/25/2014 10:27:37 AM
+@@Timestamp: 11/26/2014 3:11:19 PM
 ---------------------------------
 
-Version: 3.0.1.1
+Version: 3.0.1.2
 
 ---------------------------------
 @@Build : Started
-@@Timestamp: 11/25/2014 10:27:37 AM
+@@Timestamp: 11/26/2014 3:11:19 PM
 ---------------------------------
 
 
 ---------------------------------
 @@UpdateAssembly : Started
-@@Timestamp: 11/25/2014 10:27:37 AM
+@@Timestamp: 11/26/2014 3:11:19 PM
 ---------------------------------
 
-Version: 3.0.1.1
+Version: 3.0.1.2
 Updating: C:\_TestPipe\source\application\TestPipe.Analytics\Properties\AssemblyInfo.cs
 Updating: C:\_TestPipe\source\application\TestPipe.Assertions\Properties\AssemblyInfo.cs
-Updating: C:\_TestPipe\source\application\TestPipe.Build\Properties\AssemblyInfo.cs
 Updating: C:\_TestPipe\source\application\TestPipe.Common\Properties\AssemblyInfo.cs
 Updating: C:\_TestPipe\source\application\TestPipe.Core\Properties\AssemblyInfo.cs
 Updating: C:\_TestPipe\source\application\TestPipe.Data\Properties\AssemblyInfo.cs
@@ -33,21 +32,21 @@ Updating: C:\_TestPipe\source\application\TestPipe.SpecFlow\Properties\AssemblyI
 
 ---------------------------------
 @@UpdateAssembly : Completed
-@@Timestamp: 11/25/2014 10:27:37 AM
+@@Timestamp: 11/26/2014 3:11:19 PM
 ---------------------------------
 
-Configuration: Debug
+Configuration: Release
 Platform: Any CPU
 
 ---------------------------------
 @@Build : Completed
-@@Timestamp: 11/25/2014 10:27:49 AM
+@@Timestamp: 11/26/2014 3:11:31 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Distro : Started
-@@Timestamp: 11/25/2014 10:27:49 AM
+@@Timestamp: 11/26/2014 3:11:31 PM
 ---------------------------------
 
 Removing Folder: C:\_TestPipe\Build\Distro
@@ -63,14 +62,6 @@ Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib
 Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib
 Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
 Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Assertions\lib\net40
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Build
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Build
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Build\content
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Build\content
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Build\lib
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Build\lib
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
 Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Common
 Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Common
 Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Common\lib
@@ -186,29 +177,6 @@ Copying TestPipe.Assertions content files
 Copying TestPipe.Assertions NuGet tools files
 Copyng TestPipe.Assertions license files
 Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Assertions
-Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Build
-Processing TestPipe.Build nuspec files
-Copying TestPipe.Build lib files
-Lib Source: C:\_TestPipe\source\application\TestPipe.Build\bin\Release
-Lib Destination:  C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\AssemblyInfoManager.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\GlobDir.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Meta.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Meta.pdb to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Nake.exe to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Nake.pdb to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\NuGet.Core.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\TestPipe.Build.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\TestPipe.Build.pdb to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Utility.dll to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying C:\_TestPipe\source\application\TestPipe.Build\bin\Release\Utility.pdb to C:\_TestPipe\Build\Distro\TestPipe.Build\lib\net40
-Copying TestPipe.Build content files
-Copying C:\_TestPipe\source\application\TestPipe.Build\ReadMe.txt to C:\_TestPipe\Build\Distro\TestPipe.Build\content
-Copying C:\_TestPipe\source\application\TestPipe.Build\TestPipe.Changelog.txt to C:\_TestPipe\Build\Distro\TestPipe.Build\content
-Copying C:\_TestPipe\source\application\TestPipe.Build\TestPipe.License.txt to C:\_TestPipe\Build\Distro\TestPipe.Build\content
-Copying TestPipe.Build NuGet tools files
-Copyng TestPipe.Build license files
-Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Build
 Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Common
 Processing TestPipe.Common nuspec files
 Copying C:\_TestPipe\source\application\TestPipe.Common\TestPipe.Common.nuspec to C:\_TestPipe\Build\Distro\TestPipe.Common
@@ -585,13 +553,13 @@ Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Demo.Page
 
 ---------------------------------
 @@Distro : Completed
-@@Timestamp: 11/25/2014 10:27:54 AM
+@@Timestamp: 11/26/2014 3:11:38 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Package : Started
-@@Timestamp: 11/25/2014 10:27:54 AM
+@@Timestamp: 11/26/2014 3:11:38 PM
 ---------------------------------
 
 Removing Folder: C:\_TestPipe\Build\Pub
@@ -600,7 +568,6 @@ Packaging:C:\_TestPipe\Build\Distro\TestPipe.Analytics
 Creating Folder: C:\_TestPipe\Build\Pub
 Packaging:C:\_TestPipe\Build\Distro\TestPipe.Assertions
 Creating Folder: C:\_TestPipe\Build\Pub
-Packaging:C:\_TestPipe\Build\Distro\TestPipe.Build
 Packaging:C:\_TestPipe\Build\Distro\TestPipe.Common
 Creating Folder: C:\_TestPipe\Build\Pub
 Packaging:C:\_TestPipe\Build\Distro\TestPipe.Core
@@ -624,24 +591,24 @@ Packaging:C:\_TestPipe\Build\Distro\TestPipe.TestSite
 
 ---------------------------------
 @@Package : Completed
-@@Timestamp: 11/25/2014 10:28:00 AM
+@@Timestamp: 11/26/2014 3:11:44 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Publish : Started
-@@Timestamp: 11/25/2014 10:28:00 AM
+@@Timestamp: 11/26/2014 3:11:44 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Publish : Completed
-@@Timestamp: 11/25/2014 10:28:00 AM
+@@Timestamp: 11/26/2014 3:11:45 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Go : Completed
-@@Timestamp: 11/25/2014 10:28:00 AM
+@@Timestamp: 11/26/2014 3:11:45 PM
 ---------------------------------
 

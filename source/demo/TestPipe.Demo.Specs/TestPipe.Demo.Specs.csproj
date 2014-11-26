@@ -42,26 +42,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject.Extensions.Logging, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Ninject.Extensions.Logging.3.2.1.0\lib\net45-full\Ninject.Extensions.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject.Extensions.Logging.Log4Net, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Ninject.Extensions.Logging.Log4net.3.2.1.0\lib\net45-full\Ninject.Extensions.Logging.Log4Net.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.core">
       <HintPath>..\..\..\packages\NUnitTestAdapter.1.2\lib\nunit.core.dll</HintPath>
       <Private>False</Private>
@@ -99,30 +80,6 @@
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\..\..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
-    <Reference Include="TestPipe.Assertions, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\TestPipe.Assertions.3.0.1.0\lib\net451\TestPipe.Assertions.dll</HintPath>
-    </Reference>
-    <Reference Include="TestPipe.Core, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\TestPipe.Core.3.0.1.0\lib\net451\TestPipe.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="TestPipe.Runner, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\TestPipe.Runner.3.0.1.0\lib\net451\TestPipe.Runner.dll</HintPath>
-    </Reference>
-    <Reference Include="TestPipe.SpecFlow, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\TestPipe.SpecFlow.3.0.1.0\lib\net451\TestPipe.SpecFlow.dll</HintPath>
-    </Reference>
-    <Reference Include="WebDriver, Version=2.44.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Selenium.WebDriver.2.44.0\lib\net40\WebDriver.dll</HintPath>
-    </Reference>
-    <Reference Include="WebDriver.Support, Version=2.44.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Selenium.Support.2.44.0\lib\net40\WebDriver.Support.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -147,6 +104,26 @@
     <Compile Include="Steps\StepHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\application\TestPipe.Assertions\TestPipe.Assertions.csproj">
+      <Project>{f4823cf7-2ace-4271-ac16-caaae1b48a8e}</Project>
+      <Name>TestPipe.Assertions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\application\TestPipe.Common\TestPipe.Common.csproj">
+      <Project>{89a1198f-15dd-40c3-98d1-14466fece5ec}</Project>
+      <Name>TestPipe.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\application\TestPipe.Core\TestPipe.Core.csproj">
+      <Project>{15b21288-dec4-4e87-82eb-1f792e8678d8}</Project>
+      <Name>TestPipe.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\application\TestPipe.Runner\TestPipe.Runner.csproj">
+      <Project>{f7a93c74-cbd6-4122-a15a-b2c4a7f2a659}</Project>
+      <Name>TestPipe.Runner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\application\TestPipe.SpecFlow\TestPipe.SpecFlow.csproj">
+      <Project>{4dda57c9-18b1-4c3e-a4fd-a76268caafc7}</Project>
+      <Name>TestPipe.SpecFlow</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestPipe.Demo.Pages\TestPipe.Demo.Pages.csproj">
       <Project>{55ffc6ce-d960-47bf-bfec-dad868ab22f2}</Project>
       <Name>TestPipe.Demo.Pages</Name>
