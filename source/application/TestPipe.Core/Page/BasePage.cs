@@ -132,7 +132,7 @@
 
 		public BaseControl GetBaseControl(ISelect select, uint timeoutInSeconds = 0, bool displayed = false)
 		{
-			return new BaseControl(this.Browser, select, "", timeoutInSeconds, displayed);
+			return new BaseControl(this.Browser, select, string.Empty, timeoutInSeconds, displayed);
 		}
 
 		public string GetCookieValue(string key)
@@ -172,11 +172,11 @@
 				return this.IsPageOpen();
 			}
 
-			int interval = 500;//half second
+			int interval = 500;
 			long startTime = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 			long timeout = timeoutInSeconds * 1000;
 
-			while(!this.IsPageOpen())
+			while (!this.IsPageOpen())
 			{
 				System.Threading.Thread.Sleep(interval);
 
@@ -189,27 +189,6 @@
 			}
 
 			return this.IsPageOpen();
-		}
-
-		private bool IsPageOpen()
-		{
-			bool isOpen = false;
-			bool titleMatch = true;
-
-			if (!string.IsNullOrEmpty(this.Title))
-			{
-				titleMatch = this.Browser.Title.Trim() == this.Title;
-				isOpen = titleMatch;
-			}
-
-			if (string.IsNullOrEmpty(this.PageRelativeUrl))
-			{
-				return isOpen;
-			}
-
-			bool urlMatch = this.Browser.HasUrl(this.PageUrl);
-
-			return titleMatch & urlMatch;
 		}
 
 		public virtual void Open(string url = "", uint timeoutInSeconds = 0)
@@ -303,6 +282,27 @@
 			}
 
 			return string.Format("{0}{1}", baseUrl, virtualUrl);
+		}
+
+		private bool IsPageOpen()
+		{
+			bool isOpen = false;
+			bool titleMatch = true;
+
+			if (!string.IsNullOrEmpty(this.Title))
+			{
+				titleMatch = this.Browser.Title.Trim() == this.Title;
+				isOpen = titleMatch;
+			}
+
+			if (string.IsNullOrEmpty(this.PageRelativeUrl))
+			{
+				return isOpen;
+			}
+
+			bool urlMatch = this.Browser.HasUrl(this.PageUrl);
+
+			return titleMatch & urlMatch;
 		}
 	}
 }

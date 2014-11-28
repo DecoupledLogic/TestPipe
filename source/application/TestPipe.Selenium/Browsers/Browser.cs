@@ -129,7 +129,7 @@
 
 		public bool HasUrl(string pageUrl)
 		{
-			return this.webDriver.Url.Contains(pageUrl);
+			return this.webDriver.Url.ToLower().Contains(pageUrl.ToLower());
 		}
 
 		public void LoadBrowser(BrowserTypeEnum browser, BrowserConfiguration configuration = null)
