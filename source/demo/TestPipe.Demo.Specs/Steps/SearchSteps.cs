@@ -17,17 +17,30 @@
 		private static string searchText;
 		private static SearchPage testPage;
 
+        [BeforeScenario("@Search")]
+        public static void SetupScenario()
+        {
+            scenario = StepHelper.SetupScenario();
+            testPage = new SearchPage(TestSession.Browser, TestSession.Environment);
+        }
+
+        [BeforeFeature]
+        public static void SetupSearchFeature()
+        {
+            feature = StepHelper.SetupFeature();
+        }
+
 		[BeforeScenario("@Search")]
-		public static void SetupScenario()
+		public static void SetupScenario(string[] tags, string featureTitle, string scenarioTitle)
 		{
-			scenario = StepHelper.SetupScenario();
+			scenario = StepHelper.SetupScenario(tags, featureTitle, scenarioTitle);
 			testPage = new SearchPage(TestSession.Browser, TestSession.Environment);
 		}
 
 		[BeforeFeature]
-		public static void SetupSearchFeature()
+		public static void SetupSearchFeature(string[] tags, string title)
 		{
-			feature = StepHelper.SetupFeature();
+			feature = StepHelper.SetupFeature(tags, title);
 		}
 
 		[Given(@"I am on the search page")]

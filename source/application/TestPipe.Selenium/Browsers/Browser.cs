@@ -281,7 +281,7 @@
 					}
 				case BrowserTypeEnum.FireFox:
 					{
-						this.webDriver = new OpenQA.Selenium.Firefox.FirefoxDriver(capabilities);
+                        this.webDriver = new OpenQA.Selenium.Firefox.FirefoxDriver(OpenQA.Selenium.Remote.DesiredCapabilities.Firefox());
 						break;
 					}
 				case BrowserTypeEnum.Headless:
