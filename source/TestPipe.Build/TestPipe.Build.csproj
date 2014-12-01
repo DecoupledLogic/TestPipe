@@ -85,7 +85,8 @@
     </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
-    <Reference Include="Nake">
+    <Reference Include="Nake, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\tools\Nake\Nake.exe</HintPath>
     </Reference>
     <Reference Include="System" />
