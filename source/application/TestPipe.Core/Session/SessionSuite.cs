@@ -5,6 +5,12 @@
 
 	public class SessionSuite
 	{
+		public SessionSuite()
+		{
+			this.DbConnections = new List<DbConnection>();
+			this.Features = new List<SessionFeature>();
+		}
+
 		public static string KeyPrefix { get; set; }
 
 		public static string SetupKeyPrefix { get; set; }

@@ -6,6 +6,11 @@
 
 	public class SessionFeature
 	{
+		public SessionFeature()
+		{
+			this.Scenarios = new List<SessionScenario>();
+		}
+
 		public Interfaces.IBrowser Browser { get; set; }
 
 		public string Id { get; set; }

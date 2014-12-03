@@ -246,9 +246,24 @@
 		{
 			IBrowser browser = SetBrowserFromTag(tags);
 
+			//currentScenario.Browser = browser == null
+			//	? currentFeature.Browser
+			//	: browser;
+			string defulatBrowserName = GetBrowserName(TestSession.DefaultBrowser);
+
 			currentScenario.Browser = browser == null
-				? currentFeature.Browser
+				? SetBrowser(defulatBrowserName)
 				: browser;
+		}
+
+		public static string GetBrowserName(BrowserTypeEnum browserTypeEnum)
+		{
+			if (browserTypeEnum == BrowserTypeEnum.None || browserTypeEnum == BrowserTypeEnum.Other)
+			{
+				return BrowserTypeEnum.IE.ToString();
+			}
+
+			return browserTypeEnum.ToString();
 		}
 
 		public static void SetTestSessionBrowser()

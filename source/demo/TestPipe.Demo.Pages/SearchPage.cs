@@ -11,7 +11,7 @@
 	{
 		private static readonly ISelect SearchSelector = new Select(FindByEnum.Id, "gbqfq");
 		private static readonly ISelect SearchButtonSelector = new Select(FindByEnum.Id, "gbqfb");
-		private static readonly string PageTitle = "Google Search";
+		private static readonly string PageTitle = "Google";
 		private static readonly string Url = "/";
 
 		private BaseControl search;

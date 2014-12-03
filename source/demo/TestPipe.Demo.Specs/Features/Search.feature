@@ -10,3 +10,9 @@ Scenario: 1. Search for Something
 	And when I do a search
 	When I submit the search
 	Then results should be displayed
+
+Scenario: 2. Search for Something
+	Given I am on the search page
+	And when I do a search
+	When I submit the search
+	Then results should be displayed

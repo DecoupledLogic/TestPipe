@@ -1,10 +1,11 @@
 ﻿namespace TestPipe.SpecFlow.Specs
 {
 	using System;
-	using Microsoft.VisualStudio.TestTools.UnitTesting;
-	using TestPipe.Core;
-	using TestPipe.Core.Enums;
-	using TestPipe.Runner;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TestPipe.Core;
+using TestPipe.Core.Enums;
+using TestPipe.Core.Interfaces;
+using TestPipe.Runner;
 
 	[TestClass]
 	public class RunnerBaseSpec
@@ -26,5 +27,16 @@
 				this.testContextInstance = value;
 			}
 		}		
+
+		[TestMethod]
+		public void OpenMultipleBrowsers()
+		{
+			TestSession.Suite = new Core.Session.SessionSuite();
+			IBrowser browser1 = RunnerHelper.SetBrowser("IE");
+			IBrowser browser2 = RunnerHelper.SetBrowser("IE");
+
+			browser2.Open("http://www.bing.com");
+			browser1.Open("http://www.google.com");
+		}
 	}
 }

@@ -7,30 +7,26 @@
 
 	public static class Runner
 	{
-        public static SessionFeature SetupFeature()
-        {
-            FeatureInfo current = FeatureContext.Current.FeatureInfo;
-            return RunnerBase.SetupFeature(current.Title, current.Tags);
-        }
+		public static SessionFeature SetupFeature()
+		{
+			FeatureInfo current = FeatureContext.Current.FeatureInfo;
+			return RunnerBase.SetupFeature(current.Title, current.Tags);
+		}
 
-        public static SessionScenario SetupScenario()
-        {
-            ScenarioInfo current = ScenarioContext.Current.ScenarioInfo;
-            FeatureInfo feature = FeatureContext.Current.FeatureInfo;
-            return RunnerBase.SetupScenario(current.Title, feature.Title, current.Tags);
-        }
+		public static SessionScenario SetupScenario()
+		{
+			ScenarioInfo current = ScenarioContext.Current.ScenarioInfo;
+			FeatureInfo feature = FeatureContext.Current.FeatureInfo;
+			return RunnerBase.SetupScenario(current.Title, feature.Title, current.Tags);
+		}
 
 		public static SessionFeature SetupFeature(string[] tags, string title)
 		{
-			//FeatureInfo current = FeatureContext.Current.FeatureInfo;
-			//return RunnerBase.SetupFeature(current.Title, current.Tags);
-            return RunnerBase.SetupFeature(title, tags);
+			return RunnerBase.SetupFeature(title, tags);
 		}
 
 		public static SessionScenario SetupScenario(string[] tags, string fTitle, string sTitle)
 		{
-			//ScenarioInfo current = ScenarioContext.Current.ScenarioInfo;
-			//FeatureInfo feature = FeatureContext.Current.FeatureInfo;
 			return RunnerBase.SetupScenario(sTitle, fTitle, tags);
 		}
 

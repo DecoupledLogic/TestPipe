@@ -34,11 +34,7 @@
 
 			try
 			{
-				AggregateCatalog aggregateCatalogue = new AggregateCatalog();
-				aggregateCatalogue.Catalogs.Add(new DirectoryCatalog(ConfigurationManager.AppSettings["browser.plugins"]));
-
-				CompositionContainer container = new CompositionContainer(aggregateCatalogue);
-				container.ComposeParts(this);
+				this.browser = new TestPipe.Selenium.Browsers.Browser();
 			}
 			catch (FileNotFoundException ex)
 			{
