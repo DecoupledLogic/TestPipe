@@ -6,6 +6,7 @@
 	using TestPipe.Common;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Interfaces;
+    using TestPipe.Selenium;
 
 	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
 	public class BrowserFactory
@@ -34,7 +35,12 @@
 
 			try
 			{
-				this.browser = new TestPipe.Selenium.Browsers.Browser();
+                this.browser = new Selenium.Browsers.Browser();
+                //AggregateCatalog aggregateCatalogue = new AggregateCatalog();
+                //aggregateCatalogue.Catalogs.Add(new DirectoryCatalog(ConfigurationManager.AppSettings["browser.plugins"]));
+
+                //CompositionContainer container = new CompositionContainer(aggregateCatalogue);
+                //container.ComposeParts(this);
 			}
 			catch (FileNotFoundException ex)
 			{

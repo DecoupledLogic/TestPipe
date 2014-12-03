@@ -81,12 +81,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\TestPipe.Build\TestPipe.Build.csproj">
-      <Project>{0451baef-df2e-4b98-8644-94ee9415e389}</Project>
-      <Name>TestPipe.Build</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
