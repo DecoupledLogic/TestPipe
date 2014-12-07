@@ -246,13 +246,10 @@
 		{
 			IBrowser browser = SetBrowserFromTag(tags);
 
-			//currentScenario.Browser = browser == null
-			//	? currentFeature.Browser
-			//	: browser;
-			string defulatBrowserName = GetBrowserName(TestSession.DefaultBrowser);
+			string defaultBrowserName = GetBrowserName(TestSession.DefaultBrowser);
 
 			currentScenario.Browser = browser == null
-				? SetBrowser(defulatBrowserName)
+				? SetBrowser(defaultBrowserName)
 				: browser;
 		}
 
