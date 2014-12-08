@@ -7,6 +7,7 @@ namespace TestPipe.Core.Control
 	using System.Drawing;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Exceptions;
+	using TestPipe.Core.Helpers;
 	using TestPipe.Core.Interfaces;
 
 	public class BaseControl : IControl
@@ -180,6 +181,17 @@ namespace TestPipe.Core.Control
 			return this.Element.GetCssValue(propertyName);
 		}
 
+		public uint DefaultTimeout
+		{
+			get
+			{
+				int timeout = TestSession.Timeout.Seconds;
+				uint timeoutSeconds = 0;
+				uint.TryParse(timeout.ToString(), out timeoutSeconds);
+				return timeoutSeconds;
+			}
+		}
+
 		#endregion IControl
 
 		#region IControlAssert
@@ -208,33 +220,53 @@ namespace TestPipe.Core.Control
 			}
 		}
 
-		public bool CanFind(ISelect by)
+		public bool CanFind(ISelect by, uint timeoutInSeconds = 0)
 		{
-			this.Find(by);
+			this.Find(by, timeoutInSeconds);
 			return this.Exists();
 		}
 
-		public bool CanFindById(string id)
+		public bool CanFindById(string id, uint timeoutInSeconds = 0)
 		{
-			this.FindById(id);
+			this.FindById(id, timeoutInSeconds);
 			return this.Exists();
 		}
 
-		public bool CanFindByText(string text)
+		public bool CanFindByText(string text, uint timeoutInSeconds = 0)
 		{
-			this.FindByText(text);
+			this.FindByText(text, timeoutInSeconds);
 			return this.Exists();
 		}
 
-		public bool Exists()
+		public bool IsEnabled(uint timeoutInSeconds = 0)
 		{
-			return this.Element != null;
+			Func<bool> func1 = () => this.Enabled;
+			return Timing.Timeout(this.DefaultTimeout, func1);
 		}
 
-		public bool HasFocus()
+		public bool IsSelected(uint timeoutInSeconds = 0)
+		{
+			Func<bool> func1 = () => this.Selected;
+			return Timing.Timeout(this.DefaultTimeout, func1);
+		}
+
+		public bool IsDisplayed(uint timeoutInSeconds = 0)
+		{
+			Func<bool> func1 = () => this.Displayed;
+			return Timing.Timeout(this.DefaultTimeout, func1);
+		}
+
+		public bool Exists(uint timeoutInSeconds = 0)
+		{
+			Func<bool> func1 = () => this.Element != null;
+			return Timing.Timeout(this.DefaultTimeout, func1);
+		}
+
+		public bool HasFocus(uint timeoutInSeconds = 0)
 		{
 			IElement active = this.Browser.BrowserSearchContext.GetActiveElement();
-			return this.Element.Equals(active);
+			Func<bool> func1 = () => this.Element.Equals(active);
+			return Timing.Timeout(this.DefaultTimeout, func1);
 		}
 
 		#endregion IControlAssert

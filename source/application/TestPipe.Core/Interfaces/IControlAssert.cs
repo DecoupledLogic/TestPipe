@@ -8,12 +8,20 @@
 
 		bool Selected { get; }
 
-		bool CanFind(ISelect by);
+		bool CanFind(ISelect by, uint timeoutInSeconds = 0);
 
-		bool CanFindById(string id);
+		bool CanFindById(string id, uint timeoutInSeconds = 0);
 
-		bool CanFindByText(string text);
+		bool CanFindByText(string text, uint timeoutInSeconds = 0);
 
-		bool Exists();
+		bool Exists(uint timeoutInSeconds = 0);
+
+		bool HasFocus(uint timeoutInSeconds = 0);
+
+		bool IsDisplayed(uint timeoutInSeconds = 0);
+
+		bool IsEnabled(uint timeoutInSeconds = 0);
+
+		bool IsSelected(uint timeoutInSeconds = 0);
 	}
 }

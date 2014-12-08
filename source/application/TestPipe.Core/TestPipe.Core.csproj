@@ -81,6 +81,7 @@
     <Compile Include="Exceptions\ManualOnlyException.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\TextHelper.cs" />
+    <Compile Include="Helpers\Timing.cs" />
     <Compile Include="Interfaces\IListElement.cs" />
     <Compile Include="ReadOnlyCache.cs" />
     <Compile Include="Exceptions\AggregateNotFoundException.cs" />

@@ -6,6 +6,7 @@
 	using System.Linq;
 	using TestPipe.Core;
 	using TestPipe.Core.Control;
+	using TestPipe.Core.Helpers;
 	using TestPipe.Core.Interfaces;
 
 	public class BasePage : IPage
@@ -167,28 +168,8 @@
 
 		public virtual bool IsOpen(uint timeoutInSeconds = 0)
 		{
-			if (timeoutInSeconds == 0)
-			{
-				return this.IsPageOpen();
-			}
-
-			int interval = 500;
-			long startTime = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-			long timeout = timeoutInSeconds * 1000;
-
-			while (!this.IsPageOpen())
-			{
-				System.Threading.Thread.Sleep(interval);
-
-				long elapsedTime = (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - startTime;
-
-				if (elapsedTime > timeout)
-				{
-					return this.IsPageOpen();
-				}
-			}
-
-			return this.IsPageOpen();
+			Func<bool> action = () => this.IsPageOpen();
+			return Timing.Timeout(timeoutInSeconds, action);
 		}
 
 		public virtual void Open(string url = "", uint timeoutInSeconds = 0)

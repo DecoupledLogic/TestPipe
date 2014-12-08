@@ -10,6 +10,7 @@
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Interfaces;
 
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
 	public class BrowserFactory
 	{
 		[Import(typeof(IBrowser))]

@@ -10,6 +10,8 @@
 
 		ControlTypeEnum ControlType { get; }
 
+		uint DefaultTimeout { get; }
+
 		IElement Element { get; }
 
 		string Id { get; }
