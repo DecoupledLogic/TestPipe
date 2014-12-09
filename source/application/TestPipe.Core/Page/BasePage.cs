@@ -169,7 +169,7 @@
 		public virtual bool IsOpen(uint timeoutInSeconds = 0)
 		{
 			Func<bool> action = () => this.IsPageOpen();
-			return Timing.Timeout(timeoutInSeconds, action);
+			return Timing.TimeoutPredicate(timeoutInSeconds, action);
 		}
 
 		public virtual void Open(string url = "", uint timeoutInSeconds = 0)

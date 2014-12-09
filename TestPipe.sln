@@ -11,9 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CodeCoverage.bat = CodeCoverage.bat
 		Nake.bat = Nake.bat
 		Nake.csx = Nake.csx
-		package.build.xml = package.build.xml
 		README.md = README.md
-		testpipe.build.xml = testpipe.build.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPipe.Assertions", "source\application\TestPipe.Assertions\TestPipe.Assertions.csproj", "{F4823CF7-2ACE-4271-AC16-CAAAE1B48A8E}"

@@ -5,6 +5,7 @@ namespace TestPipe.Core.Control
 	using System.Collections.Generic;
 	using System.Collections.ObjectModel;
 	using System.Drawing;
+	using System.Threading;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Exceptions;
 	using TestPipe.Core.Helpers;
@@ -241,32 +242,32 @@ namespace TestPipe.Core.Control
 		public bool IsEnabled(uint timeoutInSeconds = 0)
 		{
 			Func<bool> func1 = () => this.Enabled;
-			return Timing.Timeout(this.DefaultTimeout, func1);
+			return Timing.TimeoutPredicate(this.DefaultTimeout, func1);
 		}
 
 		public bool IsSelected(uint timeoutInSeconds = 0)
 		{
 			Func<bool> func1 = () => this.Selected;
-			return Timing.Timeout(this.DefaultTimeout, func1);
+			return Timing.TimeoutPredicate(this.DefaultTimeout, func1);
 		}
 
 		public bool IsDisplayed(uint timeoutInSeconds = 0)
 		{
 			Func<bool> func1 = () => this.Displayed;
-			return Timing.Timeout(this.DefaultTimeout, func1);
+			return Timing.TimeoutPredicate(this.DefaultTimeout, func1);
 		}
 
 		public bool Exists(uint timeoutInSeconds = 0)
 		{
 			Func<bool> func1 = () => this.Element != null;
-			return Timing.Timeout(this.DefaultTimeout, func1);
+			return Timing.TimeoutPredicate(this.DefaultTimeout, func1);
 		}
 
 		public bool HasFocus(uint timeoutInSeconds = 0)
 		{
 			IElement active = this.Browser.BrowserSearchContext.GetActiveElement();
 			Func<bool> func1 = () => this.Element.Equals(active);
-			return Timing.Timeout(this.DefaultTimeout, func1);
+			return Timing.TimeoutPredicate(this.DefaultTimeout, func1);
 		}
 
 		#endregion IControlAssert
@@ -517,30 +518,39 @@ namespace TestPipe.Core.Control
 
 		public void Wait()
 		{
+			Thread.Sleep((int)DefaultTimeout * 1000);
 		}
 
 		public void Wait(int seconds)
 		{
+			Thread.Sleep((int)seconds * 1000);
 		}
 
 		public void Wait(TimeSpan timeSpan)
 		{
+			Thread.Sleep((int)timeSpan.TotalSeconds * 1000);
 		}
 
 		public void WaitUntil(System.Linq.Expressions.Expression<Func<bool>> conditionFunc)
 		{
+			Timing.TimeoutPredicate(DefaultTimeout, conditionFunc.Compile());
 		}
 
 		public void WaitUntil(System.Linq.Expressions.Expression<Func<bool>> conditionFunc, TimeSpan timeout)
 		{
+			Timing.TimeoutPredicate((uint)timeout.TotalSeconds, conditionFunc.Compile());
 		}
 
 		public void WaitUntil(System.Linq.Expressions.Expression<Action> conditionAction)
 		{
+			this.Wait();
+			conditionAction.Compile().Invoke();
 		}
 
 		public void WaitUntil(System.Linq.Expressions.Expression<Action> conditionAction, TimeSpan timeout)
 		{
+			this.Wait(timeout);
+			conditionAction.Compile().Invoke();
 		}
 
 		#endregion IControlAction

@@ -8,9 +8,9 @@
 
 	public class Timing
 	{
-		public static bool Timeout(uint timeoutInSeconds, Func<bool> action)
+		public static bool TimeoutPredicate(uint timeoutInSeconds, Func<bool> predicate)
 		{
-			if (action.Invoke())
+			if (predicate.Invoke())
 			{
 				return true;
 			}
@@ -19,7 +19,7 @@
 			long startTime = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 			long timeout = timeoutInSeconds * 1000;
 
-			while (!action.Invoke())
+			while (!predicate.Invoke())
 			{
 				System.Threading.Thread.Sleep(interval);
 
@@ -27,11 +27,11 @@
 
 				if (elapsedTime > timeout)
 				{
-					return action.Invoke();
+					return predicate.Invoke();
 				}
 			}
 
-			return action.Invoke();
+			return predicate.Invoke();
 		}
 	}
 }

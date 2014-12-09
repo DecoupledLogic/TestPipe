@@ -1,23 +1,23 @@
 
 ---------------------------------
 @@Go : Started
-@@Timestamp: 11/26/2014 3:11:19 PM
+@@Timestamp: 11/28/2014 1:41:44 PM
 ---------------------------------
 
-Version: 3.0.1.2
+Version: 3.0.1.4
 
 ---------------------------------
 @@Build : Started
-@@Timestamp: 11/26/2014 3:11:19 PM
+@@Timestamp: 11/28/2014 1:41:44 PM
 ---------------------------------
 
 
 ---------------------------------
 @@UpdateAssembly : Started
-@@Timestamp: 11/26/2014 3:11:19 PM
+@@Timestamp: 11/28/2014 1:41:44 PM
 ---------------------------------
 
-Version: 3.0.1.2
+Version: 3.0.1.4
 Updating: C:\_TestPipe\source\application\TestPipe.Analytics\Properties\AssemblyInfo.cs
 Updating: C:\_TestPipe\source\application\TestPipe.Assertions\Properties\AssemblyInfo.cs
 Updating: C:\_TestPipe\source\application\TestPipe.Common\Properties\AssemblyInfo.cs
@@ -32,7 +32,7 @@ Updating: C:\_TestPipe\source\application\TestPipe.SpecFlow\Properties\AssemblyI
 
 ---------------------------------
 @@UpdateAssembly : Completed
-@@Timestamp: 11/26/2014 3:11:19 PM
+@@Timestamp: 11/28/2014 1:41:44 PM
 ---------------------------------
 
 Configuration: Release
@@ -40,13 +40,13 @@ Platform: Any CPU
 
 ---------------------------------
 @@Build : Completed
-@@Timestamp: 11/26/2014 3:11:31 PM
+@@Timestamp: 11/28/2014 1:42:02 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Distro : Started
-@@Timestamp: 11/26/2014 3:11:31 PM
+@@Timestamp: 11/28/2014 1:42:02 PM
 ---------------------------------
 
 Removing Folder: C:\_TestPipe\Build\Distro
@@ -120,26 +120,8 @@ Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Runner\lib
 Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Runner\lib
 Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
 Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Runner\lib\net40
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Selenium
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Selenium
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Selenium\content
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Selenium\content
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.Selenium\lib\net40
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.SpecFlow
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.SpecFlow
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\content
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\content
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.SpecFlow\lib\net40
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.TestSite
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.TestSite
-Deleting files in C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
-Deleting directory C:\_TestPipe\Build\Distro\TestPipe.TestSite\content
+The directory is not empty.
+
 Creating Folder: C:\_TestPipe\Build\Distro
 Copying files to distribution path: C:\_TestPipe\source\application\TestPipe.Analytics
 Processing TestPipe.Analytics nuspec files
@@ -553,13 +535,13 @@ Copying C:\_TestPipe\license.txt to C:\_TestPipe\Build\Distro\TestPipe.Demo.Page
 
 ---------------------------------
 @@Distro : Completed
-@@Timestamp: 11/26/2014 3:11:38 PM
+@@Timestamp: 11/28/2014 1:42:12 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Package : Started
-@@Timestamp: 11/26/2014 3:11:38 PM
+@@Timestamp: 11/28/2014 1:42:12 PM
 ---------------------------------
 
 Removing Folder: C:\_TestPipe\Build\Pub
@@ -591,24 +573,24 @@ Packaging:C:\_TestPipe\Build\Distro\TestPipe.TestSite
 
 ---------------------------------
 @@Package : Completed
-@@Timestamp: 11/26/2014 3:11:44 PM
+@@Timestamp: 11/28/2014 1:42:19 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Publish : Started
-@@Timestamp: 11/26/2014 3:11:44 PM
+@@Timestamp: 11/28/2014 1:42:19 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Publish : Completed
-@@Timestamp: 11/26/2014 3:11:45 PM
+@@Timestamp: 11/28/2014 1:42:19 PM
 ---------------------------------
 
 
 ---------------------------------
 @@Go : Completed
-@@Timestamp: 11/26/2014 3:11:45 PM
+@@Timestamp: 11/28/2014 1:42:19 PM
 ---------------------------------
 
