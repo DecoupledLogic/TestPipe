@@ -30,9 +30,17 @@
 				return new SessionFeature();
 			}
 
-			string featureId = RunnerHelper.LoadFeature(title);
+			SessionFeature currentFeature;
 
-			SessionFeature currentFeature = TestSession.GetFeature(featureId);
+			try
+			{
+				currentFeature = RunnerHelper.LoadFeature(title);
+			}
+			catch (TestPipeException)
+			{
+
+				throw;
+			}
 
 			RunnerHelper.SetFeatureBrowser(tags, currentFeature);
 
@@ -87,8 +95,6 @@
 
 		public static void TeardownFeature()
 		{
-			TestSession.Browser.Quit();
-			TestSession.Browser = null;
 		}
 
 		public static void TeardownScenario()
@@ -96,8 +102,47 @@
 			TestSession.Browser.Open(string.Format("{0}{1}", TestSession.Suite.BaseUrl, TestSession.Suite.LogoutUrl));
 		}
 
+		public static void TeardownScenario(SessionScenario scenario)
+		{
+			scenario.Browser.Open(string.Format("{0}{1}", TestSession.Suite.BaseUrl, TestSession.Suite.LogoutUrl));
+			scenario.Browser.Quit();
+			scenario.Browser = null;
+		}
+
 		public static void TeardownSuite()
 		{
+			if (TestSession.Features.Count > 0)
+			{
+				foreach (var feature in TestSession.Features)
+				{
+					if (feature.Scenarios.Count < 0)
+					{
+						return;
+					}
+
+					foreach (var scenario in feature.Scenarios)
+					{
+						if (scenario.Browser != null)
+						{
+							scenario.Browser.Quit();
+							scenario.Browser = null;
+						}
+					}
+
+					if (feature.Browser != null)
+					{
+						feature.Browser.Quit();
+						feature.Browser = null;
+					}
+				}
+			}
+
+			if (TestSession.Browser != null)
+			{
+				TestSession.Browser.Quit();
+				TestSession.Browser = null;
+			}
+			
 			TestSession.Suite = null;
 		}
 	}

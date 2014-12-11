@@ -6,20 +6,10 @@
 	[Binding]
 	public sealed class CommonHooks
 	{
-        //[BeforeFeature]
-        //public static void SetupFeature()
-        //{
-        //    //Get feature test data from XML
-        //    //Delete test data from database
-        //    //Save test data to database
-        //    Console.WriteLine("TestPipeBeforeFeatureSetup");
-        //    Runner.SetupFeature();
-        //}
-
 		[AfterFeature]
 		public static void TeardownFeature()
 		{
-            Console.WriteLine("TestPipeFeatureTearDown");
+      Console.WriteLine("TestPipeFeatureTearDown");
 			Runner.TeardownFeature();
 		}
 

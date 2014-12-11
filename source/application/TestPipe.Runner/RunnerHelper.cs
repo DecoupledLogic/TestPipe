@@ -157,21 +157,30 @@
 			return RunnerHelper.Ignore(tags, runTags);
 		}
 
-		public static string LoadFeature(string title)
+		public static SessionFeature LoadFeature(string title)
 		{
-			// Uncomment below if ids are significant for features 
-			//string featureKey = RunnerHelper.GetIdFromTitle(title);
-			// Uncomment below if ids are significant for features 
-			//SessionFeature feature = TestSession.Suite.Features.Where(x => x.Id == featureKey).FirstOrDefault();
-			// Comment below if ids are significant for features 
+			if (string.IsNullOrWhiteSpace(title))
+			{
+				throw new TestPipeException("Parameter \"title\" can not be null owr white space.");
+			}
+			
 			SessionFeature feature = TestSession.Suite.Features.Where(x => x.Title == title).FirstOrDefault();
-			string path = RunnerHelper.GetDataFilePath(feature.Path);
-			TestSession.LoadFeature(path);
 
-			// Uncomment below if ids are significant for features 
-			//return featureKey;
-			// Comment below if ids are significant for features 
-			return title;
+			if (feature == null)
+			{
+				throw new TestPipeException(string.Format("TestSession.Suite.Features does not contain a feature with title \"{0}\".", title));
+			}
+			
+			string path = RunnerHelper.GetDataFilePath(feature.Path);
+
+			if (string.IsNullOrWhiteSpace(path))
+			{
+				throw new TestPipeException(string.Format("Feature \"{0}\" has a null or empty Feature.Path.", title));
+			}
+
+			feature = TestSession.LoadFeature(path);
+
+			return feature;
 		}
 
 		public static IBrowser SetBrowser(string browserName)

@@ -199,7 +199,7 @@
 			return scenario;
 		}
 
-		public static void LoadFeature(string path)
+		public static SessionFeature LoadFeature(string path)
 		{
 			string json = LoadData(path);
 
@@ -213,6 +213,8 @@
 			SessionFeature feature = (SessionFeature)data;
 
 			TestSession.Features.Add(feature);
+
+			return feature;
 		}
 
 		public static void LoadSuite(string path)

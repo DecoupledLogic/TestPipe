@@ -21,7 +21,7 @@
 		public static void SetupScenario()
 		{
 			scenario = StepHelper.SetupScenario();
-			testPage = new SearchPage(TestSession.Browser, TestSession.Environment);
+			testPage = new SearchPage(scenario.Browser, TestSession.Environment);
 		}
 
 		[BeforeFeature]
@@ -34,7 +34,7 @@
 		public static void SetupScenario(string[] tags, string featureTitle, string scenarioTitle)
 		{
 			scenario = StepHelper.SetupScenario(tags, featureTitle, scenarioTitle);
-			testPage = new SearchPage(TestSession.Browser, TestSession.Environment);
+			testPage = new SearchPage(scenario.Browser, TestSession.Environment);
 		}
 
 		[BeforeFeature]
@@ -56,7 +56,7 @@
 
 			testPage.EnterText(testPage.Search, searchText);
 
-			testPage = new SearchPage(TestSession.Browser, TestSession.Environment);
+			testPage = new SearchPage(scenario.Browser, TestSession.Environment);
 		}
 
 		[Then(@"results should be displayed")]

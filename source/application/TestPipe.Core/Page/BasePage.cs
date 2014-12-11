@@ -17,6 +17,11 @@
 
 		public BasePage(IBrowser browser, TestEnvironment testEnvironment)
 		{
+			if (this.browser == null)
+			{
+				throw new NullReferenceException("Browser can not be null.");
+			}
+
 			this.browser = browser;
 			this.TestEnvironment = testEnvironment;
 		}
@@ -25,14 +30,7 @@
 		{
 			get
 			{
-				if (this.browser == null)
-				{
-					return TestSession.Browser;
-				}
-				else
-				{
-					return this.browser;
-				}
+				return this.browser;
 			}
 		}
 
