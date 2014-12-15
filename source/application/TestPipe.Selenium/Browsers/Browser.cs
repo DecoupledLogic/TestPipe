@@ -197,9 +197,9 @@
 				Screenshot screenshot = screenshotDriver.GetScreenshot();
 				screenshot.SaveAsFile(screenshotPath, format);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-                //TODO: Uncomment
+        //TODO: Uncomment
 				//this.Logger.Error("Error taking screen shot.", ex);
 			}
 		}

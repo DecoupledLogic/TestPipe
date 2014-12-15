@@ -6,21 +6,19 @@
 	using TestPipe.Common;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Interfaces;
-    using TestPipe.Selenium;
+	using TestPipe.Selenium;
 
 	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
 	public class BrowserFactory
 	{
 		[Import(typeof(IBrowser))]
 		private IBrowser browser;
-        private BrowserConfiguration config;
 		private BrowserConfiguration config;
 		private ILogManager log;
 
 		public BrowserFactory(ILogManager log, BrowserConfiguration config = null)
 		{
-            this.config = config;
-            //TODO: Uncomment
+			//TODO: Uncomment
 			//this.log = log;
 			this.config = config;
 		}
@@ -37,28 +35,28 @@
 
 			try
 			{
-                this.browser = new Selenium.Browsers.Browser();
-                //AggregateCatalog aggregateCatalogue = new AggregateCatalog();
-                //aggregateCatalogue.Catalogs.Add(new DirectoryCatalog(ConfigurationManager.AppSettings["browser.plugins"]));
+				this.browser = new Selenium.Browsers.Browser();
 
-                //CompositionContainer container = new CompositionContainer(aggregateCatalogue);
-                //container.ComposeParts(this);
+				//AggregateCatalog aggregateCatalogue = new AggregateCatalog();
+				//aggregateCatalogue.Catalogs.Add(new DirectoryCatalog(ConfigurationManager.AppSettings["browser.plugins"]));
+				//CompositionContainer container = new CompositionContainer(aggregateCatalogue);
+				//container.ComposeParts(this);
 			}
-			catch (FileNotFoundException ex)
+			catch (FileNotFoundException)
 			{
-                //TODO: Uncomment
+				//TODO: Uncomment
 				//this.log.Error("File not found while composing browser.", ex);
 			}
-			catch (CompositionException ex)
+			catch (CompositionException)
 			{
-                //TODO: Uncomment
+				//TODO: Uncomment
 				//this.log.Error("Composition exception while composing browser.", ex);
 			}
 
 			if (this.browser == null)
 			{
 				string nullBrowserMessage = "Browser is null.";
-                //TODO: Uncomment
+				//TODO: Uncomment
 				//this.log.Error(nullBrowserMessage);
 				throw new Exception(nullBrowserMessage);
 			}
