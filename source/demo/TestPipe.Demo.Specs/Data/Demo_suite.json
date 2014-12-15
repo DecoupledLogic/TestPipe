@@ -1,7 +1,7 @@
 ﻿{
 	"ApplicationKey": "C5851267-AD37-482B-9762-A3FE5DF017EE",
 	"BaseURL": "https://www.google.com/",
-	"BrowserDriver": "IE",
+	"BrowserDriver": "FireFox",
 	"DefaultBrowserVersion": "10",
 	"RemoteDriverPath": "http://localhost:4444/wd/hub",
 	"Browser": "Remote",

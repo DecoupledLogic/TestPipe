@@ -20,6 +20,11 @@ Call this task with:
 
 `{TestPipe Solution Directory}> nake`
 
+Set the version of the package
+
+`{TestPipe Solution Directory}> nake GO "3.1.0"`
+
+
 Clean
 -----------------------------------
 Deletes build artifact folders from previous builds. 

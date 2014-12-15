@@ -253,7 +253,7 @@
 					}
 			}
 
-			//capabilities.SetCapability(CapabilityType.Platform, configuration.Platform);
+			capabilities.SetCapability(CapabilityType.Platform, configuration.Platform);
 			string browserName = configuration.BrowserType.ToString().ToLower();
 
 			if (configuration.BrowserType == BrowserTypeEnum.IE)
@@ -262,11 +262,11 @@
 			}
 
 			capabilities.SetCapability(CapabilityType.BrowserName, browserName);
-			//capabilities.SetCapability(CapabilityType.Version, configuration.Version);
-			//Proxy proxy = new Proxy();
-			//proxy.IsAutoDetect = true;
-			//proxy.Kind = ProxyKind.AutoDetect;
-			//capabilities.SetCapability(CapabilityType.Proxy, proxy);
+			capabilities.SetCapability(CapabilityType.Version, configuration.Version);
+			Proxy proxy = new Proxy();
+			proxy.IsAutoDetect = true;
+			proxy.Kind = ProxyKind.AutoDetect;
+			capabilities.SetCapability(CapabilityType.Proxy, proxy);
 			return capabilities;
 		}
 

@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{605D741E-BA99-447A-A98F-CE7A3158D04C}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Build.md = Build.md
 		CodeCoverage.bat = CodeCoverage.bat
 		Nake.bat = Nake.bat
 		Nake.csx = Nake.csx

@@ -33,7 +33,7 @@
 			{
 				if (string.IsNullOrWhiteSpace(this.platform))
 				{
-					if (BrowserType == BrowserTypeEnum.IE)
+					if (this.BrowserType == BrowserTypeEnum.IE)
 					{
 						this.platform = "VISTA";
 					}

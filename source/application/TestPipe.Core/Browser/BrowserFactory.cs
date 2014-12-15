@@ -52,7 +52,7 @@
 				throw new Exception(nullBrowserMessage);
 			}
 
-			this.browser.LoadBrowser(browserType, config);
+			this.browser.LoadBrowser(browserType, this.config);
 			return this.browser;
 		}
 	}
