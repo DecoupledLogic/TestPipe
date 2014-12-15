@@ -26,11 +26,17 @@
 
 		IElement ActiveElement();
 
+		void AddCookie(string key, string value, string path = "/", string domain = null, DateTime? expiry = null);
+
 		void Close();
 
 		void DeleteAllCookies();
 
 		void DeleteCookieNamed(string name);
+
+		object ExecuteAsyncScript(string script, params object[] args);
+
+		object ExecuteScript(string script, params object[] args);
 
 		Dictionary<string, string> GetAllCookies();
 
@@ -38,9 +44,11 @@
 
 		void LoadBrowser(BrowserTypeEnum browser, BrowserConfiguration configuration = null);
 
-		void Open(string url, uint timeoutInSeconds = 0);
+		void MaximizeWindow();
 
 		void MoveToElement(IElement element);
+
+		void Open(string url, uint timeoutInSeconds = 0);
 
 		void Quit();
 
@@ -48,22 +56,14 @@
 
 		void SendBrowserKeys(string keys);
 
+		void SetWindowPosition(Point point);
+
+		void SetWindowSize(Size size);
+
 		void SwitchTo(string window);
 
 		void TakeScreenshot(string screenshotPath, ImageFormat format);
 
-		void AddCookie(string key, string value, string path = "/", string domain = null, DateTime? expiry = null);
-
 		void WaitForPageLoad(uint timeoutInSeconds = 0, string title = "");
-
-		void MaximizeWindow();
-
-		void SetWindowSize(Size size);
-
-		void SetWindowPosition(Point point);
-
-		object ExecuteAsyncScript(string script, params object[] args);
-
-		object ExecuteScript(string script, params object[] args);
 	}
 }

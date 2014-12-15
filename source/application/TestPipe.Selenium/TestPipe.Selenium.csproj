@@ -81,6 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Browsers\Class1.cs" />
+    <Compile Include="Browsers\Class2.cs" />
+    <Compile Include="Browsers\Class3.cs" />
     <Compile Include="Browsers\SeleniumBrowserSearchContext.cs" />
     <Compile Include="Browsers\SeleniumBrowserWait.cs" />
     <Compile Include="Common\ISeleniumSearchContext.cs" />

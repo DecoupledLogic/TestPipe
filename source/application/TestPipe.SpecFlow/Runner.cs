@@ -13,6 +13,11 @@
 			return RunnerBase.SetupFeature(current.Title, current.Tags);
 		}
 
+		public static SessionFeature SetupFeature(string[] tags, string title)
+		{
+			return RunnerBase.SetupFeature(title, tags);
+		}
+
 		public static SessionScenario SetupScenario()
 		{
 			ScenarioInfo current = ScenarioContext.Current.ScenarioInfo;
@@ -20,14 +25,9 @@
 			return RunnerBase.SetupScenario(current.Title, feature.Title, current.Tags);
 		}
 
-		public static SessionFeature SetupFeature(string[] tags, string title)
+		public static SessionScenario SetupScenario(string[] tags, string featureTitle, string scenarioTitle)
 		{
-			return RunnerBase.SetupFeature(title, tags);
-		}
-
-		public static SessionScenario SetupScenario(string[] tags, string fTitle, string sTitle)
-		{
-			return RunnerBase.SetupScenario(sTitle, fTitle, tags);
+			return RunnerBase.SetupScenario(scenarioTitle, featureTitle, tags);
 		}
 
 		public static void SetupSuite()
@@ -38,11 +38,6 @@
 		public static void TeardownFeature()
 		{
 			RunnerBase.TeardownFeature();
-		}
-
-		public static void TeardownScenario()
-		{
-			RunnerBase.TeardownScenario();
 		}
 
 		public static void TeardownSuite()

@@ -253,13 +253,20 @@
 					}
 			}
 
-			capabilities.SetCapability(CapabilityType.Platform, configuration.Platform);
-			capabilities.SetCapability(CapabilityType.BrowserName, configuration.BrowserType.ToString().ToLower());
-			capabilities.SetCapability(CapabilityType.Version, configuration.Version);
-			Proxy proxy = new Proxy();
-			proxy.IsAutoDetect = true;
-			proxy.Kind = ProxyKind.AutoDetect;
-			capabilities.SetCapability(CapabilityType.Proxy, proxy);
+			//capabilities.SetCapability(CapabilityType.Platform, configuration.Platform);
+			string browserName = configuration.BrowserType.ToString().ToLower();
+
+			if (configuration.BrowserType == BrowserTypeEnum.IE)
+			{
+				browserName = "internet explorer";
+			}
+
+			capabilities.SetCapability(CapabilityType.BrowserName, browserName);
+			//capabilities.SetCapability(CapabilityType.Version, configuration.Version);
+			//Proxy proxy = new Proxy();
+			//proxy.IsAutoDetect = true;
+			//proxy.Kind = ProxyKind.AutoDetect;
+			//capabilities.SetCapability(CapabilityType.Proxy, proxy);
 			return capabilities;
 		}
 
@@ -281,7 +288,7 @@
 					}
 				case BrowserTypeEnum.FireFox:
 					{
-                        this.webDriver = new OpenQA.Selenium.Firefox.FirefoxDriver(OpenQA.Selenium.Remote.DesiredCapabilities.Firefox());
+						this.webDriver = new OpenQA.Selenium.Firefox.FirefoxDriver(OpenQA.Selenium.Remote.DesiredCapabilities.Firefox());
 						break;
 					}
 				case BrowserTypeEnum.Headless:
@@ -308,7 +315,8 @@
 					}
 				case BrowserTypeEnum.Remote:
 					{
-						this.webDriver = new RemoteWebDriver(configuration.RemotePath, capabilities, configuration.Timeout);
+						//this.webDriver = new RemoteWebDriver(configuration.RemotePath, capabilities, configuration.Timeout);
+						this.webDriver = new RemoteWebDriver(capabilities);
 						break;
 					}
 				case BrowserTypeEnum.None:

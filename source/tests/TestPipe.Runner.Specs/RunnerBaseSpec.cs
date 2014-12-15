@@ -33,7 +33,7 @@ using TestPipe.Runner;
 		{
 			TestSession.Suite = new Core.Session.SessionSuite();
 			IBrowser browser1 = RunnerHelper.SetBrowser("IE");
-			IBrowser browser2 = RunnerHelper.SetBrowser("IE");
+			IBrowser browser2 = RunnerHelper.SetBrowser("FireFox");
 
 			browser2.Open("http://www.bing.com");
 			browser1.Open("http://www.google.com");

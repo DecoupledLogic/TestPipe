@@ -30,19 +30,6 @@
 			feature = StepHelper.SetupFeature();
 		}
 
-		[BeforeScenario("@Search")]
-		public static void SetupScenario(string[] tags, string featureTitle, string scenarioTitle)
-		{
-			scenario = StepHelper.SetupScenario(tags, featureTitle, scenarioTitle);
-			testPage = new SearchPage(scenario.Browser, TestSession.Environment);
-		}
-
-		[BeforeFeature]
-		public static void SetupSearchFeature(string[] tags, string title)
-		{
-			feature = StepHelper.SetupFeature(tags, title);
-		}
-
 		[Given(@"I am on the search page")]
 		public void GivenIAmOnTheSearchPage()
 		{
@@ -62,7 +49,6 @@
 		[Then(@"results should be displayed")]
 		public void ThenResultsShouldBeDisplayed()
 		{
-			//Thread.Sleep(300);
 			string pageState = string.Format("Page Title: {0}, Browser Title: {1}, Page Url: {2}, Browser Page: {3}", resultPage.Title, resultPage.Browser.Title, resultPage.PageUrl, resultPage.Browser.Url);
 			bool isOpen = resultPage.IsOpen();
 			Asserts.IsTrue(isOpen, pageState);

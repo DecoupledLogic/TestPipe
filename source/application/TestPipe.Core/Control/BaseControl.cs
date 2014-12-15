@@ -518,7 +518,7 @@ namespace TestPipe.Core.Control
 
 		public void Wait()
 		{
-			Thread.Sleep((int)DefaultTimeout * 1000);
+			Thread.Sleep((int)this.DefaultTimeout * 1000);
 		}
 
 		public void Wait(int seconds)
@@ -533,7 +533,7 @@ namespace TestPipe.Core.Control
 
 		public void WaitUntil(System.Linq.Expressions.Expression<Func<bool>> conditionFunc)
 		{
-			Timing.TimeoutPredicate(DefaultTimeout, conditionFunc.Compile());
+			Timing.TimeoutPredicate(this.DefaultTimeout, conditionFunc.Compile());
 		}
 
 		public void WaitUntil(System.Linq.Expressions.Expression<Func<bool>> conditionFunc, TimeSpan timeout)

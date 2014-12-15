@@ -12,6 +12,17 @@
 		private string platform;
 		private Uri remotePath;
 
+		public BrowserConfiguration(BrowserTypeEnum browserType, TimeSpan timeSpan, string version, string remoteDriverPath)
+		{
+			this.BrowserType = browserType;
+			this.Timeout = timeSpan;
+			this.Version = version;
+			if (!string.IsNullOrWhiteSpace(remoteDriverPath))
+			{
+				this.RemotePath = new Uri(remoteDriverPath);
+			}
+		}
+
 		public BrowserTypeEnum BrowserType { get; private set; }
 
 		public bool IsJavaScriptEnabled { get; private set; }
@@ -22,7 +33,14 @@
 			{
 				if (string.IsNullOrWhiteSpace(this.platform))
 				{
-					this.platform = this.platformDefault;
+					if (BrowserType == BrowserTypeEnum.IE)
+					{
+						this.platform = "VISTA";
+					}
+					else
+					{
+						this.platform = this.platformDefault;
+					}
 				}
 
 				return this.platform.ToUpper();

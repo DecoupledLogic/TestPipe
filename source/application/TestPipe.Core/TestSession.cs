@@ -21,39 +21,6 @@
 
 		public static string ApplicationKey { get; set; }
 
-		public static IBrowser Browser
-		{
-			get
-			{
-				try
-				{
-					if (TestSession.Cache[DriverKey] == null)
-					{
-						return null;
-					}
-				}
-				catch (KeyNotFoundException)
-				{
-					return null;
-				}
-
-				return TestSession.Cache[DriverKey] as IBrowser;
-			}
-			set
-			{
-				if (Cache.ContainsKey(DriverKey))
-				{
-					object o = null;
-					Cache.TryRemove(DriverKey, out o);
-					Cache[DriverKey] = value;
-				}
-				else
-				{
-					Cache[DriverKey] = value;
-				}
-			}
-		}
-
 		public static Cache<string, object> Cache
 		{
 			get
@@ -130,41 +97,15 @@
 
 		public static TimeSpan Timeout { get; set; }
 
-		public static IBrowserWait Wait
-		{
-			get
-			{
-				return (IBrowserWait)TestSession.Cache[WaitKey];
-			}
-			set
-			{
-				if (Cache.ContainsKey(WaitKey))
-				{
-					object o = null;
-					Cache.TryRemove(WaitKey, out o);
-					Cache[WaitKey] = value;
-				}
-				else
-				{
-					Cache[WaitKey] = value;
-				}
-			}
-		}
-
-		public static IBrowser CreateBrowserDriver(BrowserTypeEnum browserType)
+		public static IBrowser CreateBrowserDriver(BrowserTypeEnum browserType, BrowserConfiguration config = null)
 		{
 			ILogManager log = new Logger();
-			return BrowserFactory.Create(browserType, log);
+			return BrowserFactory.Create(browserType, log, config);
 		}
 
-		public static IBrowserWait CreateBrowserWait(IBrowser browser, TimeSpan timeout, TimeSpan? sleepInterval = null, IClock clock = null)
-		{
-			return null;
-		}
-
-		// Uncomment below if ids are significant for features 
+		// Uncomment below if ids are significant for features
 		//public static SessionFeature GetFeature(string id)
-		// Comment below if ids are significant for features 
+		// Comment below if ids are significant for features
 		public static SessionFeature GetFeature(string title)
 		{
 			if (Features == null)

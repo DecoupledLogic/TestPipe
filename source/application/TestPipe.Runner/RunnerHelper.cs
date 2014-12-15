@@ -4,6 +4,7 @@
 	using System.Configuration;
 	using System.Linq;
 	using TestPipe.Core;
+	using TestPipe.Core.Browser;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Exceptions;
 	using TestPipe.Core.Interfaces;
@@ -28,6 +29,52 @@
 			return value;
 		}
 
+		public static IBrowser GetBrowser(string[] tags)
+		{
+			IBrowser browser = SetBrowserFromTag(tags);
+
+			RunnerHelper.SetTestSessionDefaultBrowser();
+
+			string defaultBrowserName = GetBrowserName(TestSession.DefaultBrowser);
+
+			IBrowser currentScenarioBrowser = browser == null
+				? SetBrowser(defaultBrowserName)
+				: browser;
+
+			return currentScenarioBrowser;
+		}
+
+		public static BrowserConfiguration GetBrowserConfiguration(BrowserTypeEnum browserType)
+		{
+			if (browserType == BrowserTypeEnum.Remote)
+			{
+				BrowserConfiguration config = null;
+
+				string driverName = TestSession.Suite.BrowserDriver;
+				if (string.IsNullOrWhiteSpace(driverName) || driverName.ToLower() == "remote")
+				{
+					driverName = "IE";
+				}
+
+				BrowserTypeEnum driverType = RunnerHelper.GetBrowserType(driverName);
+
+				if (driverType == BrowserTypeEnum.None || driverType == BrowserTypeEnum.Remote)
+				{
+					driverType = BrowserTypeEnum.IE;
+				}
+
+				TimeSpan timeout = TestSession.Timeout;
+				string version = TestSession.Suite.DefaultBrowserVersion;
+				string remoteDriverPath = TestSession.Suite.RemoteDriverPath;
+
+				config = new BrowserConfiguration(driverType, timeout, version, remoteDriverPath);
+
+				return config;
+			}
+
+			return null;
+		}
+
 		public static string GetBrowserFromTag(string[] tags)
 		{
 			string browserName = string.Empty;
@@ -41,6 +88,16 @@
 			}
 
 			return browserName;
+		}
+
+		public static string GetBrowserName(BrowserTypeEnum browserTypeEnum)
+		{
+			if (browserTypeEnum == BrowserTypeEnum.None || browserTypeEnum == BrowserTypeEnum.Other)
+			{
+				return BrowserTypeEnum.IE.ToString();
+			}
+
+			return browserTypeEnum.ToString();
 		}
 
 		public static BrowserTypeEnum GetBrowserType(string browserName)
@@ -163,14 +220,14 @@
 			{
 				throw new TestPipeException("Parameter \"title\" can not be null owr white space.");
 			}
-			
+
 			SessionFeature feature = TestSession.Suite.Features.Where(x => x.Title == title).FirstOrDefault();
 
 			if (feature == null)
 			{
 				throw new TestPipeException(string.Format("TestSession.Suite.Features does not contain a feature with title \"{0}\".", title));
 			}
-			
+
 			string path = RunnerHelper.GetDataFilePath(feature.Path);
 
 			if (string.IsNullOrWhiteSpace(path))
@@ -194,9 +251,9 @@
 
 			BrowserTypeEnum browserType = RunnerHelper.GetBrowserType(browserName);
 
-			IBrowser browser = TestSession.CreateBrowserDriver(browserType);
+			BrowserConfiguration config = RunnerHelper.GetBrowserConfiguration(browserType);
 
-			RunnerHelper.SetBrowserWait();
+			IBrowser browser = TestSession.CreateBrowserDriver(browserType, config);
 
 			return browser;
 		}
@@ -220,16 +277,6 @@
 			return browser;
 		}
 
-		public static void SetBrowserWait()
-		{
-			if (TestSession.Suite.Timeout == 0)
-			{
-				return;
-			}
-
-			TestSession.Wait = TestSession.CreateBrowserWait(TestSession.Browser, TestSession.Timeout);
-		}
-
 		public static void SetEnvironment()
 		{
 			TestEnvironment environment = new TestEnvironment();
@@ -242,54 +289,18 @@
 			TestSession.Environment = environment;
 		}
 
-		public static void SetFeatureBrowser(string[] tags, SessionFeature currentFeature)
-		{
-			IBrowser browser = SetBrowserFromTag(tags);
-
-			currentFeature.Browser = browser == null
-				? TestSession.Browser
-				: browser;
-		}
-
-		public static void SetScenarioBrowser(string[] tags, SessionFeature currentFeature, SessionScenario currentScenario)
-		{
-			IBrowser browser = SetBrowserFromTag(tags);
-
-			string defaultBrowserName = GetBrowserName(TestSession.DefaultBrowser);
-
-			currentScenario.Browser = browser == null
-				? SetBrowser(defaultBrowserName)
-				: browser;
-		}
-
-		public static string GetBrowserName(BrowserTypeEnum browserTypeEnum)
-		{
-			if (browserTypeEnum == BrowserTypeEnum.None || browserTypeEnum == BrowserTypeEnum.Other)
-			{
-				return BrowserTypeEnum.IE.ToString();
-			}
-
-			return browserTypeEnum.ToString();
-		}
-
-		public static void SetTestSessionBrowser()
+		public static void SetTestSessionDefaultBrowser()
 		{
 			string browserName = TestSession.Suite.Browser;
 
 			BrowserTypeEnum browser = RunnerHelper.GetBrowserType(browserName);
 
-			TestSession.DefaultBrowser = browser;
-
-			dynamic oldBrowser;
-
-			TestSession.Cache.TryRemove(TestSession.DriverKey, out oldBrowser);
-
-			if (oldBrowser != null)
+			if (TestSession.DefaultBrowser != BrowserTypeEnum.None)
 			{
-				oldBrowser.Quit();
+				return;
 			}
 
-			TestSession.Browser = TestSession.CreateBrowserDriver(browser);
+			TestSession.DefaultBrowser = browser;
 		}
 	}
 }

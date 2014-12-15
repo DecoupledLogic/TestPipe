@@ -1,0 +1,12 @@
+﻿Running Test on Selenium Grid
+
+- Make sure you have the path to IEDriverServer.exe and ChromeDriver.exe in the system path on your node.
+- Run the commands in the path of you selenium server standalone jar and make sure you reference the correct file name/version.
+
+Start Hub:
+> java -jar selenium-server-standalone-2.44.0.jar -port 4444 -role hub -nodeTimeout 600
+
+Start Node:
+> java -jar selenium-server-standalone-2.44.0.jar -role webdriver -hubHost localhost –port 5555
+
+More Info - https://decoupledlogic.wordpress.com/2014/01/22/setup-selenium-grid-for-net/

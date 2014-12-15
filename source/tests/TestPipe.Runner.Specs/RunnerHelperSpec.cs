@@ -4,28 +4,47 @@
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 	using TestPipe.Core;
 	using TestPipe.Core.Enums;
+	using TestPipe.Core.Interfaces;
 	using TestPipe.Core.Session;
 
 	[TestClass]
 	public class RunnerHelperSpec
 	{
-
 		[TestClass]
-		public class SetSessionBrowser
+		public class GetBrowser
 		{
 			[TestMethod]
-			public void SetTestSessionBrowser_Should_Set_Default_Browser()
+			public void GetBrowser_Should_Set_Default_Browser()
 			{
-				BrowserTypeEnum expected = BrowserTypeEnum.IE;
+				BrowserTypeEnum expected = BrowserTypeEnum.FireFox;
+				TestPipe.Core.Session.SessionSuite suite = new TestPipe.Core.Session.SessionSuite();
+				TestSession.Suite = suite;
+				TestSession.Suite.Browser = "FireFox";
+
+				RunnerHelper.SetTestSessionDefaultBrowser();
+				string[] tags = null;
+				IBrowser browser = RunnerHelper.GetBrowser(tags);
+				BrowserTypeEnum actual = browser.BrowserType;
+
+				browser.Quit();
+
+				Assert.AreEqual(expected, actual);
+			}
+
+			[TestMethod]
+			public void GetBrowser_Should_Set_Tagged_Browser()
+			{
+				BrowserTypeEnum expected = BrowserTypeEnum.Chrome;
 				TestPipe.Core.Session.SessionSuite suite = new TestPipe.Core.Session.SessionSuite();
 				TestSession.Suite = suite;
 				TestSession.Suite.Browser = "IE";
 
-				RunnerHelper.SetTestSessionBrowser();
+				RunnerHelper.SetTestSessionDefaultBrowser();
+				string[] tags = new string[] { "browser_Chrome" };
+				IBrowser browser = RunnerHelper.GetBrowser(tags);
+				BrowserTypeEnum actual = browser.BrowserType;
 
-				BrowserTypeEnum actual = TestSession.Browser.BrowserType;
-
-				TestSession.Browser.Quit();
+				browser.Quit();
 
 				Assert.AreEqual(expected, actual);
 			}
@@ -154,38 +173,38 @@
 		[TestClass]
 		public class LoadFeature
 		{
-			private const string noFeature = "No Feature";
-			private const string hasFeature = "Has Feature";
+			private const string HasFeature = "Has Feature";
+			private const string NoFeature = "No Feature";
 
 			[TestMethod]
-			[ExpectedException(typeof(TestPipe.Core.Exceptions.TestPipeException), "Parameter \"title\" can not be null owr white space.")]
-			public void LoadFeature_Given_Null_Or_Empty_Title_Should_Throw_Exception()
-			{
-				string title = string.Empty;
-
-				RunnerHelper.LoadFeature(title);
-			}
-
-			[TestMethod]
-			[ExpectedException(typeof(TestPipe.Core.Exceptions.TestPipeException), "TestSession.Suite.Features does not contain a feature with title" + noFeature + "\"{0}\".")]
+			[ExpectedException(typeof(TestPipe.Core.Exceptions.TestPipeException), "TestSession.Suite.Features does not contain a feature with title" + NoFeature + "\"{0}\".")]
 			public void LoadFeature_Given_Null_Feature_Should_Throw_Exception()
 			{
 				TestSession.Suite = TestSession.Suite ?? new SessionSuite();
 
-				string title = noFeature;
+				string title = NoFeature;
 
 				RunnerHelper.LoadFeature(title);
 			}
 
 			[TestMethod]
-			[ExpectedException(typeof(TestPipe.Core.Exceptions.TestPipeException), "Feature \"" + hasFeature + "\" has a null or empty Feature.Path.")]
+			[ExpectedException(typeof(TestPipe.Core.Exceptions.TestPipeException), "Feature \"" + HasFeature + "\" has a null or empty Feature.Path.")]
 			public void LoadFeature_Given_Null_Or_Empty_Feature_Path_Should_Throw_Exception()
 			{
 				TestSession.Suite = TestSession.Suite ?? new SessionSuite();
 				SessionFeature feature = new SessionFeature();
 				TestSession.Suite.Features.Add(feature);
 
-				string title = hasFeature;
+				string title = HasFeature;
+
+				RunnerHelper.LoadFeature(title);
+			}
+
+			[TestMethod]
+			[ExpectedException(typeof(TestPipe.Core.Exceptions.TestPipeException), "Parameter \"title\" can not be null owr white space.")]
+			public void LoadFeature_Given_Null_Or_Empty_Title_Should_Throw_Exception()
+			{
+				string title = string.Empty;
 
 				RunnerHelper.LoadFeature(title);
 			}

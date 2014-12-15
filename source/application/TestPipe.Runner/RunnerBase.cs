@@ -32,17 +32,7 @@
 
 			SessionFeature currentFeature;
 
-			try
-			{
-				currentFeature = RunnerHelper.LoadFeature(title);
-			}
-			catch (TestPipeException)
-			{
-
-				throw;
-			}
-
-			RunnerHelper.SetFeatureBrowser(tags, currentFeature);
+			currentFeature = RunnerHelper.LoadFeature(title);
 
 			Console.WriteLine("\nEnd Feature Setup: " + title);
 
@@ -56,18 +46,13 @@
 				throw new IgnoreException();
 			}
 
-			//Uncommnet below if ids are significant for features
-			//string featureId = RunnerHelper.GetIdFromTitle(featureTitle);
-			//Uncomment below if ids are significant for features
-			//SessionFeature currentFeature = TestSession.Features.Where(x => x.Id == featureId).FirstOrDefault();
-			//Commnet below if ids are significant for features
 			SessionFeature currentFeature = TestSession.Features.Where(x => x.Title == featureTitle).FirstOrDefault();
 
 			string scenarioId = RunnerHelper.GetIdFromTitle(title);
 
 			SessionScenario currentScenario = TestSession.GetScenario(scenarioId, currentFeature);
 
-			RunnerHelper.SetScenarioBrowser(tags, currentFeature, currentScenario);
+			currentScenario.Browser = RunnerHelper.GetBrowser(tags);
 
 			return currentScenario;
 		}
@@ -76,12 +61,9 @@
 		{
 			if (TestSession.Suite != null)
 			{
-				if (TestSession.Browser == null)
-				{
-					TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
-				}
 				return;
 			}
+
 			string file = ConfigurationManager.AppSettings["file.testSuite"];
 			string path = RunnerHelper.GetDataFilePath(file);
 			TestSession.LoadSuite(path);
@@ -89,8 +71,6 @@
 			RunnerHelper.SetEnvironment();
 
 			TestSession.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(TestSession.Suite.Timeout));
-
-			TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
 		}
 
 		public static void TeardownFeature()
@@ -99,7 +79,6 @@
 
 		public static void TeardownScenario()
 		{
-			TestSession.Browser.Open(string.Format("{0}{1}", TestSession.Suite.BaseUrl, TestSession.Suite.LogoutUrl));
 		}
 
 		public static void TeardownScenario(SessionScenario scenario)
@@ -137,12 +116,6 @@
 				}
 			}
 
-			if (TestSession.Browser != null)
-			{
-				TestSession.Browser.Quit();
-				TestSession.Browser = null;
-			}
-			
 			TestSession.Suite = null;
 		}
 	}

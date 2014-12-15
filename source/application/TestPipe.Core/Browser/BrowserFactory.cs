@@ -2,11 +2,8 @@
 {
 	using System;
 	using System.ComponentModel.Composition;
-	using System.ComponentModel.Composition.Hosting;
-	using System.Configuration;
 	using System.IO;
 	using TestPipe.Common;
-	using TestPipe.Core;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Interfaces;
 
@@ -16,16 +13,18 @@
 		[Import(typeof(IBrowser))]
 		private IBrowser browser;
 
+		private BrowserConfiguration config;
 		private ILogManager log;
 
-		public BrowserFactory(ILogManager log)
+		public BrowserFactory(ILogManager log, BrowserConfiguration config = null)
 		{
 			this.log = log;
+			this.config = config;
 		}
 
-		public static IBrowser Create(BrowserTypeEnum browserType, ILogManager log)
+		public static IBrowser Create(BrowserTypeEnum browserType, ILogManager log, BrowserConfiguration config = null)
 		{
-			BrowserFactory factory = new BrowserFactory(log);
+			BrowserFactory factory = new BrowserFactory(log, config);
 			return factory.Compose(browserType);
 		}
 
@@ -53,7 +52,7 @@
 				throw new Exception(nullBrowserMessage);
 			}
 
-			this.browser.LoadBrowser(browserType);
+			this.browser.LoadBrowser(browserType, config);
 			return this.browser;
 		}
 	}

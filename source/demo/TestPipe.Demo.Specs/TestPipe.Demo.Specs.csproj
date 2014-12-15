@@ -138,6 +138,7 @@
     <Content Include="IEDriverServer.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="selenium_grid.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

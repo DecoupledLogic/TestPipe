@@ -34,5 +34,11 @@
 		public string Name { get; set; }
 
 		public int Timeout { get; set; }
+
+		public string DefaultBrowserVersion { get; set; }
+
+		public string BrowserDriver { get; set; }
+
+		public string RemoteDriverPath { get; set; }
 	}
 }

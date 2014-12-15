@@ -1,15 +1,13 @@
-﻿using System;
-using TechTalk.SpecFlow;
-using TestPipe.Assertions;
-using TestPipe.Core;
-using TestPipe.Core.Page;
-using TestPipe.Core.Session;
-using TestPipe.Demo.Pages;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-
-namespace TestPipe.Demo.Steps
+﻿namespace TestPipe.Demo.Steps
 {
+	using System;
+	using System.Collections.Generic;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using TestPipe.Core;
+	using TestPipe.Core.Page;
+	using TestPipe.Core.Session;
+	using TestPipe.Demo.Pages;
+
 	[TestClass]
 	public class UnitTest1
 	{
@@ -28,9 +26,9 @@ namespace TestPipe.Demo.Steps
 			feature1.Scenarios.Add(sessionScenario2);
 			TestSession.Features = new List<SessionFeature>();
 			TestSession.Features.Add(feature1);
-			
-			string[] tags = new string[]{};
-			SessionScenario scenario1 = StepHelper.SetupScenario(tags, "Demo Search","1. Search for Something");
+
+			string[] tags = new string[] { };
+			SessionScenario scenario1 = StepHelper.SetupScenario(tags, "Demo Search", "1. Search for Something");
 			BasePage testPage = new SearchPage(scenario1.Browser, TestSession.Environment);
 
 			SessionScenario scenario2 = StepHelper.SetupScenario(tags, "Demo Search", "2. Search for Something");
