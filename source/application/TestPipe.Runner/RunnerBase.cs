@@ -34,6 +34,7 @@
 
 			currentFeature = RunnerHelper.LoadFeature(title);
 
+			//RunnerHelper.SetFeatureBrowser(tags, currentFeature);
 			Console.WriteLine("\nEnd Feature Setup: " + title);
 
 			return currentFeature;
@@ -59,10 +60,15 @@
 
 		public static void SetupSuite()
 		{
-			if (TestSession.Suite != null)
-			{
-				return;
-			}
+			
+            //if (TestSession.Suite != null)
+            //{
+            //    if (TestSession.Browser == null)
+            //    {
+            //        TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
+            //    }
+            //    return;
+            //}
 
 			string file = ConfigurationManager.AppSettings["file.testSuite"];
 			string path = RunnerHelper.GetDataFilePath(file);
@@ -71,6 +77,8 @@
 			RunnerHelper.SetEnvironment();
 
 			TestSession.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(TestSession.Suite.Timeout));
+			//TestSession.Browser = RunnerHelper.SetBrowser(TestSession.Suite.Browser);
+
 		}
 
 		public static void TeardownFeature()

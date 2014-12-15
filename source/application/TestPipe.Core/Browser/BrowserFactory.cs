@@ -13,13 +13,15 @@
 	{
 		[Import(typeof(IBrowser))]
 		private IBrowser browser;
-
+        private BrowserConfiguration config;
 		private BrowserConfiguration config;
 		private ILogManager log;
 
 		public BrowserFactory(ILogManager log, BrowserConfiguration config = null)
 		{
-			this.log = log;
+            this.config = config;
+            //TODO: Uncomment
+			//this.log = log;
 			this.config = config;
 		}
 
@@ -44,17 +46,20 @@
 			}
 			catch (FileNotFoundException ex)
 			{
-				this.log.Error("File not found while composing browser.", ex);
+                //TODO: Uncomment
+				//this.log.Error("File not found while composing browser.", ex);
 			}
 			catch (CompositionException ex)
 			{
-				this.log.Error("Composition exception while composing browser.", ex);
+                //TODO: Uncomment
+				//this.log.Error("Composition exception while composing browser.", ex);
 			}
 
 			if (this.browser == null)
 			{
 				string nullBrowserMessage = "Browser is null.";
-				this.log.Error(nullBrowserMessage);
+                //TODO: Uncomment
+				//this.log.Error(nullBrowserMessage);
 				throw new Exception(nullBrowserMessage);
 			}
 
