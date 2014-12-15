@@ -60,6 +60,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BrowserSpec.cs" />
+    <Compile Include="Browsers\Browser.cs" />
+    <Compile Include="Browsers\SeleniumBrowserSearchContext.cs" />
+    <Compile Include="Browsers\SeleniumBrowserWait.cs" />
     <Compile Include="Controls\SeleniumElementTest.cs" />
     <Compile Include="ListCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
