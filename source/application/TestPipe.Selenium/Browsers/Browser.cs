@@ -199,7 +199,8 @@
 			}
 			catch (Exception ex)
 			{
-				this.Logger.Error("Error taking screen shot.", ex);
+                //TODO: Uncomment
+				//this.Logger.Error("Error taking screen shot.", ex);
 			}
 		}
 

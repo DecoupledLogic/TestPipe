@@ -6,19 +6,22 @@
 	using TestPipe.Common;
 	using TestPipe.Core.Enums;
 	using TestPipe.Core.Interfaces;
+    using TestPipe.Selenium;
 
 	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
 	public class BrowserFactory
 	{
 		[Import(typeof(IBrowser))]
 		private IBrowser browser;
-
+        private BrowserConfiguration config;
 		private BrowserConfiguration config;
 		private ILogManager log;
 
 		public BrowserFactory(ILogManager log, BrowserConfiguration config = null)
 		{
-			this.log = log;
+            this.config = config;
+            //TODO: Uncomment
+			//this.log = log;
 			this.config = config;
 		}
 
@@ -34,21 +37,29 @@
 
 			try
 			{
-				this.browser = new TestPipe.Selenium.Browsers.Browser();
+                this.browser = new Selenium.Browsers.Browser();
+                //AggregateCatalog aggregateCatalogue = new AggregateCatalog();
+                //aggregateCatalogue.Catalogs.Add(new DirectoryCatalog(ConfigurationManager.AppSettings["browser.plugins"]));
+
+                //CompositionContainer container = new CompositionContainer(aggregateCatalogue);
+                //container.ComposeParts(this);
 			}
 			catch (FileNotFoundException ex)
 			{
-				this.log.Error("File not found while composing browser.", ex);
+                //TODO: Uncomment
+				//this.log.Error("File not found while composing browser.", ex);
 			}
 			catch (CompositionException ex)
 			{
-				this.log.Error("Composition exception while composing browser.", ex);
+                //TODO: Uncomment
+				//this.log.Error("Composition exception while composing browser.", ex);
 			}
 
 			if (this.browser == null)
 			{
 				string nullBrowserMessage = "Browser is null.";
-				this.log.Error(nullBrowserMessage);
+                //TODO: Uncomment
+				//this.log.Error(nullBrowserMessage);
 				throw new Exception(nullBrowserMessage);
 			}
 
