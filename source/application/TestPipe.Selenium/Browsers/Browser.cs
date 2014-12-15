@@ -263,11 +263,11 @@
 			}
 
 			capabilities.SetCapability(CapabilityType.BrowserName, browserName);
-			capabilities.SetCapability(CapabilityType.Version, configuration.Version);
-			Proxy proxy = new Proxy();
-			proxy.IsAutoDetect = true;
-			proxy.Kind = ProxyKind.AutoDetect;
-			capabilities.SetCapability(CapabilityType.Proxy, proxy);
+			//capabilities.SetCapability(CapabilityType.Version, configuration.Version);
+			//Proxy proxy = new Proxy();
+			//proxy.IsAutoDetect = true;
+			//proxy.Kind = ProxyKind.AutoDetect;
+			//capabilities.SetCapability(CapabilityType.Proxy, proxy);
 			return capabilities;
 		}
 

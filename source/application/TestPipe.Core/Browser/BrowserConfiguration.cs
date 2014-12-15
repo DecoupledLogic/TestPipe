@@ -35,7 +35,7 @@
 				{
 					if (this.BrowserType == BrowserTypeEnum.IE)
 					{
-						this.platform = "VISTA";
+						this.platform = "WINDOWS";
 					}
 					else
 					{
