@@ -13,6 +13,7 @@
 	{
 		public static SessionFeature SetupFeature(string title, string[] tags = null)
 		{
+            Console.WriteLine("Entered Setup Feature");
 			RunnerBase.SetupSuite();
 
 			if (TestSession.Features == null)
@@ -60,17 +61,16 @@
 
 		public static void SetupSuite()
 		{
-			if (TestSession.Suite != null)
-			{
-				return;
-			}
+            if (TestSession.Suite != null)
+            {
+                return;
+            }
 
 			string file = ConfigurationManager.AppSettings["file.testSuite"];
 			string path = RunnerHelper.GetDataFilePath(file);
 			TestSession.LoadSuite(path);
-
+            Console.WriteLine("Env in Setup Suite");
 			RunnerHelper.SetEnvironment();
-
 			TestSession.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(TestSession.Suite.Timeout));
 		}
 
@@ -116,8 +116,8 @@
 					}
 				}
 			}
-
-			TestSession.Suite = null;
+            TestSession.Suite = null;
+            TestSession.Cache.Clear();
 		}
 	}
 }

@@ -33,7 +33,7 @@
 		{
 			IBrowser browser = SetBrowserFromTag(tags);
 
-			RunnerHelper.SetTestSessionDefaultBrowser();
+            //RunnerHelper.SetTestSessionDefaultBrowser();
 
 			string defaultBrowserName = GetBrowserName(TestSession.DefaultBrowser);
 
@@ -287,6 +287,7 @@
 			environment.Title = TestSession.Suite.Environment;
 
 			TestSession.Environment = environment;
+            Console.WriteLine("Env Set in Set Env");
 		}
 
 		public static void SetTestSessionDefaultBrowser()
