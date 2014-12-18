@@ -330,7 +330,7 @@ public static void PackageProject(string nuspec, string version, string output, 
 
 public static void NuGetRestore()
 {
-	string cmd = string.Format("{0} restore {1} -source \"https://www.nuget.org/api/v2;http://agpjaxsrvbuild2/pne.nuget/nuget\"", NuGetExe, SolutionFile);
+	string cmd = string.Format("{0} restore {1} -source \"http://agpjaxsrvbuild2/pne.nuget/nuget\"", NuGetExe, SolutionFile);
     
     Log.Info("Restore Command: " + cmd);
 	Cmd.Exec(cmd);
