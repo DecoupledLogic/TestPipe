@@ -67,6 +67,8 @@ public static void Go(string version = "", string configuration = "Release", str
 	}
 
 	Log.Info("Version: " + version);
+
+    NuGetRestore();
 		
 	Build(version, configuration, platform);
 
@@ -324,6 +326,14 @@ public static void PackageProject(string nuspec, string version, string output, 
 	string pack = string.Format("{0} pack {1} -Version {2} -OutputDirectory {3} -BasePath {4} -NoPackageAnalysis -Symbols", NuGetExe, nuspec, version, output, basePath);
 
 	Cmd.Exec(pack);
+}
+
+public static void NuGetRestore()
+{
+	string cmd = string.Format("{0} restore {1}", NuGetExe, SolutionFile);
+    
+    Log.Info("Restore Command: " + cmd);
+	Cmd.Exec(cmd);
 }
 
 public static void CopyFilesToDistro(string path)
