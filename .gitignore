@@ -128,3 +128,5 @@ WebProject.*
 /NuGet/TestPipe/TestPipe.1.0.0/*.nupkg
 *.nupkg
 /Plugins/Browsers/TestPipe.Selenium.dll
+/nake.log.txt
+/TestPipe.playlist

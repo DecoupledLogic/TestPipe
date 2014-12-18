@@ -23,19 +23,19 @@ public static string Divider = "---------------------------------";
 public static string MajorMinorVersion = "0.0";
 public static string ApplicationVersion = MajorMinorVersion + ".0";
 
-public static string MsbuildExe = @"C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe";
-public static string NuGetExe = @"C:\_TestPipe\tools\nuget.exe";
+public static string MsbuildExe = @"tools\MSBuild\MSBuild.exe";
+public static string NuGetExe = @"tools\nuget.exe";
 public static string NuGetToolsPath = ApplicationPath + @"\TestPipe.Build\tools\TestPipe";
 
 public static string SolutionRoot = @"C:\_TestPipe";
-public static string SolutionFile = SolutionRoot + @"\TestPipe.sln";
+public static string SolutionFile = "TestPipe.sln";
 
-public static string SourcePath = SolutionRoot + @"\source";
+public static string SourcePath = "source";
 public static string ApplicationPath = SourcePath + @"\application";
 public static string TestPath = SourcePath + @"\tests";
 public static string DemoPath = SourcePath + @"\demo";
 
-public static string BuildPath = SolutionRoot + @"\Build";
+public static string BuildPath = "Build";
 public static string DocsPath = BuildPath + @"\Docs";
 public static string ReportsPath = BuildPath + @"\Reports";
 public static string DistroPath = BuildPath + @"\Distro";
@@ -360,7 +360,7 @@ public static void ProcessDistroSourceFiles(string directory, string projectName
 	CopyLibFiles(directory, projectName);
 	CopyContentFiles(directory, projectName);
 	CopyToolsFiles(NuGetToolsPath, projectName);
-	CopyLicenseFiles(SolutionRoot, projectName);
+	CopyLicenseFiles(string.Empty, projectName);
 }
 
 public static void CopyNuspecFiles(string directory, string projectName)
@@ -422,7 +422,7 @@ public static void CopyLicenseFiles(string directory, string projectName)
 {
 	Log.Info("Copyng " + projectName + " license files");
 
-	string source = directory + @"\license.txt";
+	string source = directory + @"license.txt";
 
 	string dest = string.Format(@"{0}\{1}", DistroPath, projectName);
 
