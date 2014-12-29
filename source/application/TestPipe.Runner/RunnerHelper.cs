@@ -33,7 +33,7 @@
 		{
 			IBrowser browser = SetBrowserFromTag(tags);
 
-            //RunnerHelper.SetTestSessionDefaultBrowser();
+            RunnerHelper.SetTestSessionDefaultBrowser();
 
 			string defaultBrowserName = GetBrowserName(TestSession.DefaultBrowser);
 
@@ -79,7 +79,8 @@
 		{
 			string browserName = string.Empty;
 			string browserTagPrefix = "browser_";
-			foreach (var tag in tags)
+			
+            foreach (var tag in tags)
 			{
 				if (tag.StartsWith(browserTagPrefix, StringComparison.InvariantCultureIgnoreCase))
 				{
