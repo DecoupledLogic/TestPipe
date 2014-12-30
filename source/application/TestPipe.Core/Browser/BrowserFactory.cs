@@ -9,17 +9,15 @@
 	using TestPipe.Selenium;
 
 	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
-	public class BrowserFactory
+    public class BrowserFactory : LoggedObject
 	{
 		[Import(typeof(IBrowser))]
 		private IBrowser browser;
 		private BrowserConfiguration config;
-		private ILogManager log;
 
 		public BrowserFactory(ILogManager log, BrowserConfiguration config = null)
+            : base(log)
 		{
-			//TODO: Uncomment
-			//this.log = log;
 			this.config = config;
 		}
 
@@ -41,23 +39,21 @@
 				//aggregateCatalogue.Catalogs.Add(new DirectoryCatalog(ConfigurationManager.AppSettings["browser.plugins"]));
 				//CompositionContainer container = new CompositionContainer(aggregateCatalogue);
 				//container.ComposeParts(this);
+                this.Log.Info(string.Format("Browser Created. {0}", this.browser.ToString()));
 			}
-			catch (FileNotFoundException)
+			catch (FileNotFoundException ex)
 			{
-				//TODO: Uncomment
-				//this.log.Error("File not found while composing browser.", ex);
+				this.Log.Error("File not found while composing browser.", ex);
 			}
-			catch (CompositionException)
+			catch (CompositionException ex)
 			{
-				//TODO: Uncomment
-				//this.log.Error("Composition exception while composing browser.", ex);
+				this.Log.Error("Composition exception while composing browser.", ex);
 			}
 
 			if (this.browser == null)
 			{
 				string nullBrowserMessage = "Browser is null.";
-				//TODO: Uncomment
-				//this.log.Error(nullBrowserMessage);
+				this.Log.Error(nullBrowserMessage);
 				throw new Exception(nullBrowserMessage);
 			}
 

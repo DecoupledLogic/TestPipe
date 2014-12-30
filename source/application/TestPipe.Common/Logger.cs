@@ -1,6 +1,7 @@
 ﻿namespace TestPipe.Common
 {
 	using System;
+    using System.Configuration;
 	using log4net;
 	using log4net.Appender;
 	using log4net.Config;
@@ -19,10 +20,11 @@
 		private bool isInfoEnabled;
 		private bool isWarnEnabled;
 		private PatternLayout layout = new PatternLayout();
-		private string logPath = @"C:\Temp\Log\log.txt";
+        private string logPath = @"Logs";
 
 		public Logger()
 		{
+            this.logPath = ConfigurationManager.AppSettings["log.path"];
 			this.logger = log4net.LogManager.GetLogger(typeof(LogManager));
 			XmlConfigurator.Configure();
 			this.Configure(this.logPath);
@@ -83,6 +85,9 @@
 			tracer.ActivateOptions();
 			hierarchy.Root.AddAppender(tracer);
 
+            RollingFileAppender rolling = new RollingFileAppender();
+            hierarchy.Root.AddAppender(rolling);
+
 			foreach (IAppender a in hierarchy.Root.Appenders)
 			{
 				if (a is FileAppender)
@@ -100,7 +105,7 @@
 					RollingFileAppender rfa = (RollingFileAppender)a;
 					rfa.Layout = patternLayout;
 					rfa.AppendToFile = true;
-					rfa.RollingStyle = RollingFileAppender.RollingMode.Size;
+					rfa.RollingStyle = RollingFileAppender.RollingMode.Date;
 					rfa.MaxSizeRollBackups = 4;
 					rfa.MaximumFileSize = "100KB";
 					rfa.StaticLogFileName = true;
