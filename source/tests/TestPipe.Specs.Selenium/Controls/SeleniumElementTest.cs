@@ -28,6 +28,7 @@ namespace TestPipe.Specs.Selenium.Controls
 		}
 
 		[TestMethod]
+        [TestCategory("Slow")]
 		public void FindChild_Can_Find_Child_Control()
 		{
 			string id = "test_id";
@@ -39,7 +40,8 @@ namespace TestPipe.Specs.Selenium.Controls
 			Asserts.IsTrue(child.Id == id);
 		}
 
-		[TestMethod]
+        [TestMethod]
+        [TestCategory("Slow")]
 		public void FindChild_Does_Not_Find_Control_Out_Of_Context()
 		{
 			string id = "2";
@@ -51,7 +53,8 @@ namespace TestPipe.Specs.Selenium.Controls
 			Asserts.Null(child.Element);
 		}
 
-		[TestMethod]
+        [TestMethod]
+        [TestCategory("Slow")]
 		public void Find_Can_Find_Control()
 		{
 			browser.Open("http://localhost/testpipe.testsite/nestedElements.html");
@@ -63,7 +66,8 @@ namespace TestPipe.Specs.Selenium.Controls
 			Asserts.IsTrue(control.Id == id);
 		}
 
-		[TestMethod]
+        [TestMethod]
+        [TestCategory("Slow")]
 		public void FindAllChildren_Can_Find_Child_Controls()
 		{
 			string id = "a";
@@ -75,7 +79,8 @@ namespace TestPipe.Specs.Selenium.Controls
 			Asserts.IsTrue(child.Count == 2);
 		}
 
-		[TestMethod]
+        [TestMethod]
+        [TestCategory("Slow")]
 		public void FindAllChildren_Can_Find_Child_Controls_In_Grid()
 		{
 			browser.Open("http://localhost/testpipe.testsite/tables.html");
@@ -94,7 +99,8 @@ namespace TestPipe.Specs.Selenium.Controls
 			Asserts.Equal<string>(child[0].Text, "Row 1 Column A");
 		}
 
-		[TestMethod]
+        [TestMethod]
+        [TestCategory("Slow")]
 		public void FindAllChildren_Does_Not_Find_Controls_Out_Of_Context()
 		{
 			string id = "select";
@@ -106,7 +112,8 @@ namespace TestPipe.Specs.Selenium.Controls
 			Asserts.Null(child);
 		}
 
-		[TestMethod]
+        [TestMethod]
+        [TestCategory("Slow")]
 		public void FindAll_Can_Find_Controls()
 		{
 			browser.Open("http://localhost/testpipe.testsite/nestedElements.html");

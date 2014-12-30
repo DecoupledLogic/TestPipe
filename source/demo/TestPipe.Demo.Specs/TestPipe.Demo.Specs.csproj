@@ -102,7 +102,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\SearchSteps.cs" />
     <Compile Include="Steps\StepHelper.cs" />
-    <Compile Include="Steps\UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\application\TestPipe.Assertions\TestPipe.Assertions.csproj">

@@ -48,6 +48,7 @@
 		}
 
 		[TestMethod]
+        [TestCategory("Slow")]
 		public void Cache_Should_Allow_Concurrent_Read_And_Write_From_Separate_Threads()
 		{
 			for (int i = 0; i < count; i++)

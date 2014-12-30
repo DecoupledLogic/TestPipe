@@ -39,7 +39,6 @@
 				//aggregateCatalogue.Catalogs.Add(new DirectoryCatalog(ConfigurationManager.AppSettings["browser.plugins"]));
 				//CompositionContainer container = new CompositionContainer(aggregateCatalogue);
 				//container.ComposeParts(this);
-                this.Log.Info(string.Format("Browser Created. {0}", this.browser.ToString()));
 			}
 			catch (FileNotFoundException ex)
 			{

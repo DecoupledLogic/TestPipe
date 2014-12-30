@@ -13,6 +13,7 @@ namespace TestPipe.Test.Email
     public class ExchangeServiceTest2
     {
         [TestMethod]
+        [Ignore]
         public void Count_Unread2()
         {
 
@@ -41,6 +42,7 @@ namespace TestPipe.Test.Email
         }
 
         [TestMethod]
+        [Ignore]
         public void Find_Message2()
         {
 
