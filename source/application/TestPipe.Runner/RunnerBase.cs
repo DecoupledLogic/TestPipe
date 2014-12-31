@@ -84,7 +84,17 @@
 
 		public static void TeardownScenario(SessionScenario scenario)
 		{
-			scenario.Browser.Open(string.Format("{0}{1}", TestSession.Suite.BaseUrl, TestSession.Suite.LogoutUrl));
+            if (scenario == null)
+            {
+                return;
+            }
+
+            if (scenario.Browser == null)
+            {
+                return;
+            }
+            
+            scenario.Browser.Open(string.Format("{0}{1}", TestSession.Suite.BaseUrl, TestSession.Suite.LogoutUrl));
 			scenario.Browser.Quit();
 			scenario.Browser = null;
 		}

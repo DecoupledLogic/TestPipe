@@ -63,7 +63,6 @@
     <Compile Include="Controls\SeleniumElementTest.cs" />
     <Compile Include="ListCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\application\TestPipe.Assertions\TestPipe.Assertions.csproj">
