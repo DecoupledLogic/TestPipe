@@ -4,7 +4,7 @@ Feature: Demo Search
 	As a user
 	I want to be able to search 
 
-@Search
+@Search @Manual
 Scenario: 1. Search for Something
 	Given I am on the search page
 	And when I do a search

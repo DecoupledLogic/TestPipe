@@ -2,6 +2,12 @@
 #r "tools\MsBuild\Microsoft.Build.Framework.dll"
 #r "tools\AssemblyInfoManager\AssemblyInfoManager.dll"
 
+using Nake;
+using Nake.FS;
+using Nake.Log;
+using Nake.Env;
+using Nake.Run;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -100,13 +106,17 @@ public static void Build(string version, string configuration = "Release", strin
 	Log.Info("Configuration: " + configuration);
 	Log.Info("Platform: " + platform);
 
-	MSBuild
-		.Projects(SolutionFile)
-			//.Property("Configuration", configuration)
-			//.Property("Platform", platform)
-			.Property("ReferencePath", BuildPath)
-			.Targets(new[] { "Rebuild" })
-		.BuildInParallel();
+    string cmd = string.Format("{0} /t:Rebuild /p:Configuration=\"{1}\" /p:Platform=\"{2}\" /p:ReferencePath=\"{3}\" /p:TrackFileAccess=false /m", SolutionFile, configuration, platform, BuildPath);
+
+    Exec(MsbuildExe, cmd);
+
+    //MSBuild
+    //    .Projects(SolutionFile)
+    //        .Property("Configuration", configuration)
+    //        .Property("Platform", platform)
+    //        .Property("ReferencePath", BuildPath)
+    //        .Targets(new[] { "Rebuild" })
+    //    .BuildInParallel();
 
 	PrintFooter("Build");
 }
@@ -163,10 +173,12 @@ public static void Package(string version)
 			}
 
 			string nuspec = file.FullName;
+
 			if(string.IsNullOrWhiteSpace(version))
 			{
 				version = GetVersion();
 			}
+
 			string projectName = GetProjectName(directory);
 			string output = PubPath;
 
@@ -217,7 +229,7 @@ public static void ReportCoverage(string configuration = "Debug", string outputP
 
 	string command = string.Format(@".\packages\ReportGenerator.2.0.0-beta5\ReportGenerator.exe -reports:{0} -targetdir:{1} -reporttypes:{2} -filters:{3}", reports, targetdir, reporttypes, filters);
 
-	Cmd.Exec(command);
+	Cmd(command);
 }
 
 /// <summary>
@@ -238,7 +250,7 @@ public static void XunitTest(string configuration = "Debug", string outputPath =
 
 	string command = "{target} {targetargs}";
 
-	Cmd.Exec(command);
+	Cmd(command);
 }
 
 /// <summary>
@@ -254,7 +266,7 @@ public static void TestAndCoverage(string configuration = "Debug", string output
 
 	Build(configuration, outputPath);
 
-	string tests = new FileSet	{ @"{outputPath}\*.Specs.dll" };
+	//IEnumerable<string> tests = new FileSet	{ @"{outputPath}\*.Specs.dll" };
 
 	//Cmd.Exec(@"Packages\NUnit.Runners.2.6.2\tools\nunit-console.exe /framework:net-4.0 /noshadow /nologo {tests}");
 
@@ -274,7 +286,7 @@ public static void TestAndCoverage(string configuration = "Debug", string output
 	builder.AppendTextUnquoted(" -mergebyhash");
 	builder.AppendTextUnquoted(" -output:{output}");
 
-	Cmd.Exec(builder.ToString());
+	Cmd(builder.ToString());
 }
 
 /// <summary>
@@ -330,7 +342,7 @@ public static void PackageProject(string nuspec, string version, string output, 
 
     string pack = string.Format("{0} pack {1} -Version {2} -OutputDirectory {3} -BasePath {4} -NoPackageAnalysis -Symbols", NuGetExe, nuspec, version, output, basePath);
 
-	Cmd.Exec(pack);
+	Cmd(pack);
 }
 
 public static void NuGetRestore()
@@ -338,7 +350,7 @@ public static void NuGetRestore()
 	string cmd = string.Format("{0} restore {1} -source \"http://agpjaxsrvbuild2/pne.nuget/nuget\"", NuGetExe, SolutionFile);
     
     Log.Info("Restore Command: " + cmd);
-	Cmd.Exec(cmd);
+	Cmd(cmd);
 }
 
 public static void CopyFilesToDistro(string path)
@@ -494,7 +506,14 @@ public static void CopyFiles(string source, string dest, string[] include = null
 	foreach (FileInfo file in files)
 	{
 		Log.Info(string.Format("Copying {0} to {1}", file.FullName, dest));
-		FS.Copy(file.FullName, dest, true, false);
+		try
+        {
+            FS.Copy(file.FullName, dest, true, false);
+        }
+        catch(Exception ex)
+        {
+            Log.Info(string.Format("EXCEPTION: {0}", ex.Message));   
+        }
 	}
 }
 
