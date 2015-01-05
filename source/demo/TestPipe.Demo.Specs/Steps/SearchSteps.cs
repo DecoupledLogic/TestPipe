@@ -36,16 +36,6 @@
 			testPage.Open();
 		}
 
-		[Given(@"when I do a search")]
-		public void GivenWhenIDoASearch()
-		{
-			searchText = scenario.Data.Q;
-
-			testPage.EnterText(testPage.Search, searchText);
-
-			testPage = new SearchPage(scenario.Browser, TestSession.Environment);
-		}
-
 		[Then(@"results should be displayed")]
 		public void ThenResultsShouldBeDisplayed()
 		{
@@ -54,9 +44,15 @@
 			Asserts.IsTrue(isOpen, pageState);
 		}
 
-		[When(@"I submit the search")]
-		public void WhenISubmitTheSearch()
+		[When(@"I submit a search")]
+		public void WhenISubmitASearch()
 		{
+            searchText = scenario.Data.Q;
+
+            testPage.EnterText(testPage.Search, searchText);
+
+            testPage = new SearchPage(scenario.Browser, TestSession.Environment);
+
 			resultPage = testPage.Submit(searchText);
 		}
 	}

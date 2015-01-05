@@ -70,22 +70,22 @@ namespace TestPipe.Demo.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("1. Search for Something")]
+        [NUnit.Framework.CategoryAttribute("Demo")]
         [NUnit.Framework.CategoryAttribute("Search")]
-        [NUnit.Framework.CategoryAttribute("Manual")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
         public virtual void _1_SearchForSomething()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. Search for Something", new string[] {
+                        "Demo",
                         "Search",
-                        "Manual"});
+                        "Smoke"});
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.Given("I am on the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.And("when I do a search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I submit a search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.When("I submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
  testRunner.Then("results should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -93,18 +93,20 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("2. Search for Something")]
+        [NUnit.Framework.CategoryAttribute("Demo")]
+        [NUnit.Framework.CategoryAttribute("Search")]
         public virtual void _2_SearchForSomething()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. Search for Something", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. Search for Something", new string[] {
+                        "Demo",
+                        "Search"});
 #line 14
 this.ScenarioSetup(scenarioInfo);
 #line 15
  testRunner.Given("I am on the search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 16
- testRunner.And("when I do a search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I submit a search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
- testRunner.When("I submit the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
  testRunner.Then("results should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

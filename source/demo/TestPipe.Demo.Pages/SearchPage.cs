@@ -9,44 +9,33 @@
 
 	public class SearchPage : BasePage
 	{
-		private static readonly ISelect SearchSelector = new Select(FindByEnum.Id, "gbqfq");
-		private static readonly ISelect SearchButtonSelector = new Select(FindByEnum.Id, "gbqfb");
 		private static readonly string PageTitle = "Google Search";
 		private static readonly string Url = "/";
 
 		private BaseControl search;
-		private BaseControl searchButton;
-
-		public SearchPage(IBrowser browser, TestEnvironment testEnvironment)
+        
+        public SearchPage(IBrowser browser, TestEnvironment testEnvironment)
 			: base(browser, testEnvironment)
 		{
 			this.PageRelativeUrl = Url;
 			this.Title = PageTitle;
 		}
 
-		public BaseControl Search
-		{
-			get
-			{
-				if (this.search == null)
-				{
-					this.search = new BaseControl(this.Browser, SearchSelector);
-				}
-				return this.search;
-			}
-		}
+        public BaseControl Search 
+        { 
+            get
+            {
+                return this.GetBaseControl(FindByEnum.Id, "gbqfq");
+            }
+        }
 
-		public BaseControl SearchButton
-		{
-			get
-			{
-				if (this.searchButton == null)
-				{
-					this.searchButton = new BaseControl(this.Browser, SearchButtonSelector);
-				}
-				return this.searchButton;
-			}
-		}
+        public BaseControl SearchButton
+        {
+            get
+            {
+                return this.GetBaseControl(FindByEnum.Id, "gbqfb");
+            }
+        }
 
 		public BasePage Submit(string text)
 		{
@@ -58,7 +47,6 @@
 			
 			this.Browser.WaitForPageLoad(4, resultPage.Title);
 			
-			//System.Threading.
 			return resultPage;
 		}
 	}

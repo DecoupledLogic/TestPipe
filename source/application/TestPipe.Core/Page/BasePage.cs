@@ -1,287 +1,295 @@
 ﻿namespace TestPipe.Core.Page
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Diagnostics;
-	using System.Linq;
-	using TestPipe.Core;
-	using TestPipe.Core.Control;
-	using TestPipe.Core.Helpers;
-	using TestPipe.Core.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Reflection;
+    using TestPipe.Core;
+    using TestPipe.Core.Control;
+    using TestPipe.Core.Enums;
+    using TestPipe.Core.Helpers;
+    using TestPipe.Core.Interfaces;
 
-	public class BasePage : IPage
-	{
-		private IBrowser browser = null;
+    public class BasePage : IPage
+    {
+        private IBrowser browser = null;
 
-		private string pageUrl;
+        private string pageUrl;
 
-		public BasePage(IBrowser browser, TestEnvironment testEnvironment)
-		{
-			if (browser == null)
-			{
-				throw new NullReferenceException("Browser can not be null.");
-			}
+        public BasePage(IBrowser browser, TestEnvironment testEnvironment)
+        {
+            if (browser == null)
+            {
+                throw new NullReferenceException("Browser can not be null.");
+            }
 
-			this.browser = browser;
-			this.TestEnvironment = testEnvironment;
-		}
+            this.browser = browser;
+            this.TestEnvironment = testEnvironment;
+        }
 
-		public IBrowser Browser
-		{
-			get
-			{
-				return this.browser;
-			}
-		}
+        public IBrowser Browser
+        {
+            get
+            {
+                return this.browser;
+            }
+        }
 
-		public long PageLoadTime { get; set; }
+        public long PageLoadTime { get; set; }
 
-		public string PageRelativeUrl
-		{
-			get;
-			set;
-		}
+        public string PageRelativeUrl
+        {
+            get;
+            set;
+        }
 
-		public string PageUrl
-		{
-			get
-			{
-				if (string.IsNullOrEmpty(this.pageUrl))
-				{
-					this.pageUrl = this.GetPageUrl();
-				}
-				return this.pageUrl;
-			}
-		}
+        public string PageUrl
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this.pageUrl))
+                {
+                    this.pageUrl = this.GetPageUrl();
+                }
+                return this.pageUrl;
+            }
+        }
 
-		public TestEnvironment TestEnvironment
-		{
-			get;
-			private set;
-		}
+        public TestEnvironment TestEnvironment
+        {
+            get;
+            private set;
+        }
 
-		public string Title
-		{
-			get;
-			set;
-		}
+        public string Title
+        {
+            get;
+            set;
+        }
 
-		public BaseControl ActiveControl()
-		{
-			IElement element = this.Browser.ActiveElement();
-			BaseControl control = new BaseControl(this.Browser, element);
-			return control;
-		}
+        public BaseControl ActiveControl()
+        {
+            IElement element = this.Browser.ActiveElement();
+            BaseControl control = new BaseControl(this.Browser, element);
+            return control;
+        }
 
-		public void AddCookie(string key, string value, string path = "/", string domain = null, DateTime? expiry = null)
-		{
-			this.Browser.AddCookie(key, value, path, domain, expiry);
-		}
+        public void AddCookie(string key, string value, string path = "/", string domain = null, DateTime? expiry = null)
+        {
+            this.Browser.AddCookie(key, value, path, domain, expiry);
+        }
 
-		public void DeleteCookies(string[] cookieNames = null)
-		{
-			if (cookieNames == null || cookieNames.Length < 1)
-			{
-				this.Browser.DeleteAllCookies();
-				return;
-			}
+        public void DeleteCookies(string[] cookieNames = null)
+        {
+            if (cookieNames == null || cookieNames.Length < 1)
+            {
+                this.Browser.DeleteAllCookies();
+                return;
+            }
 
-			foreach (string name in cookieNames)
-			{
-				this.Browser.DeleteCookieNamed(name);
-			}
-		}
+            foreach (string name in cookieNames)
+            {
+                this.Browser.DeleteCookieNamed(name);
+            }
+        }
 
-		public void EnterText(BaseControl control, string text)
-		{
-			control.Clear();
+        public void EnterText(BaseControl control, string text)
+        {
+            control.Clear();
 
-			if (string.IsNullOrWhiteSpace(text))
-			{
-				return;
-			}
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return;
+            }
 
-			control.TypeText(text);
-		}
+            control.TypeText(text);
+        }
 
-		public BaseControl GetActiveControlById(string controlId)
-		{
-			string error = string.Empty;
+        public BaseControl GetActiveControlById(string controlId)
+        {
+            string error = string.Empty;
 
-			BaseControl control = this.ActiveControl();
-			string id = control.Id;
+            BaseControl control = this.ActiveControl();
+            string id = control.Id;
 
-			if (string.IsNullOrWhiteSpace(id))
-			{
-				throw new InvalidOperationException("Element: " + controlId + " does not have an id.");
-			}
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new InvalidOperationException("Element: " + controlId + " does not have an id.");
+            }
 
-			if (id != controlId)
-			{
-				throw new InvalidOperationException("Element: " + controlId + " does not have focus.");
-			}
+            if (id != controlId)
+            {
+                throw new InvalidOperationException("Element: " + controlId + " does not have focus.");
+            }
 
-			return control;
-		}
+            return control;
+        }
 
-		public Dictionary<string, string> GetAllPageCookies()
-		{
-			return this.browser.GetAllCookies();
-		}
+        public Dictionary<string, string> GetAllPageCookies()
+        {
+            return this.browser.GetAllCookies();
+        }
 
-		public BaseControl GetBaseControl(ISelect select, uint timeoutInSeconds = 0, bool displayed = false)
-		{
-			return new BaseControl(this.Browser, select, string.Empty, timeoutInSeconds, displayed);
-		}
+        public BaseControl GetBaseControl(FindByEnum by, string findValue, uint timeoutInSeconds = 0, bool displayed = false)
+        {
+            ISelect select = new Select(by, findValue, timeoutInSeconds, displayed);
+            return this.GetBaseControl(select, timeoutInSeconds, displayed);
+        }
 
-		public string GetCookieValue(string key)
-		{
-			return this.GetAllPageCookies().FirstOrDefault(x => x.Key == key).Value;
-		}
+        public BaseControl GetBaseControl(ISelect select, uint timeoutInSeconds = 0, bool displayed = false)
+        {
+            return new BaseControl(this.Browser, select, string.Empty, timeoutInSeconds, displayed);
+        }
 
-		public bool HasTitle(string title)
-		{
-			if (title == null)
-			{
-				return false;
-			}
+        public string GetCookieValue(string key)
+        {
+            return this.GetAllPageCookies().FirstOrDefault(x => x.Key == key).Value;
+        }
 
-			return this.Browser.Title.Trim() == title;
-		}
+        public bool HasTitle(string title)
+        {
+            if (title == null)
+            {
+                return false;
+            }
 
-		public bool HasUrl(string url)
-		{
-			if (string.IsNullOrEmpty(url))
-			{
-				return false;
-			}
+            return this.Browser.Title.Trim() == title;
+        }
 
-			return this.Browser.HasUrl(url);
-		}
+        public bool HasUrl(string url)
+        {
+            if (string.IsNullOrEmpty(url))
+            {
+                return false;
+            }
 
-		public bool IsActiveControlId(string controlId)
-		{
-			return this.GetActiveControlById(controlId) != null;
-		}
+            return this.Browser.HasUrl(url);
+        }
 
-		public virtual bool IsOpen(uint timeoutInSeconds = 0)
-		{
-			Func<bool> action = () => this.IsPageOpen();
-			return Timing.TimeoutPredicate(timeoutInSeconds, action);
-		}
+        public bool IsActiveControlId(string controlId)
+        {
+            return this.GetActiveControlById(controlId) != null;
+        }
 
-		public virtual void Open(string url = "", uint timeoutInSeconds = 0)
-		{
-			if (timeoutInSeconds == 0)
-			{
-				timeoutInSeconds = (uint)TestSession.Timeout.TotalSeconds;
-			}
+        public virtual bool IsOpen(uint timeoutInSeconds = 0)
+        {
+            Func<bool> action = () => this.IsPageOpen();
+            return Timing.TimeoutPredicate(timeoutInSeconds, action);
+        }
 
-			Stopwatch timer = new Stopwatch();
-			if (!string.IsNullOrWhiteSpace(url))
-			{
-				timer.Start();
-				this.Browser.Open(url, timeoutInSeconds);
-			}
-			else
-			{
-				timer.Start();
-				this.Browser.Open(this.PageUrl, timeoutInSeconds);
-			}
+        public virtual void Open(string url = "", uint timeoutInSeconds = 0)
+        {
+            if (timeoutInSeconds == 0)
+            {
+                timeoutInSeconds = (uint)TestSession.Timeout.TotalSeconds;
+            }
 
-			timer.Stop();
-			this.PageLoadTime = timer.ElapsedMilliseconds;
-		}
+            Stopwatch timer = new Stopwatch();
+            if (!string.IsNullOrWhiteSpace(url))
+            {
+                timer.Start();
+                this.Browser.Open(url, timeoutInSeconds);
+            }
+            else
+            {
+                timer.Start();
+                this.Browser.Open(this.PageUrl, timeoutInSeconds);
+            }
 
-		public virtual void OpenWithQueryString(string queryString, string url = "", uint timeoutInSeconds = 0)
-		{
-			if (string.IsNullOrWhiteSpace(queryString))
-			{
-				this.Open(url, timeoutInSeconds);
-				return;
-			}
+            timer.Stop();
+            this.PageLoadTime = timer.ElapsedMilliseconds;
+        }
 
-			if (!queryString.StartsWith("?"))
-			{
-				queryString = "?" + queryString;
-			}
+        public virtual void OpenWithQueryString(string queryString, string url = "", uint timeoutInSeconds = 0)
+        {
+            if (string.IsNullOrWhiteSpace(queryString))
+            {
+                this.Open(url, timeoutInSeconds);
+                return;
+            }
 
-			if (!string.IsNullOrWhiteSpace(url))
-			{
-				this.Open(url + queryString, timeoutInSeconds);
-				return;
-			}
+            if (!queryString.StartsWith("?"))
+            {
+                queryString = "?" + queryString;
+            }
 
-			this.Browser.Open(this.PageUrl + queryString, timeoutInSeconds);
-		}
+            if (!string.IsNullOrWhiteSpace(url))
+            {
+                this.Open(url + queryString, timeoutInSeconds);
+                return;
+            }
 
-		public string PageState()
-		{
-			return string.Format("The opend page was not expected, title: {0}\n, url: {1}\n source: {2}", this.Browser.Title, this.Browser.Url, this.Browser.PageSource);
-		}
+            this.Browser.Open(this.PageUrl + queryString, timeoutInSeconds);
+        }
 
-		public virtual dynamic Refresh()
-		{
-			this.Browser.Refresh();
-			return new BasePage(this.Browser, this.TestEnvironment);
-		}
+        public string PageState()
+        {
+            return string.Format("The opend page was not expected, title: {0}\n, url: {1}\n source: {2}", this.Browser.Title, this.Browser.Url, this.Browser.PageSource);
+        }
 
-		public void SendBrowserKeys(string keys)
-		{
-			this.browser.SendBrowserKeys(keys);
-		}
+        public virtual dynamic Refresh()
+        {
+            this.Browser.Refresh();
+            return new BasePage(this.Browser, this.TestEnvironment);
+        }
 
-		public void SendKeys(string keys)
-		{
-			this.browser.SendBrowserKeys(keys);
-		}
+        public void SendBrowserKeys(string keys)
+        {
+            this.browser.SendBrowserKeys(keys);
+        }
 
-		private string GetPageUrl()
-		{
-			if (this.TestEnvironment == null)
-			{
-				return string.Empty;
-			}
+        public void SendKeys(string keys)
+        {
+            this.browser.SendBrowserKeys(keys);
+        }
 
-			string baseUrl = this.TestEnvironment.BaseUrl;
-			string virtualUrl = this.PageRelativeUrl;
-			if (string.IsNullOrEmpty(baseUrl))
-			{
-				return string.Empty;
-			}
+        private string GetPageUrl()
+        {
+            if (this.TestEnvironment == null)
+            {
+                return string.Empty;
+            }
 
-			if (!baseUrl.EndsWith("/"))
-			{
-				baseUrl += "/";
-			}
+            string baseUrl = this.TestEnvironment.BaseUrl;
+            string virtualUrl = this.PageRelativeUrl;
+            if (string.IsNullOrEmpty(baseUrl))
+            {
+                return string.Empty;
+            }
 
-			if (virtualUrl.StartsWith("/"))
-			{
-				virtualUrl = virtualUrl.Substring(1);
-			}
+            if (!baseUrl.EndsWith("/"))
+            {
+                baseUrl += "/";
+            }
 
-			return string.Format("{0}{1}", baseUrl, virtualUrl);
-		}
+            if (virtualUrl.StartsWith("/"))
+            {
+                virtualUrl = virtualUrl.Substring(1);
+            }
 
-		private bool IsPageOpen()
-		{
-			bool isOpen = false;
-			bool titleMatch = true;
+            return string.Format("{0}{1}", baseUrl, virtualUrl);
+        }
 
-			if (!string.IsNullOrEmpty(this.Title))
-			{
-				titleMatch = this.Browser.Title.Trim() == this.Title;
-				isOpen = titleMatch;
-			}
+        private bool IsPageOpen()
+        {
+            bool isOpen = false;
+            bool titleMatch = true;
 
-			if (string.IsNullOrEmpty(this.PageRelativeUrl))
-			{
-				return isOpen;
-			}
+            if (!string.IsNullOrEmpty(this.Title))
+            {
+                titleMatch = this.Browser.Title.Trim() == this.Title;
+                isOpen = titleMatch;
+            }
 
-			bool urlMatch = this.Browser.HasUrl(this.PageUrl);
+            if (string.IsNullOrEmpty(this.PageRelativeUrl))
+            {
+                return isOpen;
+            }
 
-			return titleMatch & urlMatch;
-		}
-	}
+            bool urlMatch = this.Browser.HasUrl(this.PageUrl);
+
+            return titleMatch & urlMatch;
+        }
+    }
 }
