@@ -1,4 +1,4 @@
-TestPipe
+[![Build status](https://ci.appveyor.com/api/projects/status/dep836vorak5db6e?svg=true)](https://ci.appveyor.com/project/charleslbryant/testpipe) [![Stories in Ready](https://badge.waffle.io/DecoupledLogic/TestPipe.svg?label=ready&title=Ready)](http://waffle.io/DecoupledLogic/TestPipe)
 --------
 
 ![TestPipe Logo](https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo.png?raw=true)
@@ -9,8 +9,7 @@ the framework is to provide a maintainable means of creating test for HTTP web a
 Current Version
 ---------------
 
-The current version of TestPipe is 2.0.0. It isn't indicated in the version 
-number, but this is a preview. It hasn't been fully tested against a production 
+It isn't indicated in the version number, but this is a preview. It hasn't been fully tested against a production 
 application, so use at your own risk.
 
 Download
