@@ -24,11 +24,17 @@
 			testPage = new SearchPage(scenario.Browser, TestSession.Environment);
 		}
 
-		[BeforeFeature]
-		public static void SetupSearchFeature()
+        [BeforeFeature("@Search")]
+		public static void SetupFeature()
 		{
 			feature = StepHelper.SetupFeature();
 		}
+
+        [AfterFeature("@Search")]
+        public static void TeardownFeature()
+        {
+            StepHelper.TearDownScenario(scenario);
+        }
 
 		[Given(@"I am on the search page")]
 		public void GivenIAmOnTheSearchPage()
