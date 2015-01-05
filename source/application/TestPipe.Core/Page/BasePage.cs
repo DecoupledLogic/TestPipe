@@ -133,6 +133,16 @@
 
         public BaseControl GetBaseControl(FindByEnum by, string findValue, uint timeoutInSeconds = 0, bool displayed = false)
         {
+            if (by == FindByEnum.Unknown)
+            {
+                throw new ArgumentException("FindByEnum \"by\" is invalid.");
+            }
+
+            if (string.IsNullOrWhiteSpace(findValue))
+            {
+                throw new ArgumentException("String \"findValue\" is invalid.");
+            }
+
             ISelect select = new Select(by, findValue, timeoutInSeconds, displayed);
             return this.GetBaseControl(select, timeoutInSeconds, displayed);
         }
