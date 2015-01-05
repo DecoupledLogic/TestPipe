@@ -11,8 +11,6 @@
 	{
 		private static readonly string PageTitle = "Google Search";
 		private static readonly string Url = "/";
-
-		private BaseControl search;
         
         public SearchPage(IBrowser browser, TestEnvironment testEnvironment)
 			: base(browser, testEnvironment)
