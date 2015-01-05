@@ -1,5 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/dep836vorak5db6e?svg=true)](https://ci.appveyor.com/project/charleslbryant/testpipe)
-[![Stories in Ready](https://badge.waffle.io/DecoupledLogic/TestPipe.svg?label=ready&title=Ready)](http://waffle.io/DecoupledLogic/TestPipe)
+[![Build status](https://ci.appveyor.com/api/projects/status/dep836vorak5db6e?svg=true)](https://ci.appveyor.com/project/charleslbryant/testpipe) [![Stories in Ready](https://badge.waffle.io/DecoupledLogic/TestPipe.svg?label=ready&title=Ready)](http://waffle.io/DecoupledLogic/TestPipe)
 --------
 
 ![TestPipe Logo](https://github.com/DecoupledLogic/TestPipe/blob/master/creative/logo/logo.png?raw=true)
