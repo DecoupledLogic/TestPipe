@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/DecoupledLogic/TestPipe.png?label=ready&title=Ready)](https://waffle.io/DecoupledLogic/TestPipe)
 TestPipe
 --------
 
