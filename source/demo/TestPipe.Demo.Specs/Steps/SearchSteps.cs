@@ -11,27 +11,27 @@
 	[Binding]
 	public class SearchSteps
 	{
-		private static SessionFeature feature;
-		private static BasePage resultPage;
-		private static SessionScenario scenario;
-		private static string searchText;
-		private static SearchPage testPage;
+        private static SessionFeature feature;
+		private BasePage resultPage;
+		private SessionScenario scenario;
+		private string searchText;
+		private SearchPage testPage;
 
 		[BeforeScenario("@Search")]
-		public static void SetupScenario()
+		public void SetupScenario()
 		{
 			scenario = StepHelper.SetupScenario();
 			testPage = new SearchPage(scenario.Browser, TestSession.Environment);
 		}
 
         [BeforeFeature("@Search")]
-		public static void SetupFeature()
+        public static void SetupFeature()
 		{
 			feature = StepHelper.SetupFeature();
 		}
 
-        [AfterFeature("@Search")]
-        public static void TeardownFeature()
+        [AfterScenario("@Search")]
+        public void TeardownScenario()
         {
             StepHelper.TearDownScenario(scenario);
         }
