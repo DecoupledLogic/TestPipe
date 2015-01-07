@@ -33,8 +33,6 @@
         {
             IBrowser browser = SetBrowserFromTag(tags);
 
-            RunnerHelper.SetTestSessionDefaultBrowser();
-
             string defaultBrowserName = GetBrowserName(TestSession.DefaultBrowser);
 
             IBrowser currentScenarioBrowser = browser == null

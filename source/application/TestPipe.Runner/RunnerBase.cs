@@ -72,6 +72,7 @@
             Console.WriteLine("Env in Setup Suite");
 			RunnerHelper.SetEnvironment();
 			TestSession.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(TestSession.Suite.Timeout));
+            RunnerHelper.SetTestSessionDefaultBrowser();            
 		}
 
 		public static void TeardownFeature()
