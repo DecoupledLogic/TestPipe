@@ -328,9 +328,11 @@ public static void PackageProject(string nuspec, string version, string output, 
     Log.Info("Base Path: " + basePath);
     Log.Info("NuGetExe: " + NuGetExe);
 
-    string pack = string.Format("{0} pack {1} -Version {2} -OutputDirectory \"{3}\" -BasePath \"{4}\" -NoPackageAnalysis -Symbols", NuGetExe, nuspec, version, output, basePath);
+    string packCmd = string.Format("{0} pack {1} -Version {2} -OutputDirectory \"{3}\" -BasePath \"{4}\" -NoPackageAnalysis -Symbols", NuGetExe, nuspec, version, output, basePath);
 
-	Cmd.Exec(pack);
+    Log.Info("Pack Command: " + packCmd);
+
+	Cmd.Exec(packCmd);
 }
 
 public static void NuGetRestore()
