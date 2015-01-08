@@ -113,7 +113,7 @@
 				throw new NullReferenceException("Features cannot be a null value.");
 			}
 
-			SessionFeature feature = TestSession.Features.Where(x => x.Title == title).FirstOrDefault();
+			SessionFeature feature = TestSession.Features.Where(x => x.Title.Replace(" ", "") == title.Replace(" ", "")).FirstOrDefault();
 
 			if (feature == null)
 			{

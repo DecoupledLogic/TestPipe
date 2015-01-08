@@ -221,7 +221,7 @@
             }
 
             //TODO: Find elegand way to remove spaces between words
-            SessionFeature feature = TestSession.Suite.Features.Where(x => x.Title.Replace(" ","") == title).FirstOrDefault();
+            SessionFeature feature = TestSession.Suite.Features.Where(x => x.Title.Replace(" ","") == title.Replace(" ", "")).FirstOrDefault();
 
             if (feature == null)
             {

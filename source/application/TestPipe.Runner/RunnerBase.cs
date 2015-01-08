@@ -49,7 +49,7 @@
 			}
 
             //TODO: Find elegand way to remove spaces between words
-			SessionFeature currentFeature = TestSession.Features.Where(x => x.Title.Replace(" ","") == featureTitle).FirstOrDefault();
+			SessionFeature currentFeature = TestSession.Features.Where(x => x.Title.Replace(" ","") == featureTitle.Replace(" ", "")).FirstOrDefault();
 
 			string scenarioId = RunnerHelper.GetIdFromTitle(title);
 
