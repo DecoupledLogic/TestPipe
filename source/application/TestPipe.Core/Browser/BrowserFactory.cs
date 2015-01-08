@@ -57,6 +57,7 @@
 			}
 
 			this.browser.LoadBrowser(browserType, this.config);
+            this.Log.Info(string.Format("Browser Loaded: {0}", browser.BrowserType.ToString()));
 			return this.browser;
 		}
 	}

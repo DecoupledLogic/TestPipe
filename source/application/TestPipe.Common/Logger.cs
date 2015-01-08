@@ -74,49 +74,30 @@
 
 		private void Configure(string logPath)
 		{
-			Hierarchy hierarchy = (log4net.Repository.Hierarchy.Hierarchy)LogManager.GetRepository();
-			TraceAppender tracer = new TraceAppender();
-			PatternLayout patternLayout = new PatternLayout();
+            Hierarchy hierarchy = (Hierarchy)LogManager.GetRepository();
+            TraceAppender tracer = new TraceAppender();
+            PatternLayout patternLayout = new PatternLayout();
 
-			patternLayout.ConversionPattern = LOGPATTERN;
-			patternLayout.ActivateOptions();
+            patternLayout.ConversionPattern = LOGPATTERN;
+            patternLayout.ActivateOptions();
 
-			tracer.Layout = patternLayout;
-			tracer.ActivateOptions();
-			hierarchy.Root.AddAppender(tracer);
+            tracer.Layout = patternLayout;
+            tracer.ActivateOptions();
+            hierarchy.Root.AddAppender(tracer);
 
-            RollingFileAppender rolling = new RollingFileAppender();
-            hierarchy.Root.AddAppender(rolling);
+            RollingFileAppender roller = new RollingFileAppender();
+            roller.Layout = patternLayout;
+            roller.AppendToFile = true;
+            roller.RollingStyle = RollingFileAppender.RollingMode.Size;
+            roller.MaxSizeRollBackups = 4;
+            roller.MaximumFileSize = "100KB";
+            roller.StaticLogFileName = true;
+            roller.File = logPath;
+            roller.ActivateOptions();
+            hierarchy.Root.AddAppender(roller);
 
-			foreach (IAppender a in hierarchy.Root.Appenders)
-			{
-				if (a is FileAppender)
-				{
-					FileAppender fa = (FileAppender)a;
-					fa.Layout = patternLayout;
-					fa.AppendToFile = true;
-					fa.File = logPath;
-					fa.ActivateOptions();
-					break;
-				}
-
-				if (a is RollingFileAppender)
-				{
-					RollingFileAppender rfa = (RollingFileAppender)a;
-					rfa.Layout = patternLayout;
-					rfa.AppendToFile = true;
-					rfa.RollingStyle = RollingFileAppender.RollingMode.Date;
-					rfa.MaxSizeRollBackups = 4;
-					rfa.MaximumFileSize = "100KB";
-					rfa.StaticLogFileName = true;
-					rfa.File = logPath;
-					rfa.ActivateOptions();
-					break;
-				}
-			}
-
-			hierarchy.Root.Level = Level.All;
-			hierarchy.Configured = true;
+            hierarchy.Root.Level = Level.All;
+            hierarchy.Configured = true;
 		}
 
 		private void SetLoggingLevelConstants()
