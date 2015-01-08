@@ -48,7 +48,8 @@
 				throw new IgnoreException();
 			}
 
-			SessionFeature currentFeature = TestSession.Features.Where(x => x.Title == featureTitle).FirstOrDefault();
+            //TODO: Find elegand way to remove spaces between words
+			SessionFeature currentFeature = TestSession.Features.Where(x => x.Title.Replace(" ","") == featureTitle).FirstOrDefault();
 
 			string scenarioId = RunnerHelper.GetIdFromTitle(title);
 
@@ -72,7 +73,7 @@
             Console.WriteLine("Env in Setup Suite");
 			RunnerHelper.SetEnvironment();
 			TestSession.Timeout = TimeSpan.FromSeconds(Convert.ToDouble(TestSession.Suite.Timeout));
-            RunnerHelper.SetTestSessionDefaultBrowser();            
+            RunnerHelper.SetTestSessionDefaultBrowser();
 		}
 
 		public static void TeardownFeature()

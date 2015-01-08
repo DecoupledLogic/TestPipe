@@ -220,7 +220,8 @@
                 throw new TestPipeException("Parameter \"title\" can not be null owr white space.");
             }
 
-            SessionFeature feature = TestSession.Suite.Features.Where(x => x.Title == title).FirstOrDefault();
+            //TODO: Find elegand way to remove spaces between words
+            SessionFeature feature = TestSession.Suite.Features.Where(x => x.Title.Replace(" ","") == title).FirstOrDefault();
 
             if (feature == null)
             {
