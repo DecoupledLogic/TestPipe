@@ -113,7 +113,7 @@
 				throw new NullReferenceException("Features cannot be a null value.");
 			}
 
-			SessionFeature feature = TestSession.Features.Where(x => x.Title.Replace(" ", "") == title.Replace(" ", "")).FirstOrDefault();
+			SessionFeature feature = TestSession.GetFeature(title, TestSession.Features);
 
 			if (feature == null)
 			{
@@ -122,6 +122,12 @@
 
 			return feature;
 		}
+
+        //TODO: Find elegand way to remove spaces between words
+        public static SessionFeature GetFeature(string title, ICollection<SessionFeature> features)
+        {
+            return features.Where(x => x.Title.Trim().Replace(" ", string.Empty) == title.Trim().Replace(" ", string.Empty)).FirstOrDefault();
+        }
 
 		public static SessionScenario GetScenario(string id, SessionFeature feature)
 		{
