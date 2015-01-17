@@ -1,43 +1,45 @@
 ﻿namespace TestPipe.Core.Interfaces
 {
-	using System;
-	using System.Collections.Generic;
-	using TestPipe.Core.Control;
+    using System;
+    using System.Collections.Generic;
+    using TestPipe.Core.Control;
 
-	public interface IPage
-	{
-		IBrowser Browser { get; }
+    public interface IPage
+    {
+        IBrowser Browser { get; }
 
-		string PageRelativeUrl { get; }
+        uint DefaultTimeout { get; }
 
-		string PageUrl { get; }
+        string PageRelativeUrl { get; }
 
-		TestEnvironment TestEnvironment { get; }
+        string PageUrl { get; }
 
-		string Title { get; }
+        TestEnvironment TestEnvironment { get; }
 
-		BaseControl ActiveControl();
+        string Title { get; }
 
-		void AddCookie(string key, string value, string path = "/", string domain = null, DateTime? expiry = null);
+        BaseControl ActiveControl();
 
-		void DeleteCookies(string[] cookieNames = null);
+        void AddCookie(string key, string value, string path = "/", string domain = null, DateTime? expiry = null);
 
-		Dictionary<string, string> GetAllPageCookies();
+        void DeleteCookies(string[] cookieNames = null);
 
-		string GetCookieValue(string key);
+        Dictionary<string, string> GetAllPageCookies();
 
-		bool HasTitle(string title);
+        string GetCookieValue(string key);
 
-		bool HasUrl(string url);
+        bool HasTitle(string title);
 
-		bool IsActiveControlId(string controlId);
+        bool HasUrl(string url);
 
-		bool IsOpen(uint timeoutInSeconds = 0);
+        bool IsActiveControlId(string controlId);
 
-		void Open(string url, uint timeoutInSeconds = 0);
+        bool IsOpen(uint timeoutInSeconds = 0);
 
-		string PageState();
+        void Open(string url, uint timeoutInSeconds = 0);
 
-		void SendKeys(string keys);
-	}
+        string PageState();
+
+        void SendKeys(string keys);
+    }
 }

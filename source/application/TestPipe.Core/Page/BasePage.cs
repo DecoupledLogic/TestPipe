@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
-    using System.Reflection;
     using TestPipe.Core;
     using TestPipe.Core.Control;
     using TestPipe.Core.Enums;
@@ -33,6 +32,17 @@
             get
             {
                 return this.browser;
+            }
+        }
+
+        public uint DefaultTimeout
+        {
+            get
+            {
+                int timeout = TestSession.Timeout.Seconds;
+                uint timeoutSeconds = 0;
+                uint.TryParse(timeout.ToString(), out timeoutSeconds);
+                return timeoutSeconds;
             }
         }
 
