@@ -5,6 +5,7 @@
 	using System.Linq;
 	using System.Text;
 	using System.Threading.Tasks;
+    using TestPipe.Core.Exceptions;
 
 	public class Timing
 	{
@@ -27,10 +28,11 @@
 
 				if (elapsedTime > timeout)
 				{
-					return predicate.Invoke();
+					bool lastChance = predicate.Invoke();
+                    if (!lastChance)
+                        throw new TestPipeTimeOutException("Timeout Predicate Timed Out");
 				}
 			}
-
 			return predicate.Invoke();
 		}
 	}

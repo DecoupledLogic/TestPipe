@@ -80,6 +80,7 @@
     <Compile Include="Browser\BrowserConfiguration.cs" />
     <Compile Include="Control\CheckBox.cs" />
     <Compile Include="Exceptions\ManualOnlyException.cs" />
+    <Compile Include="Exceptions\TestPipeTimeOutException.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\TextHelper.cs" />
     <Compile Include="Helpers\Timing.cs" />
