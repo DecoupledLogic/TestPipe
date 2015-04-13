@@ -131,3 +131,6 @@ WebProject.*
 /nake.log.txt
 /TestPipe.playlist
 /Logs
+/TestPipe.sln.ide/*.chk
+/TestPipe.sln.ide/*.jrs
+/TestPipe.sln.ide/*.ide
