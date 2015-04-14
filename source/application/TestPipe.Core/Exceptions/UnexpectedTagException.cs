@@ -4,7 +4,7 @@
 	using System.Runtime.Serialization;
 
 	[Serializable]
-	public class UnexpectedTagException : Exception
+	public class UnexpectedTagException : TestPipeException
 	{
 		public UnexpectedTagException()
 			: base() 

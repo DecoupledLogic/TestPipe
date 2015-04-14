@@ -5,6 +5,7 @@
 	using System.Linq;
 	using OpenQA.Selenium;
 	using OpenQA.Selenium.Support.UI;
+    using TestPipe.Core.Exceptions;
 
 	public enum ReadyStateEnum
 	{
@@ -26,14 +27,21 @@
 				var wait = new DefaultWait<ISearchContext>(context);
 				wait.Timeout = TimeSpan.FromSeconds(timeoutInSections);
 				wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-				return wait.Until(ctx =>
-				{
-					var elem = ctx.FindElement(by);
-					if (displayed && !elem.Displayed)
-						return null;
-
-					return elem;
-				});
+                try
+                {
+                    return wait.Until(ctx =>
+                    {
+                        var elem = ctx.FindElement(by);
+                        if (displayed && !elem.Displayed)
+                            return null;
+                        return elem;
+                    });
+                }
+                catch (TimeoutException)
+                {
+                    throw new TestPipeTimeOutException("Find Element Timed Out");
+                }
+				
 			}
 
 			return context.FindElement(by);
@@ -44,7 +52,14 @@
 			if (timeoutInSeconds > 0)
 			{
 				var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
-				return wait.Until(drv => (drv.FindElements(by).Count > 0) ? drv.FindElements(by) : null);
+                try
+                {
+                    return wait.Until(drv => (drv.FindElements(by).Count > 0) ? drv.FindElements(by) : null);
+                }
+                catch (TimeoutException)
+                {
+                    throw new TestPipeTimeOutException("Find Elements Timed Out");
+                }	
 			}
 			return driver.FindElements(by);
 		}
@@ -104,7 +119,7 @@
 					return;
 				}
 				
-				throw;
+				throw new TestPipeTimeOutException("Page Load Timed Out");
 			}
 			catch (NullReferenceException)
 			{
