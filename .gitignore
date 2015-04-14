@@ -134,3 +134,4 @@ WebProject.*
 /TestPipe.sln.ide/*.chk
 /TestPipe.sln.ide/*.jrs
 /TestPipe.sln.ide/*.ide
+/TestPipe.sln.ide/*.edb

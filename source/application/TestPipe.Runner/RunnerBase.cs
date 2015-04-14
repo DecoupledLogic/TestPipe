@@ -35,7 +35,6 @@
 
 			currentFeature = RunnerHelper.LoadFeature(title);
 
-			//RunnerHelper.SetFeatureBrowser(tags, currentFeature);
 			Console.WriteLine("\nEnd Feature Setup: " + title);
 
 			return currentFeature;
@@ -48,7 +47,8 @@
 				throw new IgnoreException();
 			}
 
-            //TODO: Find elegand way to remove spaces between words
+            //TODO: Find elegant way to remove spaces between words
+            //TODO: Better yet, since we know the feature at the time we call this method, just pass in the feature.
             SessionFeature currentFeature = TestSession.GetFeature(featureTitle, TestSession.Features);
 
 			string scenarioId = RunnerHelper.GetIdFromTitle(title);
