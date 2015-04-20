@@ -23,7 +23,7 @@
         { 
             get
             {
-                return this.GetBaseControl(FindByEnum.Id, "gbqfq");
+                return this.GetBaseControl(FindByEnum.Id, "lst-ib");
             }
         }
 
@@ -31,7 +31,7 @@
         {
             get
             {
-                return this.GetBaseControl(FindByEnum.Id, "gbqfb");
+                return this.GetBaseControl(FindByEnum.Name, "btnG");
             }
         }
 

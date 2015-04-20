@@ -57,6 +57,8 @@
 
 			currentScenario.Browser = RunnerHelper.GetBrowser(tags);
 
+            currentScenario.Asserts = new StepAsserts(currentScenario.Browser, featureTitle, title);
+
 			return currentScenario;
 		}
 

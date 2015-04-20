@@ -13,5 +13,7 @@
 		public string Id { get; set; }
 
 		public IBrowser Browser { get; set; }
+
+        public IAsserts Asserts { get; set; }
 	}
 }
