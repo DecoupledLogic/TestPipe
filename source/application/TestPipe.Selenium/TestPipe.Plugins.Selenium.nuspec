@@ -17,7 +17,7 @@
 		<tags>testpipe, test, automated test, webdriver, selenium</tags>
 	</metadata>
 	<files>
-		<file src="lib\net40\TestPipe.Selenium.dll" target="content\Plugins\Browsers" />
+		<file src="lib\net40\TestPipe.Selenium.dll" target="lib\net451" />
 		<file src="lib\net40\TestPipe.Selenium.pdb" target="lib\net451" />
 	</files>
 </package>
