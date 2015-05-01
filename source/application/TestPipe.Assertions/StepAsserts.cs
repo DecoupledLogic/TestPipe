@@ -100,8 +100,8 @@
 
             if (this.browser != null)
             {
-                Directory.CreateDirectory(string.Format("{0}{1}{2}", @"..\..\..\..\..\", @"Logs\", this.featureTitle));
-                this.browser.TakeScreenshot(string.Format("{0}{1}{2}{3}{4}{5}{6}", @"..\..\..\..\..\", @"Logs\",
+                Directory.CreateDirectory(string.Format("{0}{1}", @"Features\", this.featureTitle));
+                this.browser.TakeScreenshot(string.Format("{0}{1}{2}{3}{4}{5}", @"Features\",
                     this.featureTitle, "\\", this.scenarioTitle, DateTime.Now.Ticks.ToString(), ".png"), ImageFormat.Png);
             }
                 
