@@ -1,17 +1,18 @@
 ﻿namespace TestPipe.Runner
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Configuration;
-	using System.Linq;
-	using TestPipe.Assertions;
-	using TestPipe.Core;
-	using TestPipe.Core.Exceptions;
-	using TestPipe.Core.Session;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Linq;
+    using TestPipe.Assertions;
+    using TestPipe.Core;
+    using TestPipe.Core.Exceptions;
+    using TestPipe.Core.Interfaces;
+    using TestPipe.Core.Session;
 
-	public static class RunnerBase
+    public static class RunnerBase
 	{
-		public static SessionFeature SetupFeature(string title, string[] tags = null)
+        public static SessionFeature SetupFeature(string title, string[] tags = null)
 		{
             Console.WriteLine("Entered Setup Feature");
 			RunnerBase.SetupSuite();
@@ -47,8 +48,6 @@
 				throw new IgnoreException();
 			}
 
-            //TODO: Find elegant way to remove spaces between words
-            //TODO: Better yet, since we know the feature at the time we call this method, just pass in the feature.
             SessionFeature currentFeature = TestSession.GetFeature(featureTitle, TestSession.Features);
 
 			string scenarioId = RunnerHelper.GetIdFromTitle(title);
@@ -58,6 +57,8 @@
 			currentScenario.Browser = RunnerHelper.GetBrowser(tags);
 
             currentScenario.Asserts = new StepAsserts(currentScenario.Browser, featureTitle, title);
+
+            RunnerHelper.IgnoreBrowserCertificateError(currentScenario.Browser);
 
 			return currentScenario;
 		}

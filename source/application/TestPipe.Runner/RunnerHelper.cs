@@ -179,6 +179,14 @@
             return true;
         }
 
+        public static void IgnoreBrowserCertificateError(IBrowser browser)
+        {
+            if (browser.BrowserType == TestPipe.Core.Enums.BrowserTypeEnum.IE && browser.Title.Contains("Certificate"))
+            {
+                browser.Open("javascript:document.getElementById('overridelink').click()");
+            }
+        }
+
         public static bool IgnoreFeature(string[] tags)
         {
             if (tags == null)
