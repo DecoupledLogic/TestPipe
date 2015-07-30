@@ -314,7 +314,7 @@
         </member>
         <member name="T:Nake.FS">
             <summary>
-            File-system convinience methods
+            File-system convenience methods
             </summary>
         </member>
         <member name="M:Nake.FS.Copy(System.String[],System.String[],System.Boolean,System.Boolean)">

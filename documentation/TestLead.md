@@ -38,6 +38,9 @@ Plan the testing effort.
     - Usability
     - Automated
     - Manual
+- Entry and Exit Criteria
+- Defect Reporting and Management
+- Test Metrics
 - Estimate 
 - Schedule
 - Sign off
@@ -55,10 +58,11 @@ Test Execution
 
 - Spec - Write test charters and executable test specifications.
 - Spec Review - Review specs to ensure they are within standards.
+- Sign-off - Work with BA to get sign off on specs.
 - Code - Code automated tests.
 - Code Review - Review code to ensure it is within standards.
-- Run - run manual and automated tests.
-- Report - prepare test report.
+- Run - Run manual and automated tests.
+- Report - Prepare test report.
 - Report Review - Review test and bug report to ensure it is within standards.
 
 Test Management

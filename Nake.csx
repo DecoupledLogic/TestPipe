@@ -4,14 +4,19 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Xml.Linq;
-using System.Diagnostics;
-using System.Threading;
-using Microsoft.Build.Utilities;
 using System.Text;
+using System.Threading;
+using System.Xml.Linq;
+using Microsoft.Build.Utilities;
 using AssemblyInfoManager;
+using Nake;
+using Nake.FS;
+using Nake.Log;
+using Nake.Env;
+using Nake.Run;
 
 public static string ApplicationName = "TestPipe";
 public static string BuildConfig = "Release";
@@ -41,6 +46,8 @@ public static string DistroPath = BuildPath + @"\Distro";
 public static string PubPath = BuildPath + @"\Pub";
 public static string OutputPath = ReportsPath;
 public static string[] DistributeAppPaths = new string[] { ApplicationPath, DemoPath };
+public static bool AppVeyor = false;
+public static bool DebugBuild;
 
 //Command Line >nake Go "3.0.0"
 //Where "3.0.0" is the version of the build
@@ -84,7 +91,7 @@ public static void Go(string version = "", string configuration = "Release", str
 /// Builds you solution's sources  
 /// </summary>
 [Task]
-public static void Build(string version, string configuration = "Release", string platform = "Any CPU")
+public static void Build(string version, string configuration = "Release", string platform = "Any CPU", bool noChm = false)
 {
 	PrintHeader("Build");
 
@@ -100,13 +107,15 @@ public static void Build(string version, string configuration = "Release", strin
 	Log.Info("Configuration: " + configuration);
 	Log.Info("Platform: " + platform);
 
-	MSBuild
-		.Projects(SolutionFile)
-			.Property("Configuration", configuration)
-			.Property("Platform", platform)
-			.Property("ReferencePath", BuildPath)
-			.Targets(new[] { "Rebuild" })
-		.BuildInParallel();
+	if (AppVeyor || noChm)
+    {
+		File.WriteAllText(@"{PubPath}\Utility.chm", "NOP");
+	}
+    else
+    {
+		string command = string.Format(@"{0} /p:Configuration=""{1}"";Platform=""{2}"";ReferencePath=""{3}"" /target:Rebuild /m", SolutionFile, configuration, platform, BuildPath);
+		Exec(MsbuildExe, command);
+	}
 
 	PrintFooter("Build");
 }
@@ -217,7 +226,7 @@ public static void ReportCoverage(string configuration = "Debug", string outputP
 
 	string command = string.Format(@".\packages\ReportGenerator.2.0.0-beta5\ReportGenerator.exe -reports:{0} -targetdir:{1} -reporttypes:{2} -filters:{3}", reports, targetdir, reporttypes, filters);
 
-	Cmd.Exec(command);
+	Cmd(command);
 }
 
 /// <summary>
@@ -238,7 +247,7 @@ public static void XunitTest(string configuration = "Debug", string outputPath =
 
 	string command = "{target} {targetargs}";
 
-	Cmd.Exec(command);
+	Cmd(command);
 }
 
 /// <summary>
@@ -254,9 +263,9 @@ public static void TestAndCoverage(string configuration = "Debug", string output
 
 	Build(configuration, outputPath);
 
-	string tests = new FileSet	{ @"{outputPath}\*.Specs.dll" };
+	//string tests = new FileSet	{ @"{outputPath}\*.Specs.dll" };
 
-	//Cmd.Exec(@"Packages\NUnit.Runners.2.6.2\tools\nunit-console.exe /framework:net-4.0 /noshadow /nologo {tests}");
+	//Cmd(@"Packages\NUnit.Runners.2.6.2\tools\nunit-console.exe /framework:net-4.0 /noshadow /nologo {tests}");
 
 	var register = "user";
 	var target = @".\packages\xunit.runners.2.0.0-beta-build2650\tools\xunit.console.x86.exe";
@@ -274,7 +283,7 @@ public static void TestAndCoverage(string configuration = "Debug", string output
 	builder.AppendTextUnquoted(" -mergebyhash");
 	builder.AppendTextUnquoted(" -output:{output}");
 
-	Cmd.Exec(builder.ToString());
+	Cmd(builder.ToString());
 }
 
 /// <summary>
@@ -332,7 +341,7 @@ public static void PackageProject(string nuspec, string version, string output, 
 
     Log.Info("Pack Command: " + packCmd);
 
-	Cmd.Exec(packCmd);
+	Cmd(packCmd);
 }
 
 public static void NuGetRestore()
@@ -340,7 +349,7 @@ public static void NuGetRestore()
 	string cmd = string.Format("{0} restore {1} -source \"http://agpjaxsrvbuild2/pne.nuget/nuget\"", NuGetExe, SolutionFile);
     
     Log.Info("Restore Command: " + cmd);
-	Cmd.Exec(cmd);
+	Cmd(cmd);
 }
 
 public static void CopyFilesToDistro(string path)

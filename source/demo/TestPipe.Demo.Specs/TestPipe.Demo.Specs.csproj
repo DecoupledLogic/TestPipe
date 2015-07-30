@@ -138,6 +138,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\..\packages\Selenium.WebDriver.IEDriver.2.46.0.0\driver\IEDriverServer.exe">
+      <Link>IEDriverServer.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\..\packages\WebDriver.ChromeDriver.win32.2.12.0.0\content\chromedriver.exe">
       <Link>chromedriver.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -196,23 +200,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\..\..\packages\WebDriver.IEDriverServer.win32.2.44\content\IEDriverServer.exe">
-      <Link>IEDriverServer.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <PropertyGroup Label="DownloadIEDriverBuildTask">
-    <CoreBuildDependsOn>DownloadIEDriver;$(CoreBuildDependsOn)</CoreBuildDependsOn>
-    <IEDriverInstallPath>$(SolutionDir)packages\Selenium.WebDriver.IEDriver.2.45.0.1\</IEDriverInstallPath>
-    <IEDriverToolsPath>$(IEDriverInstallPath)tools\</IEDriverToolsPath>
-    <IEDriverInitScriptPath>$(IEDriverToolsPath)Init.ps1</IEDriverInitScriptPath>
-    <IEDriverPath>$(IEDriverInstallPath)content\IEDriverServer.exe</IEDriverPath>
-    <PowerShellExe Condition="'$(PowerShellExe)'==''">%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShellExe>
-  </PropertyGroup>
-  <Target Name="DownloadIEDriver" Label="DownloadIEDriverBuildTask">
-    <Exec Condition="!Exists('$(IEDriverPath)')" Command="$(PowerShellExe) -NonInteractive -executionpolicy Unrestricted -command &quot;&amp; { &amp;'$(IEDriverInitScriptPath)' '$(IEDriverInstallPath)' '$(IEDriverToolsPath)'} &quot;" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
