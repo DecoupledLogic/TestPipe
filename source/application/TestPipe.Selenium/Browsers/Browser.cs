@@ -11,6 +11,7 @@
     using OpenQA.Selenium;
     using OpenQA.Selenium.Interactions;
     using OpenQA.Selenium.Remote;
+	using OpenQA.Selenium.PhantomJS;
     using TestPipe.Common;
     using TestPipe.Core.Browser;
     using TestPipe.Core.Enums;
@@ -304,7 +305,10 @@
                     }
                 case BrowserTypeEnum.Headless:
                     {
-                        this.webDriver = new OpenQA.Selenium.PhantomJS.PhantomJSDriver();
+						PhantomJSDriverService service = PhantomJSDriverService.CreateDefaultService();
+						service.SuppressInitialDiagnosticInformation = true;
+						service.LogFile = @"..\..\..\..\..\Logs\Phantom\PhantomLog.txt";
+                        this.webDriver = new OpenQA.Selenium.PhantomJS.PhantomJSDriver(service);
                         break;
                     }
                 case BrowserTypeEnum.IE:
