@@ -47,7 +47,7 @@
         {
             string pageState = string.Format("Page Title: {0}, Browser Title: {1}, Page Url: {2}, Browser Page: {3}", this.resultPage.Title, this.resultPage.Browser.Title, this.resultPage.PageUrl, this.resultPage.Browser.Url);
             bool isOpen = this.resultPage.IsOpen();
-            scenario.Asserts.IsFalse(isOpen, pageState);
+            this.scenario.Asserts.IsFalse(isOpen, pageState);
         }
 
         [When(@"I submit a search")]

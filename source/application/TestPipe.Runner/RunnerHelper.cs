@@ -151,19 +151,14 @@
                 throw new IgnoreException("Ignored tags is null.");
             }
 
-            if (tags.Contains("ignore", StringComparer.InvariantCultureIgnoreCase))
-            {
-                throw new IgnoreException("Ignored");
-            }
+            string[] ignoredTags = new string[] { "manual", "ignore", "incomplete", "inprogress", "fail", "flake", "fix" };
 
-            if (tags.Contains("Incomplete", StringComparer.InvariantCultureIgnoreCase))
+            foreach (var tag in tags)
             {
-                throw new IgnoreException("Incomplete");
-            }
-
-            if (tags.Contains("manual", StringComparer.InvariantCultureIgnoreCase))
-            {
-                throw new IgnoreException("Manual");
+                if (ignoredTags.Contains(tag, StringComparer.InvariantCultureIgnoreCase))
+                {
+                    throw new IgnoreException(tag);
+                }
             }
 
             if (runTags == "all" || runTags == "all,all")

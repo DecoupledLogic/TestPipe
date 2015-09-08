@@ -2,18 +2,16 @@
 {
     using System;
     using System.Collections;
-    using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
     using TestPipe.Core.Exceptions;
     using TestPipe.Core.Interfaces;
-    using TestPipe.Core.Browser;
 
     public class StepAsserts : IAsserts
     {
-        IBrowser browser;
-        string featureTitle = string.Empty;
-        string scenarioTitle = string.Empty;
+        private IBrowser browser;
+        private string featureTitle = string.Empty;
+        private string scenarioTitle = string.Empty;
 
         public StepAsserts(IBrowser browser, string featureTitle, string scenarioTitle)
         {
@@ -21,11 +19,12 @@
             this.featureTitle = featureTitle;
             this.scenarioTitle = scenarioTitle;
         }
+
         public void AssignableFrom(object arg1, Type arg2, string message = "", params object[] parameters)
         {
             string reason = string.Format("{0} is not assignable from {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(arg1.GetType().IsAssignableFrom(arg2), failMessage, parameters);
         }
@@ -34,7 +33,7 @@
         {
             string reason = string.Format("{0} is not an empty string.", arg1);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(arg1.Length == 0, failMessage, parameters);
         }
@@ -43,7 +42,7 @@
         {
             string reason = string.Format("{0} is not an empty string.", arg1);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(arg1.Length == 0, failMessage, parameters);
         }
@@ -52,7 +51,7 @@
         {
             string reason = string.Format("{0} is not an empty collection.", arg1);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(arg1.Count == 0, failMessage, parameters);
         }
@@ -61,7 +60,7 @@
         {
             string reason = string.Format("{0} is less than or equal to {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(arg1.Equals(arg2), failMessage, parameters);
         }
@@ -70,7 +69,7 @@
         {
             string reason = string.Format("{0} is not equal to {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             if (ignoreCase)
             {
@@ -86,7 +85,7 @@
         {
             string reason = string.Format("{0} is not equal to {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(((IComparable)arg1).CompareTo(arg2) == 0, failMessage, parameters);
         }
@@ -104,7 +103,7 @@
                 this.browser.TakeScreenshot(string.Format("{0}{1}{2}{3}{4}{5}", @"Features\",
                     this.featureTitle, "\\", this.scenarioTitle, DateTime.Now.Ticks.ToString(), ".png"), ImageFormat.Png);
             }
-                
+
             throw new AssertBombedException(message, parameters);
         }
 
@@ -112,7 +111,7 @@
         {
             string reason = string.Format("{0} is not greater than {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(((IComparable)arg1).CompareTo(arg2) > 0, failMessage, parameters);
         }
@@ -121,7 +120,7 @@
         {
             string reason = string.Format("{0} is not greater than or equal to {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(((IComparable)arg1).CompareTo(arg2) >= 0, failMessage, parameters);
         }
@@ -135,7 +134,7 @@
         {
             string reason = string.Format("{0} is not an instance of Type {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(arg2.IsInstanceOfType(arg1), failMessage, parameters);
         }
@@ -147,7 +146,7 @@
                 return;
             }
 
-            string failMessage = GetFailMessage("Expected false. Actual true.", message);
+            string failMessage = this.GetFailMessage("Expected false. Actual true.", message);
 
             this.Fail(failMessage, parameters);
         }
@@ -173,7 +172,7 @@
         {
             string reason = string.Format("{0} is not less than {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(((IComparable)arg1).CompareTo(arg2) < 0, failMessage, parameters);
         }
@@ -196,7 +195,7 @@
         {
             string reason = string.Format("Expected {0} but was {1}.", double.NaN, value);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(double.IsNaN(value), failMessage, parameters);
         }
@@ -205,7 +204,7 @@
         {
             string reason = string.Format("{0} is assignable from {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsFalse(arg1.GetType().IsAssignableFrom(arg2), failMessage, parameters);
         }
@@ -214,7 +213,7 @@
         {
             string reason = string.Format("{0} is an empty string.", arg1);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(arg1.Length > 0, failMessage, parameters);
         }
@@ -223,7 +222,7 @@
         {
             string reason = string.Format("{0} is an empty collection.", arg1);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(arg1.Count > 0, failMessage, parameters);
         }
@@ -232,7 +231,7 @@
         {
             string reason = string.Format("{0} is equal to {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(((IComparable)arg1).CompareTo(arg2) != 0, failMessage, parameters);
         }
@@ -241,7 +240,7 @@
         {
             string reason = string.Format("{0} is an instance of Type {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsFalse(arg2.IsInstanceOfType(arg1), failMessage, parameters);
         }
@@ -250,7 +249,7 @@
         {
             string reason = string.Format("Expected {0} but was {1}.", double.NaN, value);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(!double.IsNaN(value), failMessage, parameters);
         }
@@ -259,7 +258,7 @@
         {
             string reason = string.Format("{0} is null.", arg1);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsFalse(arg1 != null, failMessage, parameters);
         }
@@ -268,7 +267,7 @@
         {
             string reason = string.Format("{0} is not null.", arg1);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(arg1 == null, failMessage, parameters);
         }
