@@ -151,7 +151,7 @@
                 throw new IgnoreException("Ignored tags is null.");
             }
 
-            string[] ignoredTags = new string[] { "manual", "ignore", "incomplete", "inprogress", "fail", "flake", "fix" };
+            string[] ignoredTags = new string[] { "manual", "ignore" };
 
             foreach (var tag in tags)
             {
