@@ -151,6 +151,15 @@
             actions.MoveToElement(element.NativeElement);
         }
 
+        public void HoverElement(IElement element)
+        {
+            Actions actions = new Actions(this.webDriver);
+
+            actions.MoveToElement(element.NativeElement);
+
+            actions.Perform();
+        }
+
         public void Open(string url, uint timeoutInSeconds = 0)
         {
             this.webDriver.Navigate().GoToUrl(url);

@@ -42,7 +42,9 @@
 
 		bool HasUrl(string pageUrl);
 
-		void LoadBrowser(BrowserTypeEnum browser, BrowserConfiguration configuration = null);
+        void HoverElement(IElement element);
+
+        void LoadBrowser(BrowserTypeEnum browser, BrowserConfiguration configuration = null);
 
 		void MaximizeWindow();
 

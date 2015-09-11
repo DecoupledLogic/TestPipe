@@ -37,7 +37,9 @@
 
 		void Focus(Func<IControl> element);
 
-		void Hover(int x, int y);
+        void Hover();
+
+        void Hover(int x, int y);
 
 		void Hover(Func<IControl> element, int x, int y);
 

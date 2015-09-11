@@ -457,6 +457,11 @@ namespace TestPipe.Core.Control
 		{ 
 		}
 
+        public void Hover()
+        {
+            this.Browser.HoverElement(this.Element);
+        }
+
 		public void Hover(int x, int y)
 		{
 		}
@@ -467,6 +472,7 @@ namespace TestPipe.Core.Control
 
 		public void Hover(Func<IControl> element)
 		{
+
 		}
 
 		public void MultiSelectIndex(Func<IControl> element, int[] optionIndices)

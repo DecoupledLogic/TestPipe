@@ -48,5 +48,25 @@ namespace TestPipe.Specs.Selenium
             //IWebDriver webdriver = new RemoteWebDriver(u, capabilities, new TimeSpan(0,0,59));
             IWebDriver driver = new RemoteWebDriver(u, DesiredCapabilities.Chrome());
         }
+
+        [TestMethod]
+        public void CanHoverElement()
+        {
+            IBrowser browser = new Browser(BrowserTypeEnum.Chrome);
+
+            browser.Open("http://www.google.com");
+
+            ISelect selector = new Select(FindByEnum.Id, "gs_st0");
+            BaseControl show = new BaseControl(browser, selector);
+
+            show.Hover();
+
+            ISelect bodySelector = new Select(FindByEnum.TagName, "body");
+            BaseControl body = new BaseControl(browser, bodySelector);
+
+            Assert.IsTrue(body.Text.Contains("Search by voice"));
+
+            browser.Quit();
+        }
     }
 }
