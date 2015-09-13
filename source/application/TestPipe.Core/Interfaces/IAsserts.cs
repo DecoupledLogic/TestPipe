@@ -4,9 +4,12 @@
     using System.Collections;
     using TestPipe.Core.Exceptions;
     using TestPipe.Core.Interfaces;
+    using TestPipe.Core.Session;
 
     public interface IAsserts
     {
+        Result Result { get; set; }
+
         void AssignableFrom(object arg1, Type arg2, string message = "", params object[] parameters);
 
         void Empty(string arg1, string message = "", params object[] parameters);

@@ -12,6 +12,21 @@
 
     public class RunnerHelper
     {
+        public static bool Debug(string[] tags)
+        {
+            return RunnerHelper.TagsMatch(tags, new string[] { "debug" });
+        }
+
+        public static bool DebugFeature(string[] tags)
+        {
+            return RunnerHelper.Debug(tags);
+        }
+
+        public static bool DebugScenario(string[] tags)
+        {
+            return RunnerHelper.Debug(tags);
+        }
+
         public static string GetAppConfigValue(string key)
         {
             if (string.IsNullOrWhiteSpace(key))
@@ -138,6 +153,11 @@
             return title.Substring(0, title.IndexOf(".")).Trim();
         }
 
+        public static IVideoRecorder GetVideoRecorder()
+        {
+            return TestSession.CreateVideoRecorder();
+        }
+
         public static bool Ignore(string[] tags, string runTags)
         {
             if (string.IsNullOrWhiteSpace(runTags))
@@ -242,6 +262,21 @@
             return feature;
         }
 
+        public static bool Record(string[] tags)
+        {
+            return RunnerHelper.TagsMatch(tags, new string[] { "record" });
+        }
+
+        public static bool RecordFeature(string[] tags)
+        {
+            return RunnerHelper.Record(tags);
+        }
+
+        public static bool RecordScenario(string[] tags)
+        {
+            return RunnerHelper.Record(tags);
+        }
+
         public static IBrowser SetBrowser(string browserName)
         {
             string isBrowserTest = ConfigurationManager.AppSettings["browserTest"];
@@ -304,6 +339,29 @@
             }
 
             TestSession.DefaultBrowser = browser;
+        }
+
+        public static bool TagsMatch(string[] tags, string[] match)
+        {
+            if (tags == null)
+            {
+                return false;
+            }
+
+            if (match == null)
+            {
+                return false;
+            }
+
+            foreach (var tag in tags)
+            {
+                if (match.Contains(tag, StringComparer.InvariantCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

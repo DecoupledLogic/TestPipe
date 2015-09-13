@@ -1,210 +1,214 @@
 ﻿namespace TestPipe.Core
 {
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Linq;
-	using TestPipe.Common;
-	using TestPipe.Core.Browser;
-	using TestPipe.Core.Enums;
-	using TestPipe.Core.Interfaces;
-	using TestPipe.Core.Session;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using TestPipe.Common;
+    using TestPipe.Core.Browser;
+    using TestPipe.Core.Enums;
+    using TestPipe.Core.Interfaces;
+    using TestPipe.Core.Session;
+    using TestPipe.Core.VideoRecorder;
 
-	public static class TestSession
-	{
-		public static readonly string DefaultBrowserKey = "default_browser";
-		public static readonly string DriverKey = "driver";
-		public static readonly string EnvironmentKey = "environment";
-		public static readonly string LogoutUrlKey = "logout_url";
-		public static readonly string WaitKey = "wait";
-		private static Cache<string, object> cache;
+    public static class TestSession
+    {
+        public static readonly string DefaultBrowserKey = "default_browser";
+        public static readonly string DriverKey = "driver";
+        public static readonly string EnvironmentKey = "environment";
+        public static readonly string LogoutUrlKey = "logout_url";
+        public static readonly string WaitKey = "wait";
+        private static Cache<string, object> cache;
 
-		public static string ApplicationKey { get; set; }
+        public static string ApplicationKey { get; set; }
 
-		public static Cache<string, object> Cache
-		{
-			get
-			{
-				if (cache == null)
-				{
-					cache = new Cache<string, object>();
-				}
+        public static Cache<string, object> Cache
+        {
+            get
+            {
+                if (cache == null)
+                {
+                    cache = new Cache<string, object>();
+                }
 
-				return cache;
-			}
+                return cache;
+            }
 
-			set
-			{
-				cache = value;
-			}
-		}
+            set
+            {
+                cache = value;
+            }
+        }
 
-		public static BrowserTypeEnum DefaultBrowser
-		{
-			get
-			{
-				BrowserTypeEnum browserType = BrowserTypeEnum.None;
+        public static BrowserTypeEnum DefaultBrowser
+        {
+            get
+            {
+                BrowserTypeEnum browserType = BrowserTypeEnum.None;
 
-				try
-				{
-					if (TestSession.Cache[DefaultBrowserKey].GetType() == typeof(BrowserTypeEnum))
-					{
-						browserType = (BrowserTypeEnum)TestSession.Cache[DefaultBrowserKey];
-					}
-				}
-				catch (System.Collections.Generic.KeyNotFoundException)
-				{
-				}
-				catch (NullReferenceException)
-				{
-				}
+                try
+                {
+                    if (TestSession.Cache[DefaultBrowserKey].GetType() == typeof(BrowserTypeEnum))
+                    {
+                        browserType = (BrowserTypeEnum)TestSession.Cache[DefaultBrowserKey];
+                    }
+                }
+                catch (System.Collections.Generic.KeyNotFoundException)
+                {
+                }
+                catch (NullReferenceException)
+                {
+                }
 
-				return browserType;
-			}
-			set
-			{
-				TestSession.Cache[DefaultBrowserKey] = value;
-			}
-		}
+                return browserType;
+            }
+            set
+            {
+                TestSession.Cache[DefaultBrowserKey] = value;
+            }
+        }
 
-		public static TestEnvironment Environment
-		{
-			get
-			{
-				return (TestEnvironment)TestSession.Cache[EnvironmentKey];
-			}
-			set
-			{
-				Cache[EnvironmentKey] = value;
-			}
-		}
+        public static TestEnvironment Environment
+        {
+            get
+            {
+                return (TestEnvironment)TestSession.Cache[EnvironmentKey];
+            }
+            set
+            {
+                Cache[EnvironmentKey] = value;
+            }
+        }
 
-		public static ICollection<SessionFeature> Features { get; set; }
+        public static ICollection<SessionFeature> Features { get; set; }
 
-		public static string LogoutUrl
-		{
-			get
-			{
-				return TestSession.Cache[LogoutUrlKey].ToString();
-			}
-			set
-			{
-				TestSession.Cache[LogoutUrlKey] = value;
-			}
-		}
+        public static string LogoutUrl
+        {
+            get
+            {
+                return TestSession.Cache[LogoutUrlKey].ToString();
+            }
+            set
+            {
+                TestSession.Cache[LogoutUrlKey] = value;
+            }
+        }
 
-		public static SessionSuite Suite { get; set; }
+        public static SessionSuite Suite { get; set; }
 
-		public static TimeSpan Timeout { get; set; }
+        public static TimeSpan Timeout { get; set; }
 
-		public static IBrowser CreateBrowserDriver(BrowserTypeEnum browserType, BrowserConfiguration config = null)
-		{
-			ILogManager log = new Logger();
-			return BrowserFactory.Create(browserType, log, config);
-		}
+        public static IBrowser CreateBrowserDriver(BrowserTypeEnum browserType, BrowserConfiguration config = null)
+        {
+            ILogManager log = new Logger();
+            return BrowserFactory.Create(browserType, log, config);
+        }
 
-		// Uncomment below if ids are significant for features
-		//public static SessionFeature GetFeature(string id)
-		// Comment below if ids are significant for features
-		public static SessionFeature GetFeature(string title)
-		{
-			if (Features == null)
-			{
-				throw new NullReferenceException("Features cannot be a null value.");
-			}
+        public static IVideoRecorder CreateVideoRecorder()
+        {
+            ILogManager log = new Logger();
+            return VideoRecorderFactory.Create(log);
+        }
 
-			SessionFeature feature = TestSession.GetFeature(title, TestSession.Features);
+        public static SessionFeature GetFeature(string title)
+        {
+            if (Features == null)
+            {
+                throw new NullReferenceException("Features cannot be a null value.");
+            }
 
-			if (feature == null)
-			{
-				throw new NullReferenceException("feature cannot be a null value.");
-			}
+            SessionFeature feature = TestSession.GetFeature(title, TestSession.Features);
 
-			return feature;
-		}
+            if (feature == null)
+            {
+                throw new NullReferenceException("feature cannot be a null value.");
+            }
 
-        //TODO: Find elegand way to remove spaces between words
+            return feature;
+        }
+
+        //TODO: Find elegant way to remove spaces between words
         public static SessionFeature GetFeature(string title, ICollection<SessionFeature> features)
         {
             return features.Where(x => x.Title.Trim().Replace(" ", string.Empty) == title.Trim().Replace(" ", string.Empty)).FirstOrDefault();
         }
 
-		public static SessionScenario GetScenario(string id, SessionFeature feature)
-		{
-			if (feature == null)
-			{
-				throw new NullReferenceException("Feature cannot be a null value.");
-			}
+        public static SessionScenario GetScenario(string id, SessionFeature feature)
+        {
+            if (feature == null)
+            {
+                throw new NullReferenceException("Feature cannot be a null value.");
+            }
 
-			SessionScenario scenario = feature.Scenarios.Where(x => x.Id == id).FirstOrDefault();
+            SessionScenario scenario = feature.Scenarios.Where(x => x.Id == id).FirstOrDefault();
 
-			if (feature == null)
-			{
-				throw new NullReferenceException("scenario cannot be a null value.");
-			}
+            if (feature == null)
+            {
+                throw new NullReferenceException("scenario cannot be a null value.");
+            }
 
-			return scenario;
-		}
+            return scenario;
+        }
 
-		public static SessionFeature LoadFeature(string path)
-		{
-			string json = LoadData(path);
+        public static SessionFeature LoadFeature(string path)
+        {
+            string json = LoadData(path);
 
-			var data = Helpers.JsonSerialization.Deserialize(json, typeof(SessionFeature));
+            var data = Helpers.JsonSerialization.Deserialize(json, typeof(SessionFeature));
 
-			if (data == null)
-			{
-				throw new NullReferenceException("data can not be null.");
-			}
+            if (data == null)
+            {
+                throw new NullReferenceException("data can not be null.");
+            }
 
-			SessionFeature feature = (SessionFeature)data;
+            SessionFeature feature = (SessionFeature)data;
 
-			TestSession.Features.Add(feature);
+            TestSession.Features.Add(feature);
 
-			return feature;
-		}
+            return feature;
+        }
 
-		public static void LoadSuite(string path)
-		{
-			string json = LoadData(path);
+        public static void LoadSuite(string path)
+        {
+            string json = LoadData(path);
 
-			var data = Helpers.JsonSerialization.Deserialize(json, typeof(SessionSuite));
+            var data = Helpers.JsonSerialization.Deserialize(json, typeof(SessionSuite));
 
-			if (data == null)
-			{
-				throw new NullReferenceException("data can not be null.");
-			}
+            if (data == null)
+            {
+                throw new NullReferenceException("data can not be null.");
+            }
 
-			TestSession.Suite = (SessionSuite)data;
-		}
+            TestSession.Suite = (SessionSuite)data;
+        }
 
-		private static string Load(string path)
-		{
-			string data = string.Empty;
+        private static string Load(string path)
+        {
+            string data = string.Empty;
 
-			using (StreamReader r = new StreamReader(path))
-			{
-				data = r.ReadToEnd();
-			}
+            using (StreamReader r = new StreamReader(path))
+            {
+                data = r.ReadToEnd();
+            }
 
-			return data;
-		}
+            return data;
+        }
 
-		private static string LoadData(string path)
-		{
-			if (string.IsNullOrWhiteSpace(path))
-			{
-				throw new ArgumentException("path can not be null or white space.");
-			}
+        private static string LoadData(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                throw new ArgumentException("path can not be null or white space.");
+            }
 
-			string json = TestSession.Load(path);
+            string json = TestSession.Load(path);
 
-			if (string.IsNullOrWhiteSpace(json))
-			{
-				throw new ApplicationException("json can not be null or white space.");
-			}
+            if (string.IsNullOrWhiteSpace(json))
+            {
+                throw new ApplicationException("json can not be null or white space.");
+            }
 
-			return json;
-		}
-	}
+            return json;
+        }
+    }
 }
