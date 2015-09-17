@@ -13,6 +13,26 @@ namespace TestPipe.Specs.Selenium
     public class BrowserSpec
     {
         [TestMethod]
+        public void CanHoverElement()
+        {
+            IBrowser browser = new Browser(BrowserTypeEnum.Chrome);
+
+            browser.Open("http://www.google.com");
+
+            ISelect selector = new Select(FindByEnum.Id, "gs_st0");
+            BaseControl show = new BaseControl(browser, selector);
+
+            show.Hover();
+
+            ISelect bodySelector = new Select(FindByEnum.TagName, "body");
+            BaseControl body = new BaseControl(browser, bodySelector);
+
+            Assert.IsTrue(body.Text.Contains("Search by voice"));
+
+            browser.Quit();
+        }
+
+        [TestMethod]
         [TestCategory("Slow")]
         public void ClickWaitsForControlToDisplay()
         {
@@ -47,26 +67,6 @@ namespace TestPipe.Specs.Selenium
             Uri u = new Uri("http://127.0.0.1:4444/wd/hub");
             //IWebDriver webdriver = new RemoteWebDriver(u, capabilities, new TimeSpan(0,0,59));
             IWebDriver driver = new RemoteWebDriver(u, DesiredCapabilities.Chrome());
-        }
-
-        [TestMethod]
-        public void CanHoverElement()
-        {
-            IBrowser browser = new Browser(BrowserTypeEnum.Chrome);
-
-            browser.Open("http://www.google.com");
-
-            ISelect selector = new Select(FindByEnum.Id, "gs_st0");
-            BaseControl show = new BaseControl(browser, selector);
-
-            show.Hover();
-
-            ISelect bodySelector = new Select(FindByEnum.TagName, "body");
-            BaseControl body = new BaseControl(browser, bodySelector);
-
-            Assert.IsTrue(body.Text.Contains("Search by voice"));
-
-            browser.Quit();
         }
     }
 }

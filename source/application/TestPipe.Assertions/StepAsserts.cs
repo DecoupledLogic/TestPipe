@@ -6,6 +6,7 @@
     using System.IO;
     using TestPipe.Core.Exceptions;
     using TestPipe.Core.Interfaces;
+    using TestPipe.Core.Session;
 
     public class StepAsserts : IAsserts
     {
@@ -18,7 +19,10 @@
             this.browser = browser;
             this.featureTitle = featureTitle;
             this.scenarioTitle = scenarioTitle;
+            this.Result = new Result();
         }
+
+        public Result Result { get; set; }
 
         public void AssignableFrom(object arg1, Type arg2, string message = "", params object[] parameters)
         {
@@ -100,11 +104,15 @@
             if (this.browser != null)
             {
                 Directory.CreateDirectory(string.Format("{0}{1}", @"Features\", this.featureTitle));
-                this.browser.TakeScreenshot(string.Format("{0}{1}{2}{3}{4}{5}", @"Features\",
-                    this.featureTitle, "\\", this.scenarioTitle, DateTime.Now.Ticks.ToString(), ".png"), ImageFormat.Png);
+                this.browser.TakeScreenshot(string.Format("{0}{1}{2}{3}{4}{5}", @"Features\", this.featureTitle, "\\", this.scenarioTitle, DateTime.Now.Ticks.ToString(), ".png"), ImageFormat.Png);
             }
 
-            throw new AssertBombedException(message, parameters);
+            AssertBombedException ex =new AssertBombedException(message, parameters);
+
+            this.Result.AssertStatus = Core.Enums.AssertStatusEnum.Fail;
+            this.Result.Exception = ex;
+
+            throw ex;
         }
 
         public void Greater<T>(T arg1, T arg2, string message = "", params object[] parameters) where T : IComparable
@@ -181,7 +189,7 @@
         {
             string reason = string.Format("{0} is not less than or equal to {1}.", arg1, arg2);
 
-            string failMessage = GetFailMessage(reason, message);
+            string failMessage = this.GetFailMessage(reason, message);
 
             this.IsTrue(((IComparable)arg1).CompareTo(arg2) <= 0, failMessage, parameters);
         }
