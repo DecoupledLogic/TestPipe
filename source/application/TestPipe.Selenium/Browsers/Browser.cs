@@ -95,6 +95,11 @@
             this.webDriver.Close();
         }
 
+		public void Back()
+		{
+			this.webDriver.Navigate().Back();
+		}
+
         public void DeleteAllCookies()
         {
             this.webDriver.Manage().Cookies.DeleteAllCookies();

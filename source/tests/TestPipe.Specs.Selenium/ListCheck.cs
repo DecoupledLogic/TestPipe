@@ -47,15 +47,6 @@
             browser.Quit();
         }
 
-        [TestMethod]
-        [TestCategory("Slow")]
-        public void ColumnsInTable()
-        {
-            this.li = AllColumnsControl.GetSelectedColumn(0);
-
-            browser.Quit();
-        }
-
         [TestInitialize]
         public void Setup()
         {

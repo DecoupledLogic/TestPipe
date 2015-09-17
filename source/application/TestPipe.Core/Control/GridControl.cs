@@ -187,23 +187,7 @@
 			return rowText;
 		}
 
-        /* Column number starts with zero, Dave needs to change that */
-        public List<IControl> GetSelectedColumn(int columnNumber)
-        {
-            ReadOnlyCollection<IControl> columnsControl;
-            List<IControl> columnControl = new List<IControl>();
-            columnsControl = this.ColumnHeaders;
-            int numOfRows = this.RowCount;
-            int numOfColums = this.ColumnCount / this.RowCount;
-            columnsControl.ToArray<IControl>();
-            for (int i = 0; i < numOfRows; i++)
-            {
-                columnControl.Add(columnsControl[(i * numOfColums) + columnNumber]);
-            }
-            return columnControl;
-        }
-
-		private static string ColumnXPath(string id)
+        private static string ColumnXPath(string id)
 		{
 			return string.Format("//*[@id='{0}']/tbody/tr/th", id);
 		}

@@ -30,6 +30,8 @@
 
 		void Close();
 
+		void Back();
+
 		void DeleteAllCookies();
 
 		void DeleteCookieNamed(string name);

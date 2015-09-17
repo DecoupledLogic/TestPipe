@@ -4,7 +4,7 @@
 	"BrowserDriver": "IE",
 	"DefaultBrowserVersion": "10",
 	"RemoteDriverPath": "http://localhost:4444/wd/hub",
-	"Browser": "Headless",
+	"Browser": "Firefox",
 	"Environment": "Prod",
 	"LoginUrl": "",
 	"LogoutURL": "",
