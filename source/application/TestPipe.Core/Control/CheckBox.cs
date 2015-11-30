@@ -37,5 +37,10 @@
 				this.Element.Click();
 			}
 		}
-	}
+
+        public bool IsChecked()
+        {
+            return this.Element.Selected;
+        }
+    }
 }

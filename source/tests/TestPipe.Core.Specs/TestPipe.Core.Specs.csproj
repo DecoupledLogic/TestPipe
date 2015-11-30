@@ -97,6 +97,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Browser\BaseBrowserFixture.cs" />
+    <Compile Include="Control\CheckBoxControlSpec.cs" />
     <Compile Include="Control\GridControlSpec.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Page\BasePageSpec.cs" />
