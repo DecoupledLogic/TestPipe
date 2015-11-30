@@ -201,6 +201,11 @@
                 throw new ArgumentException("path can not be null or white space.");
             }
 
+            if (!File.Exists(path))
+            {
+                throw new FileNotFoundException(string.Format("{0} does not exist.", path));
+            }
+
             string json = TestSession.Load(path);
 
             if (string.IsNullOrWhiteSpace(json))
